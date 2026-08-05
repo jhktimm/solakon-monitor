@@ -1,12 +1,12 @@
 # solakonOne
 
-C++-Bibliothek und CLI-Tool zum Auslesen eines **Solakon ONE** Hybrid-Wechselrichters über **Modbus TCP**.
+C++-Tool zum Echtzeit-Monitoring eines **Solakon ONE** Hybrid-Wechselrichters über **Modbus TCP**.
 
 ## Funktionen
 
-- **Modbus-TCP-Client** — Low-Level-Zugriff auf Holding/Discrete Registers (CRC-Prüfung, Big-Endian)
+- **Modbus-TCP-Client** — Low-Level-Zugriff auf Holding/Input Registers (CRC-Prüfung, Big-Endian)
 - **Geräte-Abstraktion** — Liest Inverter-Info, Zähler-Daten (Meter1/2), BMS-Daten und Energiebilanzen
-- **CLI-Tool** — Ausgabe als CSV, JSON oder JSONL (Zeilenweise)
+- **Terminal-Monitor** — btop-ähnliche Echtzeit-Ansicht im Terminal
 - **Test-Suite** — Catch2-Tests für CRC, Datenstrukturen, Formatierung
 
 ## Build
@@ -16,6 +16,16 @@ meson setup build
 ninja -C build
 ```
 
+### Mit Make
+
+```bash
+make build    # Build
+make test     # Build + Tests
+make clean    # Clean
+make run      # Monitor starten
+make run-once # Ein Snapshot
+```
+
 ### Tests
 
 ```bash
@@ -23,34 +33,30 @@ ninja -C build test
 # oder: ./build/solakonOne_test
 ```
 
-### Coverage
-
-```bash
-ninja -C build coverage-c
-open build/coverage-report/index.html
-```
-
-## Installieren
-
-```bash
-sudo dpkg -i solakonone_1.0.0_amd64.deb
-```
-
 ## Verwendung
 
 ```bash
-# CSV-Ausgabe (Standard)
+# Monitor starten (default IP: 192.168.178.121)
+solakonOne
+
+# Mit eigener IP
 solakonOne 192.168.178.121
 
-# JSON-Ausgabe
-solakonOne 192.168.178.121 --format json
+# Mit Intervall (Hz)
+solakonOne 192.168.178.121 --interval 2
 
-# JSONL (jede Messung eine Zeile)
-solakonOne 192.168.178.121 --format jsonl --interval 5
+# Ein Snapshot
+solakonOne --once
 
 # Hilfe
 solakonOne --help
 ```
+
+### Tasten im Monitor
+
+| Taste | Funktion |
+|-------|----------|
+| `q` | Beenden |
 
 ## Register-Adressen
 
@@ -61,23 +67,29 @@ Korrekte Adressen und Skalierungsfaktoren sind in `include/solakon_device.h` def
 
 ```
 meson.build           # Build-Konfiguration
+Makefile              # Convenience-TARGETS (build, test, clean, run)
+Makefile.nice         # Globale Makefile-Hilfsziele
 include/
   modbus_client.h     # Modbus-TCP-Client (Header)
   solakon_device.h    # Geräte-Abstraktion (Header)
-  ui.h                # CLI-Ausgabe (Header)
+  ui.h                # Terminal-UI (Header)
 src/
   modbus_client.cpp   # Modbus-TCP-Client (Implementierung)
   solakon_device.cpp  # Geräte-Abstraktion (Implementierung)
-  main.cpp            # CLI-Hauptprogramm
-  ui.cpp              # Ausgabe-Formatierung
+  main.cpp            # Hauptprogramm
+  ui.cpp              # Terminal-UI
 tests/
   test_main.cpp       # Catch2-Test-Hauptprogramm
   test_modbus_crc.cpp # CRC-Tests
   test_data_structures.cpp # Struktur-Tests
   test_ui_formatting.cpp # Formatierungs-Tests
-Makefile              # Convenience-TARGETS (build, test, clean, debian, etc.)
+  test_helpers.hpp    # Test-Hilfsfunktionen
+LICENSE               # GPL-3.0
 ```
 
 ## Lizenz
 
-Private Nutzung.
+GPL-3.0
+
+Dieses Projekt wurde mit Unterstützung von KI-Tools (Qwen 3.6) entwickelt.
+Der Autor behält alle Rechte und lizenziert dieses Werk unter GPL-3.0.

@@ -6,6 +6,9 @@
 
 static constexpr double EPSILON = 1e-6;
 static bool approx_equal(double a, double b) { return std::fabs(a - b) < EPSILON; }
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-function"
 static bool approx_ge(double a, double b, double eps = EPSILON) { return a >= b - eps; }
+#pragma GCC diagnostic pop
 
 using Catch::Matchers::ContainsSubstring;

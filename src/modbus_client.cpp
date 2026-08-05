@@ -203,7 +203,7 @@ uint16_t Client::modbus_crc16(const uint8_t* data, size_t len) {
     return crc;
 }
 
-int Client::make_nonblocking(int fd, int timeout_ms) {
+int Client::make_nonblocking(int fd, int /*timeout_ms*/) {
     int flags = fcntl(fd, F_GETFL, 0);
     if (flags < 0) return -1;
     if (fcntl(fd, F_SETFL, flags | O_NONBLOCK) < 0) return -1;

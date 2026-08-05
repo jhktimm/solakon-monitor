@@ -20,6 +20,11 @@
 #include <csignal>
 #include <atomic>
 #include <thread>
+#include <unistd.h>
+#include <fcntl.h>
+#include <poll.h>
+#include <termios.h>
+#include <sys/select.h>
 
 namespace {
 
@@ -29,6 +34,32 @@ void signal_handler(int sig) {
     (void)sig;
     g_running = false;
 }
+
+struct TermiosSaver {
+    struct termios orig_termios;
+    bool saved = false;
+
+    void save() {
+        if (tcgetattr(STDIN_FILENO, &orig_termios) == 0) {
+            saved = true;
+        }
+    }
+
+    void raw() {
+        if (!saved) return;
+        struct termios raw = orig_termios;
+        raw.c_lflag &= ~(ECHO | ICANON | IEXTEN | ISIG);
+        raw.c_cc[VMIN] = 0;
+        raw.c_cc[VTIME] = 0;
+        tcsetattr(STDIN_FILENO, TCSANOW, &raw);
+    }
+
+    ~TermiosSaver() {
+        if (saved) {
+            tcsetattr(STDIN_FILENO, TCSANOW, &orig_termios);
+        }
+    }
+} termios_saver;
 
 struct Config {
     std::string host = "192.168.178.121";
@@ -68,6 +99,10 @@ int main(int argc, char* argv[]) {
 
     solakon::ui::TerminalUI ui;
     ui.init();
+
+    // Save and set terminal to raw mode for non-blocking key input
+    termios_saver.save();
+    termios_saver.raw();
 
     solakon::SolakonDevice device;
     auto start = std::chrono::steady_clock::now();
@@ -121,7 +156,22 @@ int main(int argc, char* argv[]) {
         if (cfg.once) break;
     }
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    // Non-blocking key input
+    struct pollfd pfd;
+    pfd.fd = STDIN_FILENO;
+    pfd.events = POLLIN;
+    pfd.revents = 0;
+    int ret = poll(&pfd, 1, 50);
+    if (ret > 0 && (pfd.revents & POLLIN)) {
+        char key = 0;
+        if (read(STDIN_FILENO, &key, 1) > 0) {
+            if (key == 'q' || key == 'Q') {
+                g_running = false;
+            }
+        }
+    }
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(50));
     }
 
     device.disconnect();

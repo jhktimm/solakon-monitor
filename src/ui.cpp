@@ -297,7 +297,7 @@ void TerminalUI::draw_energy(const EnergyData& energy) {
 }
 
 void TerminalUI::draw_footer() {
-    std::string footer = " [ESC] Beenden  |  [R] Refresh  |  [H] Hilfe  |  [q] Quit";
+    std::string footer = " [q] Quit";
     std::string pad(static_cast<size_t>(screen_width_ - static_cast<int>(footer.size()) - 1), ' ');
     std::printf("\n%s%s%s\n", dim(Color::DIM_GRAY, footer.c_str()).c_str(),
                 dim(Color::DIM_GRAY, pad.c_str()).c_str(), "\033[0m");

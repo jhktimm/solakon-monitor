@@ -1,40 +1,39 @@
-# Solakon ONE Monitor - Terminal monitoring tool
-# Reads real-time data from Solakon ONE via Modbus TCP
-# Displays it in a btop-like terminal interface
+.PHONY: all build clean test package run run-once docs docs-clean
+include Makefile.nice
 
-.PHONY: help build clean test package run run-once docs docs-clean
-
-help: ## Show this help message
-	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make <target>\n\nTargets:\n"} /^[$$()%a-zA-Z_-]+:.*?##/ { printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2 }' $(MAKEFILE_LIST)
+### Build
 
 build: ## Build the project
-	@ninja -C build
+	@cd build && ninja
 
 clean: ## Clean build artifacts
-	@ninja -C build clean
+	@cd build && ninja clean || true
 	@rm -rf build
-	@echo "Cleaned."
+	@mkdir -p build
+	@cd build && meson .. 2>/dev/null || true
 
-test: build ## Build and run the test suite
-	@ninja -C build solakonOne_test
-	@./build/solakonOne_test
+### Test
 
-test-with-coverage: build ## Build and run tests with verbose output
-	@ninja -C build solakonOne_test
-	@./build/solakonOne_test --success
+test: ## Run tests
+	@cd build && ninja && ./solakonOne_test
 
-package: build ## Build Debian package
-	@echo "Packaging..."
+### Package
 
-run: build ## Run the application (default: 192.168.178.121)
-	@./build/solakonOne
+package: ## Build Debian package
+	dpkg-buildpackage -us -uc -b
 
-run-once: build ## Run a single snapshot
-	@./build/solakonOne --once
+### Run
 
-docs: ## Generate API documentation with Doxygen
-	@doxygen Doxyfile
-	@echo "Documentation generated in docs/html/"
+run: build ## Run the monitor
+	@cd build && ./solakonOne
 
-docs-clean: ## Remove generated documentation
-	@rm -rf docs/html
+run-once: build ## Run single snapshot
+	@cd build && ./solakonOne --once
+
+### Docs
+
+docs: ## Generate Doxygen docs
+	doxygen docs/Doxyfile
+
+docs-clean: ## Clean Doxygen docs
+	@rm -rf docs/html docs/xml
