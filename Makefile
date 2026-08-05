@@ -2,7 +2,7 @@
 # Reads real-time data from Solakon ONE via Modbus TCP
 # Displays it in a btop-like terminal interface
 
-.PHONY: help build clean test package
+.PHONY: help build clean test package run run-once docs docs-clean
 
 help: ## Show this help message
 	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make <target>\n\nTargets:\n"} /^[$$()%a-zA-Z_-]+:.*?##/ { printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2 }' $(MAKEFILE_LIST)
@@ -31,3 +31,10 @@ run: build ## Run the application (default: 192.168.178.121)
 
 run-once: build ## Run a single snapshot
 	@./build/solakonOne --once
+
+docs: ## Generate API documentation with Doxygen
+	@doxygen Doxyfile
+	@echo "Documentation generated in docs/html/"
+
+docs-clean: ## Remove generated documentation
+	@rm -rf docs/html
