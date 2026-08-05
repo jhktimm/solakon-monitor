@@ -1,7 +1,26 @@
 #pragma once
 /**
- * Solakon ONE Modbus device data structures
- * Based on Solakon ONE Modbus Protocol v.02/26
+ * @file solakon_device.h
+ * @brief Solakon ONE Modbus device data structures and device abstraction.
+ *
+ * Defines register addresses, data structures, and the SolakonDevice class
+ * for reading a complete snapshot from a Solakon ONE hybrid inverter via
+ * Modbus TCP. Register addresses and data types are based on
+ * *Solakon ONE Modbus Protocol v02/26*.
+ *
+ * Usage:
+ * @code
+ *   solakon::SolakonDevice device;
+ *   device.connect("192.168.178.121", 502);
+ *
+ *   auto snap = device.fetch_snapshot();
+ *   if (snap.valid) {
+ *       printf("PV power: %.1f W\n", snap.energy.pv_total_power_w);
+ *       printf("AC power: %.1f W\n", snap.info.ac_active_power);
+ *   }
+ *
+ *   device.disconnect();
+ * @endcode
  */
 
 #include <cstdint>
@@ -12,8 +31,11 @@
 
 namespace solakon {
 
-// Register addresses from the protocol document
+/**
+ * @brief Register address constants from Solakon ONE Modbus Protocol v02/26.
+ */
 namespace reg {
+
     // Inverter info (Table 2-1)
     constexpr uint16_t MODEL_NAME = 30000;       // STR, 16 registers
     constexpr uint16_t SN = 30016;                // STR, 16 registers
@@ -98,29 +120,31 @@ namespace reg {
     constexpr uint16_t ALARM2 = 39067;            // Bitfield16
 
     // AC power (Table 2-5)
-    constexpr uint16_t AC_TOTAL_POWER = 39134;    // I32, kW, factor 1000
-    constexpr uint16_t AC_REACTIVE_POWER = 39136; // I32, kVar, factor 1000
+    constexpr uint16_t AC_TOTAL_POWER = 39134;    // I32, kW*1000 (raw in W)
+    constexpr uint16_t AC_REACTIVE_POWER = 39136; // I32, kVar*1000
 
     // PV power (Table 2-5)
-    constexpr uint16_t PV_TOTAL_POWER = 39118;    // I32, kW, factor 1000
+    constexpr uint16_t PV_TOTAL_POWER = 39118;    // I32, kW*1000 (raw in W)
 
     // Energy totals (Table 2-6)
-    constexpr uint16_t TOTAL_CHARGE_CAP = 39603;  // U32, kWh, factor 10
-    constexpr uint16_t TOTAL_CHARGE_TODAY = 39605;// U32, kWh, factor 10
-    constexpr uint16_t TOTAL_DISCHARGE = 39607;   // U32, kWh, factor 10
-    constexpr uint16_t TOTAL_DISCHARGE_TODAY = 39609; // U32, kWh, factor 10
-    constexpr uint16_t TOTAL_FEEDER = 39611;      // U32, kWh, factor 10
-    constexpr uint16_t TOTAL_FEEDER_TODAY = 39613;    // U32, kWh, factor 10
-    constexpr uint16_t TOTAL_CONSUMPTION = 39615;   // U32, kWh, factor 10
-    constexpr uint16_t TOTAL_CONSUMPTION_TODAY = 39617; // U32, kWh, factor 10
-    constexpr uint16_t TOTAL_OUTPUT = 39619;        // U32, kWh, factor 10
-    constexpr uint16_t TOTAL_OUTPUT_TODAY = 39621;    // U32, kWh, factor 10
-    constexpr uint16_t TOTAL_LOAD = 39623;          // U32, kWh, factor 10
-    constexpr uint16_t TOTAL_LOAD_TODAY = 39625;    // U32, kWh, factor 10
+    constexpr uint16_t TOTAL_CHARGE_CAP = 39603;  // U32, kWh/10
+    constexpr uint16_t TOTAL_CHARGE_TODAY = 39605;// U32, kWh/10
+    constexpr uint16_t TOTAL_DISCHARGE = 39607;   // U32, kWh/10
+    constexpr uint16_t TOTAL_DISCHARGE_TODAY = 39609; // U32, kWh/10
+    constexpr uint16_t TOTAL_FEEDER = 39611;      // U32, kWh/10
+    constexpr uint16_t TOTAL_FEEDER_TODAY = 39613;    // U32, kWh/10
+    constexpr uint16_t TOTAL_CONSUMPTION = 39615;   // U32, kWh/10
+    constexpr uint16_t TOTAL_CONSUMPTION_TODAY = 39617; // U32, kWh/10
+    constexpr uint16_t TOTAL_OUTPUT = 39619;        // U32, kWh/10
+    constexpr uint16_t TOTAL_OUTPUT_TODAY = 39621;    // U32, kWh/10
+    constexpr uint16_t TOTAL_LOAD = 39623;          // U32, kWh/10
+    constexpr uint16_t TOTAL_LOAD_TODAY = 39625;    // U32, kWh/10
 
 } // namespace reg
 
-// Status bitfield
+/**
+ * @brief Inverter operational status codes.
+ */
 enum class InverterStatus : uint16_t {
     STANDBY = 0,
     RESERVED1 = 1,
@@ -132,7 +156,11 @@ enum class InverterStatus : uint16_t {
     RESERVED5 = 7,
 };
 
-// Device information
+/**
+ * @brief Device information read from the inverter.
+ *
+ * Contains model info, firmware versions, ratings, and status/alarm bitfields.
+ */
 struct DeviceInfo {
     std::string model_name;
     std::string serial_number;
@@ -155,7 +183,12 @@ struct DeviceInfo {
     uint16_t alarm2 = 0;
 };
 
-// Meter data
+/**
+ * @brief Meter data for a single CT meter (Meter1/CT1 or Meter2/CT2).
+ *
+ * Per-phase voltage (V/10), current (A/1000), active power (W/10),
+ * and combined three-phase power (W/10) and frequency (Hz/100).
+ */
 struct MeterData {
     bool connected = false;
     float r_voltage = 0.0f;
@@ -171,7 +204,12 @@ struct MeterData {
     float frequency = 0.0f;
 };
 
-// Battery (BMS) data
+/**
+ * @brief Battery Management System (BMS) data.
+ *
+ * Voltage (V/10), current (A/10), temperature (°C/10), SOC (%),
+ * cell voltages (mV), SOH (%), and remaining energy (Wh/0.1).
+ */
 struct BMSData {
     uint16_t online = 0;
     uint16_t main_control = 0;
@@ -189,7 +227,12 @@ struct BMSData {
     float remain_energy_wh = 0.0f;
 };
 
-// Energy totals
+/**
+ * @brief Energy totals read from the inverter.
+ *
+ * All cumulative energy values are in kWh (raw / 10).
+ * Daily energy values are resettable counters.
+ */
 struct EnergyData {
     float pv_total_power_w = 0.0f;
     float total_charge_kwh = 0.0f;
@@ -206,7 +249,13 @@ struct EnergyData {
     float total_load_today_kwh = 0.0f;
 };
 
-// Full device snapshot
+/**
+ * @brief Complete device snapshot — one fetch from the inverter.
+ *
+ * Contains all inverter info, meter data, BMS data, and energy totals
+ * read in a single transaction batch. The `timestamp` records when
+ * the snapshot was taken.
+ */
 struct DeviceSnapshot {
     DeviceInfo info;
     MeterData meter1;
@@ -217,7 +266,12 @@ struct DeviceSnapshot {
     bool valid = false;
 };
 
-// Device abstraction (implementation in solakon_device.cpp)
+/**
+ * @brief High-level abstraction for a Solakon ONE inverter.
+ *
+ * Manages the Modbus TCP connection and provides a single method
+ * to fetch a complete snapshot of all inverter data.
+ */
 class SolakonDevice {
 public:
     SolakonDevice() = default;
@@ -225,9 +279,32 @@ public:
     SolakonDevice(const SolakonDevice&) = delete;
     SolakonDevice& operator=(const SolakonDevice&) = delete;
 
+    /**
+     * @brief Connect to the inverter via Modbus TCP.
+     * @param host IP address or hostname.
+     * @param port TCP port (default 502).
+     * @return true if connection succeeded.
+     */
     bool connect(const std::string& host, uint16_t port = 502);
+
+    /**
+     * @brief Disconnect from the inverter.
+     */
     void disconnect();
+
+    /**
+     * @brief Check if connected to the inverter.
+     * @return true if connected.
+     */
     bool is_connected() const;
+
+    /**
+     * @brief Fetch a complete snapshot from the inverter.
+     * @return DeviceSnapshot with all inverter data.
+     *
+     * Reads inverter info, meter data, BMS data, and energy totals
+     * in a single batch of Modbus transactions.
+     */
     DeviceSnapshot fetch_snapshot();
 
 private:
