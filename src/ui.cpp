@@ -170,7 +170,6 @@ void TerminalUI::render(const DeviceSnapshot& snap, int refresh_hz) {
     draw_power(snap);
     draw_meter_data(snap);
     draw_battery(snap.bms);
-    draw_energy(snap.energy);
     draw_footer();
     std::fflush(stdout);
 }

@@ -3,15 +3,19 @@
  * Reads real-time data from Solakon ONE via Modbus TCP
  * Displays it in a btop-like terminal interface
  *
- * Usage: solakon-monitor [IP] [--interval N] [--once]
- *   IP:    Solakon ONE IP (default: 192.168.178.121)
- *   N:     Refresh interval in Hz (default: 1)
- *   --once: Single snapshot and exit
+ * Usage: solakon-monitor [IP] [--interval N] [--once] [--json] [--server [PORT]]
+ *   IP:         Solakon ONE IP (default: 192.168.178.121)
+ *   N:          Refresh interval in Hz (default: 1)
+ *   --once:     Single snapshot and exit
+ *   --json:     Output single snapshot as JSON
+ *   --server:   Start HTTP server on PORT (default: 8080)
+ *   PORT:       HTTP server port (default: 8080)
  */
 
 #include "solakon_device.h"
 #include "modbus_client.h"
 #include "ui.h"
+#include "http_server.h"
 
 #include <cstdio>
 #include <cstdlib>
@@ -66,6 +70,8 @@ struct Config {
     int refresh_hz = 1;
     bool once = false;
     bool json = false;
+    bool server = false;
+    int server_port = 8080;
 };
 
 Config parse_args(int argc, char* argv[]) {
@@ -75,6 +81,15 @@ Config parse_args(int argc, char* argv[]) {
             cfg.once = true;
         } else if (strcmp(argv[i], "--json") == 0) {
             cfg.json = true;
+        } else if (strcmp(argv[i], "--server") == 0) {
+            cfg.server = true;
+            // Check if port is provided as next arg
+            if (i + 1 < argc && argv[i + 1][0] != '-') {
+                cfg.server_port = atoi(argv[++i]);
+                if (cfg.server_port < 1 || cfg.server_port > 65535) {
+                    cfg.server_port = 8080;
+                }
+            }
         } else if (strcmp(argv[i], "--interval") == 0 && i + 1 < argc) {
             cfg.refresh_hz = atoi(argv[++i]);
             if (cfg.refresh_hz < 1) cfg.refresh_hz = 1;
@@ -99,13 +114,6 @@ int main(int argc, char* argv[]) {
     sa.sa_flags = SA_RESTART;
     sigaction(SIGINT, &sa, nullptr);
     sigaction(SIGTERM, &sa, nullptr);
-
-    solakon::ui::TerminalUI ui;
-    ui.init();
-
-    // Save and set terminal to raw mode for non-blocking key input
-    termios_saver.save();
-    termios_saver.raw();
 
     solakon::SolakonDevice device;
     auto start = std::chrono::steady_clock::now();
@@ -136,53 +144,153 @@ int main(int argc, char* argv[]) {
                 "Drücke ENTER zum Beenden")
                 .c_str());
         std::getchar();
-        ui.shutdown();
         return 1;
     }
 
-    std::printf("%s\n",
-        solakon::ui::TerminalUI::bold(solakon::ui::Color::GREEN,
-            "Erfolgreich verbunden! Starte Monitor...")
+    // Terminal mode
+    if (!cfg.server) {
+        solakon::ui::TerminalUI ui;
+        ui.init();
+
+        // Save and set terminal to raw mode for non-blocking key input
+        termios_saver.save();
+        termios_saver.raw();
+
+        std::printf("%s\n",
+            solakon::ui::TerminalUI::bold(solakon::ui::Color::GREEN,
+                "Erfolgreich verbunden! Starte Monitor...")
             .c_str());
-    std::printf("\n");
-    std::fflush(stdout);
+        std::printf("\n");
+        std::fflush(stdout);
 
-    while (g_running) {
-        auto now = std::chrono::steady_clock::now();
-        auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(now - last_refresh).count();
-        auto interval = 1000 / cfg.refresh_hz;
+        while (g_running) {
+            auto now = std::chrono::steady_clock::now();
+            auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(now - last_refresh).count();
+            auto interval = 1000 / cfg.refresh_hz;
 
-    if (cfg.once || elapsed >= interval) {
-        last_refresh = now;
-        auto snap = device.fetch_snapshot();
-        if (cfg.json) {
-            ui.render_json(snap);
-        } else {
-            ui.render(snap, cfg.refresh_hz);
-        }
-        if (cfg.once) break;
-    }
-
-    // Non-blocking key input
-    struct pollfd pfd;
-    pfd.fd = STDIN_FILENO;
-    pfd.events = POLLIN;
-    pfd.revents = 0;
-    int ret = poll(&pfd, 1, 50);
-    if (ret > 0 && (pfd.revents & POLLIN)) {
-        char key = 0;
-        if (read(STDIN_FILENO, &key, 1) > 0) {
-            if (key == 'q' || key == 'Q') {
-                g_running = false;
+            if (cfg.once || elapsed >= interval) {
+                last_refresh = now;
+                auto snap = device.fetch_snapshot();
+                if (cfg.json) {
+                    ui.render_json(snap);
+                } else {
+                    ui.render(snap, cfg.refresh_hz);
+                }
+                if (cfg.once) break;
             }
+
+            // Non-blocking key input
+            struct pollfd pfd;
+            pfd.fd = STDIN_FILENO;
+            pfd.events = POLLIN;
+            pfd.revents = 0;
+            int ret = poll(&pfd, 1, 50);
+            if (ret > 0 && (pfd.revents & POLLIN)) {
+                char key = 0;
+                if (read(STDIN_FILENO, &key, 1) > 0) {
+                    if (key == 'q' || key == 'Q') {
+                        g_running = false;
+                    }
+                }
+            }
+
+            std::this_thread::sleep_for(std::chrono::milliseconds(50));
         }
-    }
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+        device.disconnect();
+        ui.shutdown();
     }
+    // Server mode
+    else {
+        solakon::http::Server server(cfg.server_port);
+        if (!server.start()) {
+            std::printf("\033[2J\033[H");
+            std::printf("%s\n",
+                solakon::ui::TerminalUI::bold(solakon::ui::Color::RED,
+                    "Fehler: HTTP-Server konnte nicht gestartet werden!")
+                .c_str());
+            std::printf("\n");
+            std::printf("  %s\n",
+                solakon::ui::TerminalUI::dim(solakon::ui::Color::DIM_GRAY,
+                    "Port bereits belegt oder keine Berechtigung.")
+                    .c_str());
+            std::printf("  %s\n",
+                solakon::ui::TerminalUI::dim(solakon::ui::Color::DIM_GRAY,
+                    "Versuche einen anderen Port: solakon-monitor --server 9090")
+                    .c_str());
+            std::printf("\n");
+            std::printf("  %s\n",
+                solakon::ui::TerminalUI::dim(solakon::ui::Color::DIM_GRAY,
+                    "Drücke ENTER zum Beenden")
+                    .c_str());
+            std::getchar();
+            device.disconnect();
+            return 1;
+        }
 
-    device.disconnect();
-    ui.shutdown();
+        std::printf("%s\n",
+            solakon::ui::TerminalUI::bold(solakon::ui::Color::GREEN,
+                "Erfolgreich verbunden! HTTP-Server gestartet.")
+            .c_str());
+        std::printf("\n");
+        std::printf("  %s %s\n",
+            solakon::ui::TerminalUI::bold(solakon::ui::Color::CYAN, "HTTP-Server:").c_str(),
+            solakon::ui::TerminalUI::bold(solakon::ui::Color::BRIGHT_WHITE,
+                ("http://localhost:" + std::to_string(cfg.server_port)).c_str())
+            .c_str());
+        std::printf("  %s\n",
+            solakon::ui::TerminalUI::dim(solakon::ui::Color::DIM_GRAY,
+                "Drücke q zum Beenden")
+                .c_str());
+        std::printf("\n");
+        std::fflush(stdout);
+
+        while (g_running) {
+            auto now = std::chrono::steady_clock::now();
+            auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(now - last_refresh).count();
+            auto interval = 1000 / cfg.refresh_hz;
+
+            if (elapsed >= interval) {
+                last_refresh = now;
+                auto snap = device.fetch_snapshot();
+                server.update_snapshot(snap);
+
+                // Print status line every 10 updates
+                static int counter = 0;
+                if (++counter % 10 == 0) {
+                    std::printf("\r  PV: %s | Batterie: %s | Smart Meter: %s    ",
+                        solakon::ui::TerminalUI::format_power(snap.energy.pv_total_power_w).c_str(),
+                        solakon::ui::TerminalUI::format_power(snap.energy.battery_power_w).c_str(),
+                        solakon::ui::TerminalUI::format_power(snap.energy.smart_meter_power_w).c_str());
+                    std::fflush(stdout);
+                }
+            }
+
+            // Non-blocking key input
+            struct pollfd pfd;
+            pfd.fd = STDIN_FILENO;
+            pfd.events = POLLIN;
+            pfd.revents = 0;
+            int ret = poll(&pfd, 1, 50);
+            if (ret > 0 && (pfd.revents & POLLIN)) {
+                char key = 0;
+                if (read(STDIN_FILENO, &key, 1) > 0) {
+                    if (key == 'q' || key == 'Q') {
+                        g_running = false;
+                    }
+                }
+            }
+
+            std::this_thread::sleep_for(std::chrono::milliseconds(50));
+        }
+
+        std::printf("\n  %s\n",
+            solakon::ui::TerminalUI::dim(solakon::ui::Color::DIM_GRAY,
+                "Server wird gestoppt...")
+                .c_str());
+        server.stop();
+        device.disconnect();
+    }
 
     return 0;
 }

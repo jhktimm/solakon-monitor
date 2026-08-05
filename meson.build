@@ -21,6 +21,7 @@ sources = [
   'src/modbus_client.cpp',
   'src/solakon_device.cpp',
   'src/ui.cpp',
+  'src/http_server.cpp',
   'src/main.cpp',
 ]
 

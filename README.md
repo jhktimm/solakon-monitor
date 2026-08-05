@@ -81,6 +81,27 @@ ninja -C build test
 ./build/solakon-monitor --help
 ```
 
+### Server Mode
+
+```bash
+# Start HTTP server (default port: 8080)
+./build/solakon-monitor --server
+
+# With custom port
+./build/solakon-monitor --server 9090
+
+# Access data from browser/Chrome plugin
+# curl http://localhost:8080/data
+# curl http://localhost:8080/health
+```
+
+The server mode runs the Solakon monitor in the background and exposes a REST API:
+- `GET /data` — Full snapshot as JSON
+- `GET /health` — Health check `{"status": "ok"}`
+
+The terminal shows live power values while the server runs.
+Press `q` to stop.
+
 ### JSON Output
 
 ```bash
