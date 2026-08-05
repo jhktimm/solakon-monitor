@@ -22,6 +22,8 @@ sources = [
   'src/solakon_device.cpp',
   'src/ui.cpp',
   'src/http_server.cpp',
+  'src/config_loader.cpp',
+  'src/network_scanner.cpp',
   'src/main.cpp',
 ]
 

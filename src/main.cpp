@@ -3,19 +3,24 @@
  * Reads real-time data from Solakon ONE via Modbus TCP
  * Displays it in a btop-like terminal interface
  *
- * Usage: solakon-monitor [IP] [--interval N] [--once] [--json] [--server [PORT]]
- *   IP:         Solakon ONE IP (default: 192.168.178.121)
- *   N:          Refresh interval in Hz (default: 1)
- *   --once:     Single snapshot and exit
- *   --json:     Output single snapshot as JSON
- *   --server:   Start HTTP server on PORT (default: 8080)
- *   PORT:       HTTP server port (default: 8080)
+ * Usage: solakon-monitor [OPTIONS] [IP]
+ *   IP:         Solakon ONE IP (from config, CLI, or scan)
+ *   --config X  Use config file X instead of default
+ *   --scan      Scan network for Solakon ONE devices and exit
+ *   --once      Single snapshot and exit
+ *   --json      Output single snapshot as JSON
+ *   --server    Start HTTP server (default port: 8080)
+ *   --interval N Refresh interval in Hz (1-60, default: 1)
+ *   -p, --port PORT Solakon ONE Modbus port (default: 502)
+ *   -h, --help  Show this help message
  */
 
 #include "solakon_device.h"
 #include "modbus_client.h"
 #include "ui.h"
 #include "http_server.h"
+#include "config_loader.h"
+#include "network_scanner.h"
 
 #include <cstdio>
 #include <cstdlib>
@@ -66,7 +71,7 @@ struct TermiosSaver {
 } termios_saver;
 
 struct Config {
-    std::string host = "192.168.178.121";
+    std::string host = "";
     int refresh_hz = 1;
     uint16_t modbus_port = 502;
     bool once = false;
@@ -74,6 +79,8 @@ struct Config {
     bool server = false;
     int server_port = 8080;
     bool help = false;
+    bool scan = false;
+    std::string config_path = "";
 };
 
 void print_usage(const char* prog) {
@@ -83,14 +90,22 @@ void print_usage(const char* prog) {
     std::printf("\n");
     std::printf("Options:\n");
     std::printf("  -h, --help          Show this help message\n");
+    std::printf("  --config FILE       Use config file FILE\n");
+    std::printf("  --scan              Scan network for Solakon ONE devices\n");
     std::printf("  --once              Single snapshot and exit\n");
     std::printf("  --json              Output single snapshot as JSON\n");
     std::printf("  --server [PORT]     Start HTTP server (default port: 8080)\n");
     std::printf("  --interval N        Refresh interval in Hz (1-60, default: 1)\n");
     std::printf("  -p, --port PORT     Solakon ONE Modbus port (default: 502)\n");
     std::printf("\n");
+    std::printf("Config file (auto-discovered in this order):\n");
+    std::printf("  1. --config <path>\n");
+    std::printf("  2. ~/.config/solakon-monitor/solakon.conf\n");
+    std::printf("  3. ./solakon.conf\n");
+    std::printf("\n");
     std::printf("Examples:\n");
-    std::printf("  %s                          # Terminal monitor (default IP)\n", prog);
+    std::printf("  %s                          # Terminal monitor (from config)\n", prog);
+    std::printf("  %s --scan                   # Scan for devices\n", prog);
     std::printf("  %s 192.168.178.121         # With custom IP\n", prog);
     std::printf("  %s --once                   # Single snapshot\n", prog);
     std::printf("  %s --once --json            # JSON output\n", prog);
@@ -107,6 +122,12 @@ Config parse_args(int argc, char* argv[]) {
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--help") == 0 || strcmp(argv[i], "-h") == 0) {
             cfg.help = true;
+        } else if (strcmp(argv[i], "--config") == 0) {
+            if (i + 1 < argc) {
+                cfg.config_path = argv[++i];
+            }
+        } else if (strcmp(argv[i], "--scan") == 0) {
+            cfg.scan = true;
         } else if (strcmp(argv[i], "--port") == 0 || strcmp(argv[i], "-p") == 0) {
             if (i + 1 < argc) {
                 cfg.modbus_port = atoi(argv[++i]);
@@ -120,7 +141,6 @@ Config parse_args(int argc, char* argv[]) {
             cfg.json = true;
         } else if (strcmp(argv[i], "--server") == 0) {
             cfg.server = true;
-            // Check if port is provided as next arg
             if (i + 1 < argc && argv[i + 1][0] != '-') {
                 cfg.server_port = atoi(argv[++i]);
                 if (cfg.server_port < 1 || cfg.server_port > 65535) {
@@ -138,6 +158,36 @@ Config parse_args(int argc, char* argv[]) {
     return cfg;
 }
 
+// Interactive prompt for IP address
+std::string prompt_ip(const char* prompt) {
+    std::printf("%s\n", prompt);
+    std::printf("IP: ");
+    std::fflush(stdout);
+    char buf[64];
+    if (fgets(buf, sizeof(buf), stdin) != nullptr) {
+        size_t len = strlen(buf);
+        if (len > 0 && buf[len - 1] == '\n') buf[len - 1] = '\0';
+        if (strlen(buf) > 0) return buf;
+    }
+    return "";
+}
+
+// Save discovered IP to config
+void save_discovered(const std::string& ip, uint16_t port, const std::string& config_path) {
+    solakon::config::Settings cfg;
+    cfg.host = ip;
+    cfg.modbus_port = port;
+    if (solakon::config::save(cfg)) {
+        std::printf("\n  %s %s\n",
+            solakon::ui::TerminalUI::bold(solakon::ui::Color::GREEN, "Konfiguration gespeichert:").c_str(),
+            config_path.c_str());
+    } else {
+        std::printf("\n  %s: %s\n",
+            solakon::ui::TerminalUI::bold(solakon::ui::Color::YELLOW, "Warnung: Config konnte nicht gespeichert werden").c_str(),
+            config_path.c_str());
+    }
+}
+
 } // anonymous namespace
 
 int main(int argc, char* argv[]) {
@@ -146,6 +196,159 @@ int main(int argc, char* argv[]) {
     if (cfg.help) {
         print_usage(argv[0]);
         return 0;
+    }
+
+    // Scan mode
+    if (cfg.scan) {
+        // Load config for subnet/ports, or use defaults
+        auto settings = solakon::config::load(cfg.config_path);
+        if (settings.scan_ports.empty()) {
+            settings.scan_ports = {502, 443};
+        }
+
+        std::printf("\n  %s %s\n\n",
+            solakon::ui::TerminalUI::bold(solakon::ui::Color::CYAN, "Netzwerk-Scan:").c_str(),
+            solakon::ui::TerminalUI::bold(solakon::ui::Color::BRIGHT_WHITE, settings.scan_subnet.c_str())
+            .c_str());
+
+        solakon::scanner::NetworkScanner scanner;
+        auto devices = scanner.scan(settings.scan_subnet, settings.scan_ports, 2000);
+
+        if (devices.empty()) {
+            std::printf("  %s\n",
+                solakon::ui::TerminalUI::bold(solakon::ui::Color::YELLOW, "Keine Geräte gefunden.")
+                .c_str());
+            std::printf("  %s\n",
+                solakon::ui::TerminalUI::dim(solakon::ui::Color::DIM_GRAY,
+                    "Prüfe: Subnet, Ports, Firewall").c_str());
+            return 1;
+        }
+
+        std::printf("  %s %s\n\n",
+            solakon::ui::TerminalUI::bold(solakon::ui::Color::GREEN, "Gefundene Geräte:").c_str(),
+            solakon::ui::TerminalUI::dim(solakon::ui::Color::DIM_GRAY,
+                ("(" + std::to_string(devices.size()) + " gefunden)").c_str())
+            .c_str());
+
+        auto results = solakon::scanner::NetworkScanner::format_results(devices);
+        for (auto& r : results) {
+            std::printf("  %s\n", r.c_str());
+        }
+
+        // If exactly one Solakon device found, offer to save
+        auto solakon_devs = std::count_if(devices.begin(), devices.end(),
+            [](const solakon::scanner::DiscoveredDevice& d) { return d.is_solakon; });
+
+        if (solakon_devs == 1) {
+            auto solakon_ip = std::find_if(devices.begin(), devices.end(),
+                [](const solakon::scanner::DiscoveredDevice& d) { return d.is_solakon; })->ip;
+            auto solakon_port = devices[0].ports[0];
+
+            std::printf("\n  %s: %s\n",
+                solakon::ui::TerminalUI::bold(solakon::ui::Color::GREEN, "Vorschlag").c_str(),
+                solakon::ui::TerminalUI::bold(solakon::ui::Color::BRIGHT_WHITE, solakon_ip.c_str())
+                .c_str());
+            std::printf("  %s\n",
+                solakon::ui::TerminalUI::dim(solakon::ui::Color::DIM_GRAY,
+                    "Drücke ENTER zum Speichern, oder STRG+C zum Abbrechen")
+                .c_str());
+
+            std::getchar();
+            save_discovered(solakon_ip, solakon_port, settings.config_path);
+        }
+
+        return 0;
+    }
+
+    // Load config
+    auto settings = solakon::config::load(cfg.config_path);
+
+    // CLI overrides
+    if (!cfg.host.empty()) {
+        settings.host = cfg.host;
+    }
+    if (cfg.modbus_port != 502) {
+        settings.modbus_port = cfg.modbus_port;
+    }
+    if (cfg.refresh_hz != 1) {
+        settings.refresh_hz = cfg.refresh_hz;
+    }
+
+    // If no host from config or CLI, prompt user
+    if (settings.host.empty()) {
+        // Check if default config exists
+        auto check = solakon::config::load("");
+        if (check.config_path.empty()) {
+            std::printf("\n  %s\n",
+                solakon::ui::TerminalUI::bold(solakon::ui::Color::YELLOW,
+                    "Keine Solakon ONE IP konfiguriert.")
+                .c_str());
+            std::printf("  %s\n",
+                solakon::ui::TerminalUI::dim(solakon::ui::Color::DIM_GRAY,
+                    "Verwende --scan um Geräte zu finden")
+                .c_str());
+            std::printf("  %s\n",
+                solakon::ui::TerminalUI::dim(solakon::ui::Color::DIM_GRAY,
+                    "Oder erstelle ~/.config/solakon-monitor/solakon.conf")
+                .c_str());
+            std::printf("  %s\n",
+                solakon::ui::TerminalUI::dim(solakon::ui::Color::DIM_GRAY,
+                    "Siehe README.md für Details")
+                .c_str());
+            return 1;
+        }
+
+        if (check.host.empty()) {
+            std::printf("\n  %s\n",
+                solakon::ui::TerminalUI::bold(solakon::ui::Color::YELLOW,
+                    "Keine Solakon ONE IP konfiguriert.").c_str());
+            std::printf("  %s\n",
+                solakon::ui::TerminalUI::dim(solakon::ui::Color::DIM_GRAY,
+                    "Verwende --scan um Geräte zu finden")
+                .c_str());
+            std::printf("\n  %s\n",
+                solakon::ui::TerminalUI::dim(solakon::ui::Color::DIM_GRAY,
+                    "Oder manuell IP eingeben:")
+                .c_str());
+
+            std::getchar();
+            auto ip = prompt_ip("Solakon ONE IP");
+            if (ip.empty()) {
+                std::printf("\n  %s\n",
+                    solakon::ui::TerminalUI::bold(solakon::ui::Color::RED,
+                        "Keine IP eingegeben. Abbruch.")
+                    .c_str());
+                return 1;
+            }
+
+            settings.host = ip;
+            settings.modbus_port = cfg.modbus_port;
+            settings.config_path = solakon::config::default_path();
+            solakon::config::save(settings);
+            std::printf("\n  %s: %s\n",
+                solakon::ui::TerminalUI::bold(solakon::ui::Color::GREEN, "Gespeichert").c_str(),
+                solakon::ui::TerminalUI::bold(solakon::ui::Color::BRIGHT_WHITE,
+                    settings.config_path.c_str())
+                .c_str());
+        } else {
+            std::printf("\n  %s\n",
+                solakon::ui::TerminalUI::bold(solakon::ui::Color::YELLOW,
+                    "Keine Solakon ONE IP konfiguriert.")
+                .c_str());
+            std::printf("  %s\n",
+                solakon::ui::TerminalUI::dim(solakon::ui::Color::DIM_GRAY,
+                    "Verwende --scan um Geräte zu finden")
+                .c_str());
+            std::printf("  %s\n",
+                solakon::ui::TerminalUI::dim(solakon::ui::Color::DIM_GRAY,
+                    "Oder erstelle ~/.config/solakon-monitor/solakon.conf")
+                .c_str());
+            std::printf("  %s\n",
+                solakon::ui::TerminalUI::dim(solakon::ui::Color::DIM_GRAY,
+                    "Siehe README.md für Details")
+                .c_str());
+            return 1;
+        }
     }
 
     // Setup signal handlers
@@ -161,11 +364,11 @@ int main(int argc, char* argv[]) {
     auto start = std::chrono::steady_clock::now();
     auto last_refresh = start;
 
-    std::printf("Solakon ONE Monitor - Verbinde mit %s:%d ...\n",
-                cfg.host.c_str(), 502);
+    std::printf("Solakon ONE Monitor - Verbinde mit %s:%d ... \n",
+                settings.host.c_str(), settings.modbus_port);
     std::fflush(stdout);
 
-    if (!device.connect(cfg.host)) {
+    if (!device.connect(settings.host, settings.modbus_port)) {
         std::printf("\033[2J\033[H");
         std::printf("%s\n",
             solakon::ui::TerminalUI::bold(solakon::ui::Color::RED,
@@ -178,7 +381,7 @@ int main(int argc, char* argv[]) {
                 .c_str());
         std::printf("  %s\n",
             solakon::ui::TerminalUI::dim(solakon::ui::Color::DIM_GRAY,
-                "IP: " + cfg.host + " Port: 502")
+                "IP: " + settings.host + " Port: " + std::to_string(settings.modbus_port))
                 .c_str());
         std::printf("\n");
         std::printf("  %s\n",

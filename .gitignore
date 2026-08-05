@@ -45,6 +45,10 @@ minimal_test.cpp
 *.swo
 *~
 
+# Local config (contains IP addresses)
+solakon.conf
+solakon.local.conf
+
 # Doxygen docs (HTML generated, commit XML)
 docs/html/
 

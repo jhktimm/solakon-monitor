@@ -156,6 +156,62 @@ Returns a JSON object with all inverter data:
 
 Useful for Chrome plugins, Grafana dashboards, or any HTTP-based monitoring tool.
 
+### Configuration
+
+The tool auto-discovers config in this order:
+1. `--config <path>` (CLI override)
+2. `~/.config/solakon-monitor/solakon.conf` (XDG config)
+3. `./solakon.conf` (current directory)
+
+The config file is a simple INI format:
+
+```ini
+[solakon]
+; IP-Adresse des Solakon ONE Wechselrichters
+ip = 192.168.178.121
+
+; Modbus TCP Port (Standard: 502)
+modbus_port = 502
+
+; HTTPS Port für Web-Oberfläche (Standard: 443)
+https_port = 443
+
+; Aktualisierungsrate in Hz (1-60)
+refresh_hz = 1
+
+; Netzwerk-Scan-Einstellungen
+; Subnet zum Scannen (CIDR-Notation)
+scan_subnet = 192.168.178.0/24
+
+; Zu scannende Ports (kommagetrennt)
+scan_ports = 502,443
+```
+
+#### First Start
+
+On first run, the tool prompts for the Solakon ONE IP if no config exists:
+
+```bash
+./build/solakon-monitor
+# or
+./build/solakon-monitor --scan
+```
+
+The `--scan` flag scans the configured subnet for Solakon ONE devices (ports 502/443).
+If exactly one device is found, you can save its IP to the config file.
+
+#### Network Scan
+
+```bash
+# Scan for Solakon ONE devices
+./build/solakon-monitor --scan
+
+# Scan with custom subnet (via config)
+# Edit ~/.config/solakon-monitor/solakon.conf:
+# scan_subnet = 10.0.0.0/24
+# scan_ports = 502,443
+```
+
 ### Monitor Keys
 
 | Key | Action |
@@ -251,6 +307,62 @@ solakon-monitor --once
 
 # Hilfe
 solakon-monitor --help
+```
+
+#### Konfigurationsdatei
+
+Die Konfigurationsdatei wird automatisch an folgenden Orten gesucht:
+1. `--config <pfad>` (CLI-Überschreibung)
+2. `~/.config/solakon-monitor/solakon.conf` (XDG-Konfig)
+3. `./solakon.conf` (aktuelles Verzeichnis)
+
+Die Datei hat ein einfaches INI-Format:
+
+```ini
+[solakon]
+; IP-Adresse des Solakon ONE Wechselrichters
+ip = 192.168.178.121
+
+; Modbus TCP Port (Standard: 502)
+modbus_port = 502
+
+; HTTPS Port für Web-Oberfläche (Standard: 443)
+https_port = 443
+
+; Aktualisierungsrate in Hz (1-60)
+refresh_hz = 1
+
+; Netzwerk-Scan-Einstellungen
+; Subnet zum Scannen (CIDR-Notation)
+scan_subnet = 192.168.178.0/24
+
+; Zu scannende Ports (kommagetrennt)
+scan_ports = 502,443
+```
+
+#### Erster Start
+
+Beim ersten Start fragt das Tool nach der Solakon ONE IP, falls keine Config existiert:
+
+```bash
+./build/solakon-monitor
+# oder
+./build/solakon-monitor --scan
+```
+
+Der `--scan`-Flag scannt das konfigurierte Subnet nach Solakon ONE Geräten (Ports 502/443).
+Wenn genau ein Gerät gefunden wird, kann die IP in die Config-Datei gespeichert werden.
+
+#### Netzwerk-Scan
+
+```bash
+# Nach Solakon ONE Geräten scannen
+./build/solakon-monitor --scan
+
+# Mit anderem Subnet (über Config)
+# ~/.config/solakon-monitor/solakon.conf bearbeiten:
+# scan_subnet = 10.0.0.0/24
+# scan_ports = 502,443
 ```
 
 ### Tasten im Monitor

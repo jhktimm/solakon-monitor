@@ -6,10 +6,14 @@ _solakon-monitor() {
     local cur prev words cword
     _init_completion || return
 
-    local opts="--help --once --json --server --interval= --port="
+    local opts="--help --config --scan --once --json --server --interval= --port="
     local short_opts="-h -p"
 
     case "$prev" in
+        --config)
+            COMPREPLY=( $(compgen -f -- "$cur") )
+            return
+            ;;
         --interval|-i)
             COMPREPLY=( $(compgen -W "1 2 5 10 30 60" -- "$cur") )
             return
@@ -25,6 +29,10 @@ _solakon-monitor() {
             else
                 COMPREPLY=( $(compgen -W "8080 9090 3000" -- "$cur") )
             fi
+            return
+            ;;
+        --scan)
+            # After --scan, nothing more (it's a terminal command)
             return
             ;;
     esac
