@@ -1,0 +1,398 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="solakon__device_8cpp" kind="file" language="C++">
+    <compoundname>solakon_device.cpp</compoundname>
+    <includes refid="solakon__device_8h" local="yes">solakon_device.h</includes>
+    <includes refid="modbus__client_8h" local="yes">modbus_client.h</includes>
+    <includes local="no">span</includes>
+    <includes local="no">vector</includes>
+    <includes local="no">cstring</includes>
+    <incdepgraph>
+      <node id="8">
+        <label>modbus_client.h</label>
+        <link refid="modbus__client_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>solakon_device.h</label>
+        <link refid="solakon__device_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/solakon_device.cpp</label>
+        <link refid="solakon__device_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>array</label>
+      </node>
+      <node id="7">
+        <label>chrono</label>
+      </node>
+      <node id="3">
+        <label>cstdint</label>
+      </node>
+      <node id="9">
+        <label>cstring</label>
+      </node>
+      <node id="6">
+        <label>optional</label>
+      </node>
+      <node id="11">
+        <label>span</label>
+      </node>
+      <node id="4">
+        <label>string</label>
+      </node>
+      <node id="12">
+        <label>system_error</label>
+      </node>
+      <node id="5">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classsolakon_1_1SolakonDevice_1_1Impl" prot="public">solakon::SolakonDevice::Impl</innerclass>
+    <innernamespace refid="namespacesolakon">solakon</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="solakon__device_8h" kindref="compound">solakon_device.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="modbus__client_8h" kindref="compound">modbus_client.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;span&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstring&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesolakon" kindref="compound">solakon</ref><sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Implementation<sp/>class<sp/>(pimpl)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="classsolakon_1_1SolakonDevice_1_1Impl" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsolakon_1_1SolakonDevice_1_1Impl" kindref="compound">SolakonDevice::Impl</ref><sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1modbus_1_1Client" kindref="compound">modbus::Client</ref><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1ab7a0c05e6f69a8c3f368241ef6d74f7b" kindref="member">connect</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>host,<sp/>uint16_t<sp/>port<sp/>=<sp/>502)<sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ec<sp/>=<sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1a25765ad73ed0dfac1dcbe35a65640d34" kindref="member">connect</ref>(host,<sp/>port);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>!ec;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a033acd1d92d23181e07d805ff50eaec9" kindref="member">disconnect</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ac4b95eb757767dc481129ae42acd52ff" kindref="member">disconnect</ref>();</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a2a566972ed1a3a061c2a2e89babf2e0b" kindref="member">is_connected</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1a32ded39886de092c0e3701855e1a5a93" kindref="member">is_connected</ref>();</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structsolakon_1_1DeviceSnapshot" kindref="compound">DeviceSnapshot</ref><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a3b6bc389c3e509b9c3ba0ec83d3dd7ee" kindref="member">fetch_snapshot</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structsolakon_1_1DeviceSnapshot" kindref="compound">DeviceSnapshot</ref><sp/>snap{};</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>snap.<ref refid="structsolakon_1_1DeviceSnapshot_1a6d3fb1cf7a9b8b0d70cceda8e7d23615" kindref="member">timestamp</ref><sp/>=<sp/>std::chrono::system_clock::now();</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Read<sp/>all<sp/>data<sp/>in<sp/>batches</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>read_inverter_info(snap.info);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>read_meter_data(snap.meter1,<sp/>snap.meter2);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>read_battery_data(snap.bms);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>read_energy_data(snap.energy);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>snap.valid<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>snap;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>read_inverter_info(<ref refid="structsolakon_1_1DeviceInfo" kindref="compound">DeviceInfo</ref>&amp;<sp/>info)<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Protocol<sp/>version<sp/>(U32<sp/>at<sp/>39000)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/>val;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae1644df0bafb9dddd383647a2180c0b2" kindref="member">read_u32</ref>(<ref refid="namespacesolakon_1_1reg_1a597de0928ab7f95c6b40dc69865f330f" kindref="member">reg::PROTOCOL_VERSION</ref>,<sp/>val))<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.<ref refid="structsolakon_1_1DeviceInfo_1a6eed93c4755d16f8d0adfdeff8f333fa" kindref="member">protocol_version</ref><sp/>=<sp/>val;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Model<sp/>name<sp/>(STR<sp/>at<sp/>39002,<sp/>16<sp/>regs)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1a6cf43c6ab484b2d584daba457f406a07" kindref="member">read_string</ref>(<ref refid="namespacesolakon_1_1reg_1a88cc5d1a691f932eb84475da8715fac3" kindref="member">reg::MODEL_NAME2</ref>,<sp/>16,<sp/>info.<ref refid="structsolakon_1_1DeviceInfo_1a6dea4b82680d99ec74f9e7299d1ff33c" kindref="member">model_name</ref>);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>PN<sp/>(STR<sp/>at<sp/>39018,<sp/>16<sp/>regs)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1a6cf43c6ab484b2d584daba457f406a07" kindref="member">read_string</ref>(<ref refid="namespacesolakon_1_1reg_1ae7f0f3db075c95d601f6d44482ea9518" kindref="member">reg::PN</ref>,<sp/>16,<sp/>info.<ref refid="structsolakon_1_1DeviceInfo_1a6b0bff2188ab83967a145b3ff233c7a0" kindref="member">serial_number</ref>);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Model<sp/>ID,<sp/>num<sp/>strings,<sp/>num<sp/>MPPT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1a7a0afe2c88fcbb769b01a96a5a5b765e" kindref="member">read_u16</ref>(<ref refid="namespacesolakon_1_1reg_1a8d762fc652a18012eeff40c18ab227ca" kindref="member">reg::MODEL_ID</ref>,<sp/>info.<ref refid="structsolakon_1_1DeviceInfo_1a700f8505e54d8d6c1c45436f6625f466" kindref="member">model_id</ref>);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1a7a0afe2c88fcbb769b01a96a5a5b765e" kindref="member">read_u16</ref>(<ref refid="namespacesolakon_1_1reg_1ad9518d72c1988dcf64eba431f2fb1bec" kindref="member">reg::NUM_STRINGS</ref>,<sp/>info.<ref refid="structsolakon_1_1DeviceInfo_1a6e069f5db974fea155619474ea1c2f88" kindref="member">num_strings</ref>);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1a7a0afe2c88fcbb769b01a96a5a5b765e" kindref="member">read_u16</ref>(<ref refid="namespacesolakon_1_1reg_1a8cadcce3b408a9ea768d155b1603b24b" kindref="member">reg::NUM_MPPT</ref>,<sp/>info.<ref refid="structsolakon_1_1DeviceInfo_1a65ed0617dcd0b677dcd059ad3103880f" kindref="member">num_mppt</ref>);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Rated<sp/>power<sp/>(I32<sp/>at<sp/>39053,<sp/>kW/1000)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32_t<sp/>ival<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae60428b67201aead00d1bc2f2e5209e2" kindref="member">read_i32</ref>(<ref refid="namespacesolakon_1_1reg_1a10ccd72c57c696200c266cdbb0920c24" kindref="member">reg::RATED_POWER</ref>,<sp/>ival))<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.<ref refid="structsolakon_1_1DeviceInfo_1aa554282f669409b5e4e59302bc37e41a" kindref="member">rated_power_kw</ref><sp/>=<sp/>ival<sp/>/<sp/>1000.0f;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Max<sp/>active<sp/>power<sp/>(I32<sp/>at<sp/>39055,<sp/>kW/1000)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae60428b67201aead00d1bc2f2e5209e2" kindref="member">read_i32</ref>(<ref refid="namespacesolakon_1_1reg_1ac31c4e4eca00e38c77abd313d38538a2" kindref="member">reg::MAX_ACTIVE</ref>,<sp/>ival))<sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.<ref refid="structsolakon_1_1DeviceInfo_1aaf74e7112864758764405d1c805fb204" kindref="member">max_active_kw</ref><sp/>=<sp/>ival<sp/>/<sp/>1000.0f;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Max<sp/>apparent<sp/>(I32<sp/>at<sp/>39057,<sp/>kVA/1000)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae60428b67201aead00d1bc2f2e5209e2" kindref="member">read_i32</ref>(<ref refid="namespacesolakon_1_1reg_1a9549ea70a282f7f6eea737fc837606d8" kindref="member">reg::MAX_APPARENT</ref>,<sp/>ival))<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.<ref refid="structsolakon_1_1DeviceInfo_1aac3b996710a0665ae7b4711cf66b7b58" kindref="member">max_apparent_kva</ref><sp/>=<sp/>ival<sp/>/<sp/>1000.0f;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Max<sp/>reactive<sp/>(I32<sp/>at<sp/>39059,<sp/>kVar/1000)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae60428b67201aead00d1bc2f2e5209e2" kindref="member">read_i32</ref>(<ref refid="namespacesolakon_1_1reg_1a9a43e40b5862a65dd1ebd9b475e1ba61" kindref="member">reg::MAX_REACTIVE_NEG</ref>,<sp/>ival))<sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.<ref refid="structsolakon_1_1DeviceInfo_1abece40126d3f495633199bd3c78ab1e2" kindref="member">max_reactive_neg_kvar</ref><sp/>=<sp/>ival<sp/>/<sp/>1000.0f;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Status<sp/>registers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1a7a0afe2c88fcbb769b01a96a5a5b765e" kindref="member">read_u16</ref>(<ref refid="namespacesolakon_1_1reg_1ac28d46dd4f58c0b0f115f4ee0c91bfff" kindref="member">reg::STATUS1</ref>,<sp/>info.<ref refid="structsolakon_1_1DeviceInfo_1a74e8e153c9ffbe98e60492a1e97edc54" kindref="member">status1</ref>);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/>s3;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae1644df0bafb9dddd383647a2180c0b2" kindref="member">read_u32</ref>(<ref refid="namespacesolakon_1_1reg_1a08f0b74c14d6dc0da737d64082bc2add" kindref="member">reg::STATUS3</ref>,<sp/>s3);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.<ref refid="structsolakon_1_1DeviceInfo_1a2199a63f6e5d9898a149db19803f3f5f" kindref="member">status3</ref><sp/>=<sp/>s3;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1a7a0afe2c88fcbb769b01a96a5a5b765e" kindref="member">read_u16</ref>(<ref refid="namespacesolakon_1_1reg_1ac67f1d87b4addee9ae49c1953b8c4024" kindref="member">reg::ALARM1</ref>,<sp/>info.<ref refid="structsolakon_1_1DeviceInfo_1a8f756b35e7ac342d36dd5b5047047951" kindref="member">alarm1</ref>);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1a7a0afe2c88fcbb769b01a96a5a5b765e" kindref="member">read_u16</ref>(<ref refid="namespacesolakon_1_1reg_1add08e2fd3641cfeec10ebc9e4f74fab6" kindref="member">reg::ALARM2</ref>,<sp/>info.<ref refid="structsolakon_1_1DeviceInfo_1abaf7ac67ab5f1383ce10b7d4b5a5b1d6" kindref="member">alarm2</ref>);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>read_meter_data(<ref refid="structsolakon_1_1MeterData" kindref="compound">MeterData</ref>&amp;<sp/>m1,<sp/><ref refid="structsolakon_1_1MeterData" kindref="compound">MeterData</ref>&amp;<sp/>m2)<sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Meter1/CT1<sp/>(Table<sp/>2-4)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/>uval<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32_t<sp/>ival<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1a7a0afe2c88fcbb769b01a96a5a5b765e" kindref="member">read_u16</ref>(<ref refid="namespacesolakon_1_1reg_1a58397d79a929b2653e45efb3925e3a46" kindref="member">reg::METER1_CONN</ref>,<sp/>uval);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m1.<ref refid="structsolakon_1_1MeterData_1a83bd734878c556ebabe88ac3500e43bb" kindref="member">connected</ref><sp/>=<sp/>(uval<sp/>==<sp/>1);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae60428b67201aead00d1bc2f2e5209e2" kindref="member">read_i32</ref>(<ref refid="namespacesolakon_1_1reg_1af2590cc950bc2a02624cbc595a31e79c" kindref="member">reg::METER1_R_VOLTAGE</ref>,<sp/>ival);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m1.<ref refid="structsolakon_1_1MeterData_1af1213f8251710123693f4b0ed0e054ab" kindref="member">r_voltage</ref><sp/>=<sp/>ival<sp/>/<sp/>10.0f;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae60428b67201aead00d1bc2f2e5209e2" kindref="member">read_i32</ref>(<ref refid="namespacesolakon_1_1reg_1a30aed14005e41b6a4db7c552e02f6b40" kindref="member">reg::METER1_S_VOLTAGE</ref>,<sp/>ival);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m1.<ref refid="structsolakon_1_1MeterData_1a57a20fbfa8e621af175567df7db5e872" kindref="member">s_voltage</ref><sp/>=<sp/>ival<sp/>/<sp/>10.0f;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae60428b67201aead00d1bc2f2e5209e2" kindref="member">read_i32</ref>(<ref refid="namespacesolakon_1_1reg_1ad819ee8bc0b8199ac8358039c7558ed5" kindref="member">reg::METER1_T_VOLTAGE</ref>,<sp/>ival);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m1.<ref refid="structsolakon_1_1MeterData_1a040f55b5449e6f562b2214c9a92197c0" kindref="member">t_voltage</ref><sp/>=<sp/>ival<sp/>/<sp/>10.0f;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae60428b67201aead00d1bc2f2e5209e2" kindref="member">read_i32</ref>(<ref refid="namespacesolakon_1_1reg_1a18ac7c88b9253dde6f84951396db4634" kindref="member">reg::METER1_R_CURRENT</ref>,<sp/>ival);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m1.<ref refid="structsolakon_1_1MeterData_1a8b2892694bfd4174cd1269f658ed4541" kindref="member">r_current</ref><sp/>=<sp/>ival<sp/>/<sp/>1000.0f;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae60428b67201aead00d1bc2f2e5209e2" kindref="member">read_i32</ref>(<ref refid="namespacesolakon_1_1reg_1a24031e405e3cbdc3bfccc64c21033a57" kindref="member">reg::METER1_S_CURRENT</ref>,<sp/>ival);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m1.<ref refid="structsolakon_1_1MeterData_1a040ee58dedc8261be6ddd36f441d8f06" kindref="member">s_current</ref><sp/>=<sp/>ival<sp/>/<sp/>1000.0f;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae60428b67201aead00d1bc2f2e5209e2" kindref="member">read_i32</ref>(<ref refid="namespacesolakon_1_1reg_1a4d9107537cd593be8d5648869fc5bcb1" kindref="member">reg::METER1_T_CURRENT</ref>,<sp/>ival);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m1.<ref refid="structsolakon_1_1MeterData_1a67f0e2f7d933f645d70ea69567befa37" kindref="member">t_current</ref><sp/>=<sp/>ival<sp/>/<sp/>1000.0f;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae60428b67201aead00d1bc2f2e5209e2" kindref="member">read_i32</ref>(<ref refid="namespacesolakon_1_1reg_1ae7ed105b6ec105f1628a500a31432c11" kindref="member">reg::METER1_R_POWER</ref>,<sp/>ival);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m1.<ref refid="structsolakon_1_1MeterData_1a9acc60b9922f370a9046e6e882e1cc8e" kindref="member">r_active_power</ref><sp/>=<sp/>ival<sp/>/<sp/>10.0f;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae60428b67201aead00d1bc2f2e5209e2" kindref="member">read_i32</ref>(<ref refid="namespacesolakon_1_1reg_1a94e6d040e2aa2ebe570f59db5213e907" kindref="member">reg::METER1_S_POWER</ref>,<sp/>ival);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m1.<ref refid="structsolakon_1_1MeterData_1aa5b4df4bca3f699909208f90c41c816e" kindref="member">s_active_power</ref><sp/>=<sp/>ival<sp/>/<sp/>10.0f;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae60428b67201aead00d1bc2f2e5209e2" kindref="member">read_i32</ref>(<ref refid="namespacesolakon_1_1reg_1abb94e4dd760d32654ca13b255241d1c9" kindref="member">reg::METER1_T_POWER</ref>,<sp/>ival);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m1.<ref refid="structsolakon_1_1MeterData_1a1f4afafb878d980856a6d86a7866127e" kindref="member">t_active_power</ref><sp/>=<sp/>ival<sp/>/<sp/>10.0f;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae60428b67201aead00d1bc2f2e5209e2" kindref="member">read_i32</ref>(<ref refid="namespacesolakon_1_1reg_1ae9e8aa2ea2e3936e70e4c30c195b481b" kindref="member">reg::METER1_COMBINED_POWER</ref>,<sp/>ival);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m1.<ref refid="structsolakon_1_1MeterData_1ac4ed1651ee3365a06d333010c20e877f" kindref="member">combined_active_power</ref><sp/>=<sp/>ival<sp/>/<sp/>10.0f;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae60428b67201aead00d1bc2f2e5209e2" kindref="member">read_i32</ref>(<ref refid="namespacesolakon_1_1reg_1a7fd0f966acf0f4a1a5b04068b2ef6895" kindref="member">reg::METER1_FREQ</ref>,<sp/>ival);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m1.<ref refid="structsolakon_1_1MeterData_1a5f817f4288e3a2a9818c6a72020a73ca" kindref="member">frequency</ref><sp/>=<sp/>ival<sp/>/<sp/>100.0f;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Meter2/CT2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1a7a0afe2c88fcbb769b01a96a5a5b765e" kindref="member">read_u16</ref>(<ref refid="namespacesolakon_1_1reg_1ae7828402db3213b4c754724c97c844e2" kindref="member">reg::METER2_CONN</ref>,<sp/>uval);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m2.<ref refid="structsolakon_1_1MeterData_1a83bd734878c556ebabe88ac3500e43bb" kindref="member">connected</ref><sp/>=<sp/>(uval<sp/>==<sp/>1);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae60428b67201aead00d1bc2f2e5209e2" kindref="member">read_i32</ref>(<ref refid="namespacesolakon_1_1reg_1a683f750b65c5eaa9059cb41eeb0ee590" kindref="member">reg::METER2_R_VOLTAGE</ref>,<sp/>ival);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m2.<ref refid="structsolakon_1_1MeterData_1af1213f8251710123693f4b0ed0e054ab" kindref="member">r_voltage</ref><sp/>=<sp/>ival<sp/>/<sp/>10.0f;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae60428b67201aead00d1bc2f2e5209e2" kindref="member">read_i32</ref>(<ref refid="namespacesolakon_1_1reg_1a17293e522eb30088de0a91e870ff85b6" kindref="member">reg::METER2_S_VOLTAGE</ref>,<sp/>ival);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m2.<ref refid="structsolakon_1_1MeterData_1a57a20fbfa8e621af175567df7db5e872" kindref="member">s_voltage</ref><sp/>=<sp/>ival<sp/>/<sp/>10.0f;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae60428b67201aead00d1bc2f2e5209e2" kindref="member">read_i32</ref>(<ref refid="namespacesolakon_1_1reg_1a81679f23607de2efa906181cfddbd871" kindref="member">reg::METER2_T_VOLTAGE</ref>,<sp/>ival);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m2.<ref refid="structsolakon_1_1MeterData_1a040f55b5449e6f562b2214c9a92197c0" kindref="member">t_voltage</ref><sp/>=<sp/>ival<sp/>/<sp/>10.0f;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae60428b67201aead00d1bc2f2e5209e2" kindref="member">read_i32</ref>(<ref refid="namespacesolakon_1_1reg_1a46cb7f3689d23c516604026810ad5e61" kindref="member">reg::METER2_R_CURRENT</ref>,<sp/>ival);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m2.<ref refid="structsolakon_1_1MeterData_1a8b2892694bfd4174cd1269f658ed4541" kindref="member">r_current</ref><sp/>=<sp/>ival<sp/>/<sp/>1000.0f;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae60428b67201aead00d1bc2f2e5209e2" kindref="member">read_i32</ref>(<ref refid="namespacesolakon_1_1reg_1a661b2f302999df3de01cbeebb1482bef" kindref="member">reg::METER2_S_CURRENT</ref>,<sp/>ival);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m2.<ref refid="structsolakon_1_1MeterData_1a040ee58dedc8261be6ddd36f441d8f06" kindref="member">s_current</ref><sp/>=<sp/>ival<sp/>/<sp/>1000.0f;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae60428b67201aead00d1bc2f2e5209e2" kindref="member">read_i32</ref>(<ref refid="namespacesolakon_1_1reg_1ab9dd971c18f9f908fe69477086f0313d" kindref="member">reg::METER2_T_CURRENT</ref>,<sp/>ival);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m2.<ref refid="structsolakon_1_1MeterData_1a67f0e2f7d933f645d70ea69567befa37" kindref="member">t_current</ref><sp/>=<sp/>ival<sp/>/<sp/>1000.0f;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae60428b67201aead00d1bc2f2e5209e2" kindref="member">read_i32</ref>(<ref refid="namespacesolakon_1_1reg_1a7b887d871b3bf04f83bdd3e76d6f4dbf" kindref="member">reg::METER2_COMBINED_POWER</ref>,<sp/>ival);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m2.<ref refid="structsolakon_1_1MeterData_1ac4ed1651ee3365a06d333010c20e877f" kindref="member">combined_active_power</ref><sp/>=<sp/>ival<sp/>/<sp/>10.0f;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae60428b67201aead00d1bc2f2e5209e2" kindref="member">read_i32</ref>(<ref refid="namespacesolakon_1_1reg_1a167531f80483082d75353dce0a0fb0c4" kindref="member">reg::METER2_FREQ</ref>,<sp/>ival);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m2.<ref refid="structsolakon_1_1MeterData_1a5f817f4288e3a2a9818c6a72020a73ca" kindref="member">frequency</ref><sp/>=<sp/>ival<sp/>/<sp/>100.0f;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>read_battery_data(<ref refid="structsolakon_1_1BMSData" kindref="compound">BMSData</ref>&amp;<sp/>bms)<sp/>{</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/>uval<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int16_t<sp/>ival<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1a7a0afe2c88fcbb769b01a96a5a5b765e" kindref="member">read_u16</ref>(<ref refid="namespacesolakon_1_1reg_1a8e0e428e84334edc3561fffde00ddc80" kindref="member">reg::BMS1</ref>,<sp/>uval);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bms.<ref refid="structsolakon_1_1BMSData_1a6a462d5d892d8e7523dd78a845d89de3" kindref="member">online</ref><sp/>=<sp/>uval;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1a7a0afe2c88fcbb769b01a96a5a5b765e" kindref="member">read_u16</ref>(<ref refid="namespacesolakon_1_1reg_1a1755b8ec74a148338a5571468d01f10c" kindref="member">reg::BMS1_MAIN</ref>,<sp/>uval);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bms.<ref refid="structsolakon_1_1BMSData_1a3f3e1860a520fbe83609e5f8254b8101" kindref="member">main_control</ref><sp/>=<sp/>uval;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1a6cf43c6ab484b2d584daba457f406a07" kindref="member">read_string</ref>(<ref refid="namespacesolakon_1_1reg_1ab1668b6c08235b277b76f4ad794ee956" kindref="member">reg::BMS1_SN</ref>,<sp/>16,<sp/>bms.<ref refid="structsolakon_1_1BMSData_1a8fd80bb2d7dde6b33faf74a69445165f" kindref="member">sn</ref>);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1a7a0afe2c88fcbb769b01a96a5a5b765e" kindref="member">read_u16</ref>(<ref refid="namespacesolakon_1_1reg_1a2934644a13dc9697f042de90086bc724" kindref="member">reg::BMS1_SLAVE_COUNT</ref>,<sp/>uval);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bms.<ref refid="structsolakon_1_1BMSData_1a13980e1e1f72b906ccd2b53b077ee1ec" kindref="member">slave_count</ref><sp/>=<sp/>uval;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1a7a0afe2c88fcbb769b01a96a5a5b765e" kindref="member">read_u16</ref>(<ref refid="namespacesolakon_1_1reg_1a240853e7353824ae595d7a512b4a9383" kindref="member">reg::BMS1_VOLTAGE</ref>,<sp/>uval);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bms.<ref refid="structsolakon_1_1BMSData_1a7f15b0bbecfcec1999cdb8533ba8b918" kindref="member">voltage</ref><sp/>=<sp/>uval<sp/>/<sp/>10.0f;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1add779eca2802bf24c2ea9e77cfbd04d1" kindref="member">read_i16</ref>(<ref refid="namespacesolakon_1_1reg_1a734072be6fba40148f548cce23cc7a30" kindref="member">reg::BMS1_CURRENT</ref>,<sp/>ival);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bms.<ref refid="structsolakon_1_1BMSData_1a89ebca768992ce6358110837adba5fa3" kindref="member">current</ref><sp/>=<sp/>ival<sp/>/<sp/>10.0f;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1add779eca2802bf24c2ea9e77cfbd04d1" kindref="member">read_i16</ref>(<ref refid="namespacesolakon_1_1reg_1a7a2c4a004fe64efc572af81271efb7a6" kindref="member">reg::BMS1_TEMP</ref>,<sp/>ival);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bms.<ref refid="structsolakon_1_1BMSData_1a3054d297d4147f505b50f4fc7c58545a" kindref="member">temperature</ref><sp/>=<sp/>ival<sp/>/<sp/>10.0f;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1a7a0afe2c88fcbb769b01a96a5a5b765e" kindref="member">read_u16</ref>(<ref refid="namespacesolakon_1_1reg_1aa30de058ee8d6515ece18afcc6a680d8" kindref="member">reg::BMS1_SOC</ref>,<sp/>uval);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bms.<ref refid="structsolakon_1_1BMSData_1a9fdb0f3d9a7cb3ea74cbd2f6f88e426d" kindref="member">soc</ref><sp/>=<sp/>uval;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1add779eca2802bf24c2ea9e77cfbd04d1" kindref="member">read_i16</ref>(<ref refid="namespacesolakon_1_1reg_1adb0e723ab04201b873f5889a2658bdc2" kindref="member">reg::BMS1_MAX_TEMP</ref>,<sp/>ival);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bms.<ref refid="structsolakon_1_1BMSData_1a2b59d659f7391fd232882b1087418cd0" kindref="member">max_temperature</ref><sp/>=<sp/>ival<sp/>/<sp/>10.0f;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1add779eca2802bf24c2ea9e77cfbd04d1" kindref="member">read_i16</ref>(<ref refid="namespacesolakon_1_1reg_1a512d35be6c004c0f7c12ccb577e24745" kindref="member">reg::BMS1_MIN_TEMP</ref>,<sp/>ival);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bms.<ref refid="structsolakon_1_1BMSData_1ada269c2b22d0d081d41cd74836db8e1f" kindref="member">min_temperature</ref><sp/>=<sp/>ival<sp/>/<sp/>10.0f;</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1a7a0afe2c88fcbb769b01a96a5a5b765e" kindref="member">read_u16</ref>(<ref refid="namespacesolakon_1_1reg_1a16de7d18bf9968b3229967038ca083c4" kindref="member">reg::BMS1_MAX_CELL</ref>,<sp/>uval);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bms.<ref refid="structsolakon_1_1BMSData_1a53bcb8fcaf22443412e72ff16dcfa9ef" kindref="member">max_cell_voltage</ref><sp/>=<sp/>uval;</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1a7a0afe2c88fcbb769b01a96a5a5b765e" kindref="member">read_u16</ref>(<ref refid="namespacesolakon_1_1reg_1a1f94618c08b9cf3aff701c71584277ed" kindref="member">reg::BMS1_MIN_CELL</ref>,<sp/>uval);</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bms.<ref refid="structsolakon_1_1BMSData_1ad5280d8f9087bc3a032b4e283402984f" kindref="member">min_cell_voltage</ref><sp/>=<sp/>uval;</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1a7a0afe2c88fcbb769b01a96a5a5b765e" kindref="member">read_u16</ref>(<ref refid="namespacesolakon_1_1reg_1a7e587a91bdbbea17b6de0a9e5f52d1e8" kindref="member">reg::BMS1_SOH</ref>,<sp/>uval);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bms.<ref refid="structsolakon_1_1BMSData_1a44c68a83ec064e8e4d84aaedac1a4fbb" kindref="member">soh</ref><sp/>=<sp/>uval;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1a7a0afe2c88fcbb769b01a96a5a5b765e" kindref="member">read_u16</ref>(<ref refid="namespacesolakon_1_1reg_1aad547d9838f30675a847b561f951e5f5" kindref="member">reg::BMS1_REMAIN_ENERGY</ref>,<sp/>uval);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bms.<ref refid="structsolakon_1_1BMSData_1ac53566ab6f7b067cbe07657f1a5ce9dc" kindref="member">remain_energy_wh</ref><sp/>=<sp/>uval<sp/>/<sp/>0.1f;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>read_energy_data(<ref refid="structsolakon_1_1EnergyData" kindref="compound">EnergyData</ref>&amp;<sp/>energy)<sp/>{</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/>uval<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>PV<sp/>total<sp/>power<sp/>(39118,<sp/>I32,<sp/>kW*1000)<sp/>-&gt;<sp/>raw<sp/>is<sp/>already<sp/>in<sp/>Watts</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32_t<sp/>pv_raw<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae60428b67201aead00d1bc2f2e5209e2" kindref="member">read_i32</ref>(<ref refid="namespacesolakon_1_1reg_1add782b3c6d5be70e5b3d0ad57fb8bb47" kindref="member">reg::PV_TOTAL_POWER</ref>,<sp/>pv_raw))<sp/>{</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>energy.<ref refid="structsolakon_1_1EnergyData_1ac5cc8c06079fb6b4ecddfc251d38f01e" kindref="member">pv_total_power_w</ref><sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(pv_raw);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Total<sp/>charge<sp/>capacity<sp/>(U32<sp/>at<sp/>39603,<sp/>kWh/10)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae1644df0bafb9dddd383647a2180c0b2" kindref="member">read_u32</ref>(<ref refid="namespacesolakon_1_1reg_1abdef7f49fd9ab8053dff4c32e5a09ff0" kindref="member">reg::TOTAL_CHARGE_CAP</ref>,<sp/>uval))<sp/>{</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>energy.<ref refid="structsolakon_1_1EnergyData_1a37d5d8c1941f7f95a0b8ff77193216f0" kindref="member">total_charge_kwh</ref><sp/>=<sp/>uval<sp/>/<sp/>10.0f;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Total<sp/>charge<sp/>today<sp/>(U32<sp/>at<sp/>39605,<sp/>kWh/10)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae1644df0bafb9dddd383647a2180c0b2" kindref="member">read_u32</ref>(<ref refid="namespacesolakon_1_1reg_1a88bdb39b8b9504bf3c431b5ab8b01afb" kindref="member">reg::TOTAL_CHARGE_TODAY</ref>,<sp/>uval))<sp/>{</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>energy.<ref refid="structsolakon_1_1EnergyData_1a401d12b62a6975725b241d5770b2cdba" kindref="member">total_charge_today_kwh</ref><sp/>=<sp/>uval<sp/>/<sp/>10.0f;</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Total<sp/>discharge<sp/>(U32<sp/>at<sp/>39607,<sp/>kWh/10)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae1644df0bafb9dddd383647a2180c0b2" kindref="member">read_u32</ref>(<ref refid="namespacesolakon_1_1reg_1a45fa15d30432beac5401aa4b044b3f20" kindref="member">reg::TOTAL_DISCHARGE</ref>,<sp/>uval))<sp/>{</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>energy.<ref refid="structsolakon_1_1EnergyData_1a257b0a550776c3e7937d5aac12f0787d" kindref="member">total_discharge_kwh</ref><sp/>=<sp/>uval<sp/>/<sp/>10.0f;</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Total<sp/>discharge<sp/>today<sp/>(U32<sp/>at<sp/>39609,<sp/>kWh/10)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae1644df0bafb9dddd383647a2180c0b2" kindref="member">read_u32</ref>(<ref refid="namespacesolakon_1_1reg_1a4b86aef730daabea6301c8b23b53ffb5" kindref="member">reg::TOTAL_DISCHARGE_TODAY</ref>,<sp/>uval))<sp/>{</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>energy.<ref refid="structsolakon_1_1EnergyData_1aac617e22aaccf2b087cff5289c21725a" kindref="member">total_discharge_today_kwh</ref><sp/>=<sp/>uval<sp/>/<sp/>10.0f;</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Total<sp/>feeder<sp/>(U32<sp/>at<sp/>39611,<sp/>kWh/10)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae1644df0bafb9dddd383647a2180c0b2" kindref="member">read_u32</ref>(<ref refid="namespacesolakon_1_1reg_1ad76c8be960ef5b98cecb34bf451921db" kindref="member">reg::TOTAL_FEEDER</ref>,<sp/>uval))<sp/>{</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>energy.<ref refid="structsolakon_1_1EnergyData_1a8c96c0d5f2b52399aacaf6480e237089" kindref="member">total_feeder_kwh</ref><sp/>=<sp/>uval<sp/>/<sp/>10.0f;</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Total<sp/>feeder<sp/>today<sp/>(U32<sp/>at<sp/>39613,<sp/>kWh/10)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae1644df0bafb9dddd383647a2180c0b2" kindref="member">read_u32</ref>(<ref refid="namespacesolakon_1_1reg_1ac29a2facbefa3cdf5c3c18ada17e12b6" kindref="member">reg::TOTAL_FEEDER_TODAY</ref>,<sp/>uval))<sp/>{</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>energy.<ref refid="structsolakon_1_1EnergyData_1abd035ec9839baf3e277af6f584b3e519" kindref="member">total_feeder_today_kwh</ref><sp/>=<sp/>uval<sp/>/<sp/>10.0f;</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Total<sp/>consumption<sp/>(U32<sp/>at<sp/>39615,<sp/>kWh/10)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae1644df0bafb9dddd383647a2180c0b2" kindref="member">read_u32</ref>(<ref refid="namespacesolakon_1_1reg_1a04d5a5afb4f32ebcfdaf48170ec48f21" kindref="member">reg::TOTAL_CONSUMPTION</ref>,<sp/>uval))<sp/>{</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>energy.<ref refid="structsolakon_1_1EnergyData_1a90b53097298064f1d9f78489ea853c66" kindref="member">total_consumption_kwh</ref><sp/>=<sp/>uval<sp/>/<sp/>10.0f;</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Total<sp/>consumption<sp/>today<sp/>(U32<sp/>at<sp/>39617,<sp/>kWh/10)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae1644df0bafb9dddd383647a2180c0b2" kindref="member">read_u32</ref>(<ref refid="namespacesolakon_1_1reg_1aca5908c88346226bb6c68b53c5c4f1f1" kindref="member">reg::TOTAL_CONSUMPTION_TODAY</ref>,<sp/>uval))<sp/>{</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>energy.<ref refid="structsolakon_1_1EnergyData_1ac16e74a34135c5f5989ad4b16f14cf2d" kindref="member">total_consumption_today_kwh</ref><sp/>=<sp/>uval<sp/>/<sp/>10.0f;</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Total<sp/>output<sp/>(U32<sp/>at<sp/>39619,<sp/>kWh/10)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae1644df0bafb9dddd383647a2180c0b2" kindref="member">read_u32</ref>(<ref refid="namespacesolakon_1_1reg_1ab7ed24f038790f46303fc261937515eb" kindref="member">reg::TOTAL_OUTPUT</ref>,<sp/>uval))<sp/>{</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>energy.<ref refid="structsolakon_1_1EnergyData_1a058323c3bb50e6184a6625cbe7de6680" kindref="member">total_output_kwh</ref><sp/>=<sp/>uval<sp/>/<sp/>10.0f;</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Total<sp/>output<sp/>today<sp/>(U32<sp/>at<sp/>39621,<sp/>kWh/10)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae1644df0bafb9dddd383647a2180c0b2" kindref="member">read_u32</ref>(<ref refid="namespacesolakon_1_1reg_1acdd3e8014fa584d59f2f060004962d44" kindref="member">reg::TOTAL_OUTPUT_TODAY</ref>,<sp/>uval))<sp/>{</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>energy.<ref refid="structsolakon_1_1EnergyData_1ab9014c02597d4f4a8bab2e04f63f920c" kindref="member">total_output_today_kwh</ref><sp/>=<sp/>uval<sp/>/<sp/>10.0f;</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"></highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Total<sp/>load<sp/>(U32<sp/>at<sp/>39623,<sp/>kWh/10)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae1644df0bafb9dddd383647a2180c0b2" kindref="member">read_u32</ref>(<ref refid="namespacesolakon_1_1reg_1a3d2bd63ed27c244d5b2f2f88eb7f8bca" kindref="member">reg::TOTAL_LOAD</ref>,<sp/>uval))<sp/>{</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>energy.<ref refid="structsolakon_1_1EnergyData_1a2775b4e3391e9836b20f512135c9838e" kindref="member">total_load_kwh</ref><sp/>=<sp/>uval<sp/>/<sp/>10.0f;</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Total<sp/>load<sp/>today<sp/>(U32<sp/>at<sp/>39625,<sp/>kWh/10)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a7a1021fc09db8ef2359e663dd0ca8462" kindref="member">client_</ref>.<ref refid="classsolakon_1_1modbus_1_1Client_1ae1644df0bafb9dddd383647a2180c0b2" kindref="member">read_u32</ref>(<ref refid="namespacesolakon_1_1reg_1ae6d54fe08f947bc7e72e2a02686c7bc1" kindref="member">reg::TOTAL_LOAD_TODAY</ref>,<sp/>uval))<sp/>{</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>energy.<ref refid="structsolakon_1_1EnergyData_1af314d0e74f3f7446f69f805fd1365971" kindref="member">total_load_today_kwh</ref><sp/>=<sp/>uval<sp/>/<sp/>10.0f;</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="276"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"></highlight></codeline>
+<codeline lineno="278"><highlight class="normal"></highlight><highlight class="comment">//<sp/>SolakonDevice<sp/>implementation</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="279"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classsolakon_1_1SolakonDevice_1a150fa4bb68bb99db8a42c05798e2e5c9" kindref="member">SolakonDevice::connect</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>host,<sp/>uint16_t<sp/>port)<sp/>{</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!impl_)<sp/>{</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>impl_<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsolakon_1_1SolakonDevice_1_1Impl" kindref="compound">Impl</ref>();</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>impl_-&gt;<ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1ab7a0c05e6f69a8c3f368241ef6d74f7b" kindref="member">connect</ref>(host,<sp/>port);</highlight></codeline>
+<codeline lineno="284"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"></highlight></codeline>
+<codeline lineno="286"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsolakon_1_1SolakonDevice_1a9d72b7088b50dfc7b564e52c19d61a53" kindref="member">SolakonDevice::disconnect</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(impl_)<sp/>{</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>impl_-&gt;<ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a033acd1d92d23181e07d805ff50eaec9" kindref="member">disconnect</ref>();</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="290"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"></highlight></codeline>
+<codeline lineno="292"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classsolakon_1_1SolakonDevice_1a303a4c32bdfd774f83e04eb7df8de656" kindref="member">SolakonDevice::is_connected</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>impl_<sp/>&amp;&amp;<sp/>impl_-&gt;<ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a2a566972ed1a3a061c2a2e89babf2e0b" kindref="member">is_connected</ref>();</highlight></codeline>
+<codeline lineno="294"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"></highlight></codeline>
+<codeline lineno="296"><highlight class="normal">DeviceSnapshot<sp/><ref refid="classsolakon_1_1SolakonDevice_1abea2ee13d91b4a101c0a4953c2ada836" kindref="member">SolakonDevice::fetch_snapshot</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!impl_)<sp/>{</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>DeviceSnapshot{};</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>impl_-&gt;<ref refid="classsolakon_1_1SolakonDevice_1_1Impl_1a3b6bc389c3e509b9c3ba0ec83d3dd7ee" kindref="member">fetch_snapshot</ref>();</highlight></codeline>
+<codeline lineno="301"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"></highlight></codeline>
+<codeline lineno="303"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>solakon</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/solakon_device.cpp"/>
+  </compounddef>
+</doxygen>

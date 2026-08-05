@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structsolakon_1_1modbus_1_1Client_1_1MBPRequest" kind="struct" language="C++" prot="private">
+    <compoundname>solakon::modbus::Client::MBPRequest</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structsolakon_1_1modbus_1_1Client_1_1MBPRequest_1a728babc453883d4eaa423b880e235304" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t solakon::modbus::Client::MBPRequest::transaction_id</definition>
+        <argsstring></argsstring>
+        <name>transaction_id</name>
+        <qualifiedname>solakon::modbus::Client::MBPRequest::transaction_id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/modbus_client.h" line="139" column="18" bodyfile="include/modbus_client.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsolakon_1_1modbus_1_1Client_1_1MBPRequest_1a0d7a63a075c4538f5694607226517e65" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t solakon::modbus::Client::MBPRequest::protocol_id</definition>
+        <argsstring></argsstring>
+        <name>protocol_id</name>
+        <qualifiedname>solakon::modbus::Client::MBPRequest::protocol_id</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/modbus_client.h" line="140" column="18" bodyfile="include/modbus_client.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsolakon_1_1modbus_1_1Client_1_1MBPRequest_1aab1b66ebb3f9b7f264e99a4e384292c9" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t solakon::modbus::Client::MBPRequest::length</definition>
+        <argsstring></argsstring>
+        <name>length</name>
+        <qualifiedname>solakon::modbus::Client::MBPRequest::length</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/modbus_client.h" line="141" column="18" bodyfile="include/modbus_client.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsolakon_1_1modbus_1_1Client_1_1MBPRequest_1ad6f4cb5c4d425c04ca80803cb84f109f" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t solakon::modbus::Client::MBPRequest::unit_id</definition>
+        <argsstring></argsstring>
+        <name>unit_id</name>
+        <qualifiedname>solakon::modbus::Client::MBPRequest::unit_id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/modbus_client.h" line="142" column="17" bodyfile="include/modbus_client.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsolakon_1_1modbus_1_1Client_1_1MBPRequest_1a3c510e54ec02cfa3769a51c97c8bb6ea" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t solakon::modbus::Client::MBPRequest::function_code</definition>
+        <argsstring></argsstring>
+        <name>function_code</name>
+        <qualifiedname>solakon::modbus::Client::MBPRequest::function_code</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/modbus_client.h" line="143" column="17" bodyfile="include/modbus_client.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsolakon_1_1modbus_1_1Client_1_1MBPRequest_1a404f211bddd252ccdb6fdb1e27791462" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t solakon::modbus::Client::MBPRequest::start_addr</definition>
+        <argsstring></argsstring>
+        <name>start_addr</name>
+        <qualifiedname>solakon::modbus::Client::MBPRequest::start_addr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/modbus_client.h" line="144" column="18" bodyfile="include/modbus_client.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsolakon_1_1modbus_1_1Client_1_1MBPRequest_1a5832ad3fc2f89597beb0b505f92e1cdd" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t solakon::modbus::Client::MBPRequest::quantity</definition>
+        <argsstring></argsstring>
+        <name>quantity</name>
+        <qualifiedname>solakon::modbus::Client::MBPRequest::quantity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/modbus_client.h" line="145" column="18" bodyfile="include/modbus_client.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Modbus TCP request frame structure. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Transaction ID | Protocol ID | Length | Unit ID | Function Code | Start Addr | Quantity </para>
+    </detaileddescription>
+    <location file="include/modbus_client.h" line="138" column="5" bodyfile="include/modbus_client.h" bodystart="138" bodyend="146"/>
+    <listofallmembers>
+      <member refid="structsolakon_1_1modbus_1_1Client_1_1MBPRequest_1a3c510e54ec02cfa3769a51c97c8bb6ea" prot="public" virt="non-virtual"><scope>solakon::modbus::Client::MBPRequest</scope><name>function_code</name></member>
+      <member refid="structsolakon_1_1modbus_1_1Client_1_1MBPRequest_1aab1b66ebb3f9b7f264e99a4e384292c9" prot="public" virt="non-virtual"><scope>solakon::modbus::Client::MBPRequest</scope><name>length</name></member>
+      <member refid="structsolakon_1_1modbus_1_1Client_1_1MBPRequest_1a0d7a63a075c4538f5694607226517e65" prot="public" virt="non-virtual"><scope>solakon::modbus::Client::MBPRequest</scope><name>protocol_id</name></member>
+      <member refid="structsolakon_1_1modbus_1_1Client_1_1MBPRequest_1a5832ad3fc2f89597beb0b505f92e1cdd" prot="public" virt="non-virtual"><scope>solakon::modbus::Client::MBPRequest</scope><name>quantity</name></member>
+      <member refid="structsolakon_1_1modbus_1_1Client_1_1MBPRequest_1a404f211bddd252ccdb6fdb1e27791462" prot="public" virt="non-virtual"><scope>solakon::modbus::Client::MBPRequest</scope><name>start_addr</name></member>
+      <member refid="structsolakon_1_1modbus_1_1Client_1_1MBPRequest_1a728babc453883d4eaa423b880e235304" prot="public" virt="non-virtual"><scope>solakon::modbus::Client::MBPRequest</scope><name>transaction_id</name></member>
+      <member refid="structsolakon_1_1modbus_1_1Client_1_1MBPRequest_1ad6f4cb5c4d425c04ca80803cb84f109f" prot="public" virt="non-virtual"><scope>solakon::modbus::Client::MBPRequest</scope><name>unit_id</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

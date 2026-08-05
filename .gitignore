@@ -1,0 +1,53 @@
+# Build artifacts
+build/
+*.o
+*.obj
+*.so
+*.a
+*.dll
+*.dylib
+*.exe
+solakonOne
+solakonOne_test
+
+# Coverage
+coverage-html/
+coverage-report/
+coverage*.info
+project_only.info
+raw.info
+coverage_all.info
+coverage_all2.info
+coverage_clean.info
+coverage_combined.info
+coverage_filtered.info
+coverage_final.info
+coverage_full.info
+coverage_project.info
+coverage_project_filtered.info
+coverage_project_only.info
+coverage_ui_only.info
+
+# Debian packaging
+debian-sysroot/
+*.deb
+debian/changelog.old
+
+# Debug scripts
+debug_*.py
+debug_*.pyc
+minimal_test.cpp
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Doxygen docs (HTML generated, commit XML)
+docs/html/
+
+# OS
+.DS_Store
+Thumbs.db

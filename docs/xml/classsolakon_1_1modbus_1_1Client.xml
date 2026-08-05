@@ -1,0 +1,770 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classsolakon_1_1modbus_1_1Client" kind="class" language="C++" prot="public">
+    <compoundname>solakon::modbus::Client</compoundname>
+    <includes refid="modbus__client_8h" local="no">modbus_client.h</includes>
+    <innerclass refid="structsolakon_1_1modbus_1_1Client_1_1MBPRequest" prot="private">solakon::modbus::Client::MBPRequest</innerclass>
+    <innerclass refid="structsolakon_1_1modbus_1_1Client_1_1MBPResponse" prot="private">solakon::modbus::Client::MBPResponse</innerclass>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsolakon_1_1modbus_1_1Client_1a94f465469c1a227609cc84fd9f10231e" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int solakon::modbus::Client::socket_fd_</definition>
+        <argsstring></argsstring>
+        <name>socket_fd_</name>
+        <qualifiedname>solakon::modbus::Client::socket_fd_</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/modbus_client.h" line="130" column="9" bodyfile="include/modbus_client.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsolakon_1_1modbus_1_1Client_1a833e567723412547382863f2b0a24df4" prot="private" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t solakon::modbus::Client::transaction_id_</definition>
+        <argsstring></argsstring>
+        <name>transaction_id_</name>
+        <qualifiedname>solakon::modbus::Client::transaction_id_</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/modbus_client.h" line="131" column="14" bodyfile="include/modbus_client.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsolakon_1_1modbus_1_1Client_1a6a1142f568afa11912f20ead074f9459" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>solakon::modbus::Client::Client</definition>
+        <argsstring>()=default</argsstring>
+        <name>Client</name>
+        <qualifiedname>solakon::modbus::Client::Client</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/modbus_client.h" line="42" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1modbus_1_1Client_1a8e1ff9e7c2bf2e5a51ee9be5a2b56333" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>solakon::modbus::Client::~Client</definition>
+        <argsstring>()</argsstring>
+        <name>~Client</name>
+        <qualifiedname>solakon::modbus::Client::~Client</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/modbus_client.h" line="43" column="5" bodyfile="src/modbus_client.cpp" bodystart="15" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1modbus_1_1Client_1a5486cfb10c4ff0d385127296270082ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>solakon::modbus::Client::Client</definition>
+        <argsstring>(const Client &amp;)=delete</argsstring>
+        <name>Client</name>
+        <qualifiedname>solakon::modbus::Client::Client</qualifiedname>
+        <param>
+          <type>const <ref refid="classsolakon_1_1modbus_1_1Client" kindref="compound">Client</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/modbus_client.h" line="44" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1modbus_1_1Client_1a8c8187144defe4ee0cfb578a11359028" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsolakon_1_1modbus_1_1Client" kindref="compound">Client</ref> &amp;</type>
+        <definition>Client &amp; solakon::modbus::Client::operator=</definition>
+        <argsstring>(const Client &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>solakon::modbus::Client::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classsolakon_1_1modbus_1_1Client" kindref="compound">Client</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/modbus_client.h" line="45" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1modbus_1_1Client_1a25765ad73ed0dfac1dcbe35a65640d34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::error_code</type>
+        <definition>std::error_code solakon::modbus::Client::connect</definition>
+        <argsstring>(const std::string &amp;host, uint16_t port=502)</argsstring>
+        <name>connect</name>
+        <qualifiedname>solakon::modbus::Client::connect</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>host</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>port</declname>
+          <defval>502</defval>
+        </param>
+        <briefdescription>
+<para>Connect to a Modbus TCP server. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>host</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>IP address or hostname of the device. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>port</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>TCP port (default 502 for Modbus). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::error_code indicating success or failure. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/modbus_client.h" line="53" column="21" bodyfile="src/modbus_client.cpp" bodystart="19" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1modbus_1_1Client_1ac4b95eb757767dc481129ae42acd52ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void solakon::modbus::Client::disconnect</definition>
+        <argsstring>()</argsstring>
+        <name>disconnect</name>
+        <qualifiedname>solakon::modbus::Client::disconnect</qualifiedname>
+        <briefdescription>
+<para>Disconnect from the Modbus TCP server. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/modbus_client.h" line="58" column="10" bodyfile="src/modbus_client.cpp" bodystart="50" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1modbus_1_1Client_1a32ded39886de092c0e3701855e1a5a93" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool solakon::modbus::Client::is_connected</definition>
+        <argsstring>() const</argsstring>
+        <name>is_connected</name>
+        <qualifiedname>solakon::modbus::Client::is_connected</qualifiedname>
+        <briefdescription>
+<para>Check if a connection is established. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if connected, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/modbus_client.h" line="64" column="10" bodyfile="src/modbus_client.cpp" bodystart="57" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1modbus_1_1Client_1a3761e33a9a5e0e73af7ce0d5d8617227" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int solakon::modbus::Client::read_holding_registers</definition>
+        <argsstring>(uint16_t start_addr, uint16_t count, std::span&lt; uint16_t &gt; output)</argsstring>
+        <name>read_holding_registers</name>
+        <qualifiedname>solakon::modbus::Client::read_holding_registers</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>start_addr</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>count</declname>
+        </param>
+        <param>
+          <type>std::span&lt; uint16_t &gt;</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+<para>Read holding registers (Modbus function code 0x03). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>start_addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Starting register address. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of registers to read. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Span to store the read values. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of registers read, or -1 on error. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/modbus_client.h" line="73" column="9" bodyfile="src/modbus_client.cpp" bodystart="147" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1modbus_1_1Client_1a458e3a7f8a2b64f5694ab9a3ba32cf97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int solakon::modbus::Client::read_input_registers</definition>
+        <argsstring>(uint16_t start_addr, uint16_t count, std::span&lt; uint16_t &gt; output)</argsstring>
+        <name>read_input_registers</name>
+        <qualifiedname>solakon::modbus::Client::read_input_registers</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>start_addr</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>count</declname>
+        </param>
+        <param>
+          <type>std::span&lt; uint16_t &gt;</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+<para>Read input registers (Modbus function code 0x04). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>start_addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Starting register address. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of registers to read. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Span to store the read values. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of registers read, or -1 on error. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/modbus_client.h" line="82" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1modbus_1_1Client_1ae1644df0bafb9dddd383647a2180c0b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::error_code</type>
+        <definition>std::error_code solakon::modbus::Client::read_u32</definition>
+        <argsstring>(uint16_t addr, uint32_t &amp;value)</argsstring>
+        <name>read_u32</name>
+        <qualifiedname>solakon::modbus::Client::read_u32</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>addr</declname>
+        </param>
+        <param>
+          <type>uint32_t &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Read a 32-bit unsigned integer (2 consecutive holding registers). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Starting register address. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output variable for the read value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::error_code indicating success or failure.</para>
+</simplesect>
+Combines two 16-bit registers as big-endian U32. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/modbus_client.h" line="92" column="21" bodyfile="src/modbus_client.cpp" bodystart="108" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1modbus_1_1Client_1ae60428b67201aead00d1bc2f2e5209e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::error_code</type>
+        <definition>std::error_code solakon::modbus::Client::read_i32</definition>
+        <argsstring>(uint16_t addr, int32_t &amp;value)</argsstring>
+        <name>read_i32</name>
+        <qualifiedname>solakon::modbus::Client::read_i32</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>addr</declname>
+        </param>
+        <param>
+          <type>int32_t &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Read a 32-bit signed integer (2 consecutive holding registers). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Starting register address. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output variable for the read value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::error_code indicating success or failure.</para>
+</simplesect>
+Combines two 16-bit registers as big-endian I32. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/modbus_client.h" line="102" column="21" bodyfile="src/modbus_client.cpp" bodystart="119" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1modbus_1_1Client_1a7a0afe2c88fcbb769b01a96a5a5b765e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::error_code</type>
+        <definition>std::error_code solakon::modbus::Client::read_u16</definition>
+        <argsstring>(uint16_t addr, uint16_t &amp;value)</argsstring>
+        <name>read_u16</name>
+        <qualifiedname>solakon::modbus::Client::read_u16</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>addr</declname>
+        </param>
+        <param>
+          <type>uint16_t &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Read a 16-bit unsigned integer (1 holding register). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Register address. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output variable for the read value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::error_code indicating success or failure. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/modbus_client.h" line="110" column="21" bodyfile="src/modbus_client.cpp" bodystart="88" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1modbus_1_1Client_1add779eca2802bf24c2ea9e77cfbd04d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::error_code</type>
+        <definition>std::error_code solakon::modbus::Client::read_i16</definition>
+        <argsstring>(uint16_t addr, int16_t &amp;value)</argsstring>
+        <name>read_i16</name>
+        <qualifiedname>solakon::modbus::Client::read_i16</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>addr</declname>
+        </param>
+        <param>
+          <type>int16_t &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Read a 16-bit signed integer (1 holding register). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Register address. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output variable for the read value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::error_code indicating success or failure. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/modbus_client.h" line="118" column="21" bodyfile="src/modbus_client.cpp" bodystart="98" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1modbus_1_1Client_1a6cf43c6ab484b2d584daba457f406a07" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::error_code</type>
+        <definition>std::error_code solakon::modbus::Client::read_string</definition>
+        <argsstring>(uint16_t addr, uint16_t reg_count, std::string &amp;result)</argsstring>
+        <name>read_string</name>
+        <qualifiedname>solakon::modbus::Client::read_string</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>addr</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>reg_count</declname>
+        </param>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+<para>Read a string from consecutive holding registers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Starting register address. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>reg_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of registers to read. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>result</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output string (ASCII, big-endian per register). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::error_code indicating success or failure. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/modbus_client.h" line="127" column="21" bodyfile="src/modbus_client.cpp" bodystart="128" bodyend="145"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsolakon_1_1modbus_1_1Client_1a12866451370c71d873fbc5effb7a5577" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>struct solakon::modbus::Client::MBPRequest</type>
+        <definition>struct solakon::modbus::Client::MBPRequest solakon::modbus::Client::__attribute__</definition>
+        <argsstring>((packed))</argsstring>
+        <name>__attribute__</name>
+        <qualifiedname>solakon::modbus::Client::__attribute__</qualifiedname>
+        <param>
+          <type>(packed)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/modbus_client.h" line="131" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1modbus_1_1Client_1ab54f72d7a081c4234250c283e892c4ab" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>struct solakon::modbus::Client::MBPResponse</type>
+        <definition>struct solakon::modbus::Client::MBPResponse solakon::modbus::Client::__attribute__</definition>
+        <argsstring>((packed))</argsstring>
+        <name>__attribute__</name>
+        <qualifiedname>solakon::modbus::Client::__attribute__</qualifiedname>
+        <param>
+          <type>(packed)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/modbus_client.h" line="131" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1modbus_1_1Client_1a16293f47d4e9aef720dbf06c675ee056" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::error_code</type>
+        <definition>std::error_code solakon::modbus::Client::send_receive</definition>
+        <argsstring>(const uint8_t *request, size_t req_len, uint8_t *response, size_t resp_len)</argsstring>
+        <name>send_receive</name>
+        <qualifiedname>solakon::modbus::Client::send_receive</qualifiedname>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>req_len</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>response</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>resp_len</declname>
+        </param>
+        <briefdescription>
+<para>Send request and receive response over TCP socket. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Request data buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>req_len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Request buffer length. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>response</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Response data buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>resp_len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Response buffer length. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::error_code indicating success or failure. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/modbus_client.h" line="171" column="21" bodyfile="src/modbus_client.cpp" bodystart="61" bodyend="86"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classsolakon_1_1modbus_1_1Client_1a8118a7423647a46f9824ebf38d727173" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t solakon::modbus::Client::modbus_crc16</definition>
+        <argsstring>(const uint8_t *data, size_t len)</argsstring>
+        <name>modbus_crc16</name>
+        <qualifiedname>solakon::modbus::Client::modbus_crc16</qualifiedname>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+<para>Calculate Modbus CRC-16. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data length in bytes. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>CRC-16 checksum value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/modbus_client.h" line="180" column="21" bodyfile="src/modbus_client.cpp" bodystart="190" bodyend="204"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1modbus_1_1Client_1a1eca8a54f07305ead0005fd4d93524fc" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int solakon::modbus::Client::make_nonblocking</definition>
+        <argsstring>(int fd, int timeout_ms)</argsstring>
+        <name>make_nonblocking</name>
+        <qualifiedname>solakon::modbus::Client::make_nonblocking</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>fd</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>timeout_ms</declname>
+        </param>
+        <briefdescription>
+<para>Set socket to non-blocking mode with timeout. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>File descriptor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>timeout_ms</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timeout in milliseconds. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 on success, -1 on error. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/modbus_client.h" line="188" column="16" bodyfile="src/modbus_client.cpp" bodystart="206" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1modbus_1_1Client_1a28be234bfde0c8a38b5de5d90e709089" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void solakon::modbus::Client::set_socket_options</definition>
+        <argsstring>(int fd)</argsstring>
+        <name>set_socket_options</name>
+        <qualifiedname>solakon::modbus::Client::set_socket_options</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>fd</declname>
+        </param>
+        <briefdescription>
+<para>Set standard socket options (reuse address, no delay). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>File descriptor. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/modbus_client.h" line="194" column="17" bodyfile="src/modbus_client.cpp" bodystart="213" bodyend="221"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Modbus TCP client for communicating with Solakon ONE devices. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Handles connection management, protocol framing, CRC-16 calculation, and data conversion (big-endian byte order as per Modbus specification). </para>
+    </detaileddescription>
+    <location file="include/modbus_client.h" line="40" column="1" bodyfile="include/modbus_client.h" bodystart="40" bodyend="195"/>
+    <listofallmembers>
+      <member refid="classsolakon_1_1modbus_1_1Client_1a12866451370c71d873fbc5effb7a5577" prot="private" virt="non-virtual"><scope>solakon::modbus::Client</scope><name>__attribute__</name></member>
+      <member refid="classsolakon_1_1modbus_1_1Client_1ab54f72d7a081c4234250c283e892c4ab" prot="private" virt="non-virtual"><scope>solakon::modbus::Client</scope><name>__attribute__</name></member>
+      <member refid="classsolakon_1_1modbus_1_1Client_1a6a1142f568afa11912f20ead074f9459" prot="public" virt="non-virtual"><scope>solakon::modbus::Client</scope><name>Client</name></member>
+      <member refid="classsolakon_1_1modbus_1_1Client_1a5486cfb10c4ff0d385127296270082ed" prot="public" virt="non-virtual"><scope>solakon::modbus::Client</scope><name>Client</name></member>
+      <member refid="classsolakon_1_1modbus_1_1Client_1a25765ad73ed0dfac1dcbe35a65640d34" prot="public" virt="non-virtual"><scope>solakon::modbus::Client</scope><name>connect</name></member>
+      <member refid="classsolakon_1_1modbus_1_1Client_1ac4b95eb757767dc481129ae42acd52ff" prot="public" virt="non-virtual"><scope>solakon::modbus::Client</scope><name>disconnect</name></member>
+      <member refid="classsolakon_1_1modbus_1_1Client_1a32ded39886de092c0e3701855e1a5a93" prot="public" virt="non-virtual"><scope>solakon::modbus::Client</scope><name>is_connected</name></member>
+      <member refid="classsolakon_1_1modbus_1_1Client_1a1eca8a54f07305ead0005fd4d93524fc" prot="private" virt="non-virtual"><scope>solakon::modbus::Client</scope><name>make_nonblocking</name></member>
+      <member refid="classsolakon_1_1modbus_1_1Client_1a8118a7423647a46f9824ebf38d727173" prot="private" virt="non-virtual"><scope>solakon::modbus::Client</scope><name>modbus_crc16</name></member>
+      <member refid="classsolakon_1_1modbus_1_1Client_1a8c8187144defe4ee0cfb578a11359028" prot="public" virt="non-virtual"><scope>solakon::modbus::Client</scope><name>operator=</name></member>
+      <member refid="classsolakon_1_1modbus_1_1Client_1a3761e33a9a5e0e73af7ce0d5d8617227" prot="public" virt="non-virtual"><scope>solakon::modbus::Client</scope><name>read_holding_registers</name></member>
+      <member refid="classsolakon_1_1modbus_1_1Client_1add779eca2802bf24c2ea9e77cfbd04d1" prot="public" virt="non-virtual"><scope>solakon::modbus::Client</scope><name>read_i16</name></member>
+      <member refid="classsolakon_1_1modbus_1_1Client_1ae60428b67201aead00d1bc2f2e5209e2" prot="public" virt="non-virtual"><scope>solakon::modbus::Client</scope><name>read_i32</name></member>
+      <member refid="classsolakon_1_1modbus_1_1Client_1a458e3a7f8a2b64f5694ab9a3ba32cf97" prot="public" virt="non-virtual"><scope>solakon::modbus::Client</scope><name>read_input_registers</name></member>
+      <member refid="classsolakon_1_1modbus_1_1Client_1a6cf43c6ab484b2d584daba457f406a07" prot="public" virt="non-virtual"><scope>solakon::modbus::Client</scope><name>read_string</name></member>
+      <member refid="classsolakon_1_1modbus_1_1Client_1a7a0afe2c88fcbb769b01a96a5a5b765e" prot="public" virt="non-virtual"><scope>solakon::modbus::Client</scope><name>read_u16</name></member>
+      <member refid="classsolakon_1_1modbus_1_1Client_1ae1644df0bafb9dddd383647a2180c0b2" prot="public" virt="non-virtual"><scope>solakon::modbus::Client</scope><name>read_u32</name></member>
+      <member refid="classsolakon_1_1modbus_1_1Client_1a16293f47d4e9aef720dbf06c675ee056" prot="private" virt="non-virtual"><scope>solakon::modbus::Client</scope><name>send_receive</name></member>
+      <member refid="classsolakon_1_1modbus_1_1Client_1a28be234bfde0c8a38b5de5d90e709089" prot="private" virt="non-virtual"><scope>solakon::modbus::Client</scope><name>set_socket_options</name></member>
+      <member refid="classsolakon_1_1modbus_1_1Client_1a94f465469c1a227609cc84fd9f10231e" prot="private" virt="non-virtual"><scope>solakon::modbus::Client</scope><name>socket_fd_</name></member>
+      <member refid="classsolakon_1_1modbus_1_1Client_1a833e567723412547382863f2b0a24df4" prot="private" virt="non-virtual"><scope>solakon::modbus::Client</scope><name>transaction_id_</name></member>
+      <member refid="classsolakon_1_1modbus_1_1Client_1a8e1ff9e7c2bf2e5a51ee9be5a2b56333" prot="public" virt="non-virtual"><scope>solakon::modbus::Client</scope><name>~Client</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

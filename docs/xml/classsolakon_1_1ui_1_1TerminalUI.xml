@@ -1,0 +1,661 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classsolakon_1_1ui_1_1TerminalUI" kind="class" language="C++" prot="public">
+    <compoundname>solakon::ui::TerminalUI</compoundname>
+    <includes refid="ui_8h" local="no">ui.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsolakon_1_1ui_1_1TerminalUI_1a2415cc99b04b0a2a5ec269204f88bad1" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int solakon::ui::TerminalUI::screen_width_</definition>
+        <argsstring></argsstring>
+        <name>screen_width_</name>
+        <qualifiedname>solakon::ui::TerminalUI::screen_width_</qualifiedname>
+        <initializer>= 80</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ui.h" line="51" column="9" bodyfile="include/ui.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsolakon_1_1ui_1_1TerminalUI_1a0dc5b16222526a968941eedd116ea71f" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int solakon::ui::TerminalUI::screen_height_</definition>
+        <argsstring></argsstring>
+        <name>screen_height_</name>
+        <qualifiedname>solakon::ui::TerminalUI::screen_height_</qualifiedname>
+        <initializer>= 24</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ui.h" line="52" column="9" bodyfile="include/ui.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsolakon_1_1ui_1_1TerminalUI_1a491995e143ba568b3ca105ef2f58fbdc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>solakon::ui::TerminalUI::TerminalUI</definition>
+        <argsstring>()=default</argsstring>
+        <name>TerminalUI</name>
+        <qualifiedname>solakon::ui::TerminalUI::TerminalUI</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ui.h" line="25" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1ui_1_1TerminalUI_1ab3e417172a39fdda68137890a0194f1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>solakon::ui::TerminalUI::~TerminalUI</definition>
+        <argsstring>()=default</argsstring>
+        <name>~TerminalUI</name>
+        <qualifiedname>solakon::ui::TerminalUI::~TerminalUI</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ui.h" line="26" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1ui_1_1TerminalUI_1a2bbd3422790da646695f5abdfdf60074" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>solakon::ui::TerminalUI::TerminalUI</definition>
+        <argsstring>(const TerminalUI &amp;)=delete</argsstring>
+        <name>TerminalUI</name>
+        <qualifiedname>solakon::ui::TerminalUI::TerminalUI</qualifiedname>
+        <param>
+          <type>const <ref refid="classsolakon_1_1ui_1_1TerminalUI" kindref="compound">TerminalUI</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ui.h" line="27" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1ui_1_1TerminalUI_1a63def5fa73233c2ebd47d7cc67faba7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsolakon_1_1ui_1_1TerminalUI" kindref="compound">TerminalUI</ref> &amp;</type>
+        <definition>TerminalUI &amp; solakon::ui::TerminalUI::operator=</definition>
+        <argsstring>(const TerminalUI &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>solakon::ui::TerminalUI::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classsolakon_1_1ui_1_1TerminalUI" kindref="compound">TerminalUI</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ui.h" line="28" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1ui_1_1TerminalUI_1a200f7c5bf0aa3dcc62732b4f84c04599" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void solakon::ui::TerminalUI::init</definition>
+        <argsstring>()</argsstring>
+        <name>init</name>
+        <qualifiedname>solakon::ui::TerminalUI::init</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ui.h" line="30" column="10" bodyfile="src/ui.cpp" bodystart="130" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1ui_1_1TerminalUI_1ad89fa831e53e7bd458833294be64cfd1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void solakon::ui::TerminalUI::shutdown</definition>
+        <argsstring>()</argsstring>
+        <name>shutdown</name>
+        <qualifiedname>solakon::ui::TerminalUI::shutdown</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ui.h" line="31" column="10" bodyfile="src/ui.cpp" bodystart="145" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1ui_1_1TerminalUI_1a5b76b11a2d5baa438420091134935289" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void solakon::ui::TerminalUI::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>solakon::ui::TerminalUI::clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ui.h" line="32" column="10" bodyfile="src/ui.cpp" bodystart="152" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1ui_1_1TerminalUI_1a0c44c7fd155024f5188b60ef87a21a38" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void solakon::ui::TerminalUI::render</definition>
+        <argsstring>(const DeviceSnapshot &amp;snap, int refresh_hz)</argsstring>
+        <name>render</name>
+        <qualifiedname>solakon::ui::TerminalUI::render</qualifiedname>
+        <param>
+          <type>const <ref refid="structsolakon_1_1DeviceSnapshot" kindref="compound">DeviceSnapshot</ref> &amp;</type>
+          <declname>snap</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>refresh_hz</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ui.h" line="33" column="10" bodyfile="src/ui.cpp" bodystart="157" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1ui_1_1TerminalUI_1a638010269d56214de56a302fdc30e8e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void solakon::ui::TerminalUI::draw_power_block</definition>
+        <argsstring>(const std::string &amp;label, float power_w, int width)</argsstring>
+        <name>draw_power_block</name>
+        <qualifiedname>solakon::ui::TerminalUI::draw_power_block</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>label</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>power_w</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ui.h" line="48" column="10" bodyfile="src/ui.cpp" bodystart="224" bodyend="227"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classsolakon_1_1ui_1_1TerminalUI_1aaa2dd781782f6fc1d1bf2adee3a9d292" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string solakon::ui::TerminalUI::color</definition>
+        <argsstring>(Color fg, Color bg=Color::DEFAULT, const std::string &amp;text=&quot;&quot;)</argsstring>
+        <name>color</name>
+        <qualifiedname>solakon::ui::TerminalUI::color</qualifiedname>
+        <param>
+          <type><ref refid="namespacesolakon_1_1ui_1aebbe62ae3a7e97e00d7d6b3f02a0f284" kindref="member">Color</ref></type>
+          <declname>fg</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesolakon_1_1ui_1aebbe62ae3a7e97e00d7d6b3f02a0f284" kindref="member">Color</ref></type>
+          <declname>bg</declname>
+          <defval><ref refid="namespacesolakon_1_1ui_1aebbe62ae3a7e97e00d7d6b3f02a0f284a5b39c8b553c821e7cddc6da64b5bd2ee" kindref="member">Color::DEFAULT</ref></defval>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>text</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ui.h" line="37" column="24" bodyfile="src/ui.cpp" bodystart="30" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1ui_1_1TerminalUI_1a57b58912d6af9def7b0b5c55a4de1d61" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string solakon::ui::TerminalUI::bold</definition>
+        <argsstring>(Color fg, const std::string &amp;text=&quot;&quot;)</argsstring>
+        <name>bold</name>
+        <qualifiedname>solakon::ui::TerminalUI::bold</qualifiedname>
+        <param>
+          <type><ref refid="namespacesolakon_1_1ui_1aebbe62ae3a7e97e00d7d6b3f02a0f284" kindref="member">Color</ref></type>
+          <declname>fg</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>text</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ui.h" line="38" column="24" bodyfile="src/ui.cpp" bodystart="52" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1ui_1_1TerminalUI_1a0f9ac6cde83996121c93ba2aff948c6d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string solakon::ui::TerminalUI::dim</definition>
+        <argsstring>(Color fg, const std::string &amp;text=&quot;&quot;)</argsstring>
+        <name>dim</name>
+        <qualifiedname>solakon::ui::TerminalUI::dim</qualifiedname>
+        <param>
+          <type><ref refid="namespacesolakon_1_1ui_1aebbe62ae3a7e97e00d7d6b3f02a0f284" kindref="member">Color</ref></type>
+          <declname>fg</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>text</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ui.h" line="39" column="24" bodyfile="src/ui.cpp" bodystart="56" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1ui_1_1TerminalUI_1a3fc656ccd57d1176089822dd5253c498" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string solakon::ui::TerminalUI::separator</definition>
+        <argsstring>(int width, char c=&apos;-&apos;, Color fg=Color::DIM_GRAY)</argsstring>
+        <name>separator</name>
+        <qualifiedname>solakon::ui::TerminalUI::separator</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+          <defval>&apos;-&apos;</defval>
+        </param>
+        <param>
+          <type><ref refid="namespacesolakon_1_1ui_1aebbe62ae3a7e97e00d7d6b3f02a0f284" kindref="member">Color</ref></type>
+          <declname>fg</declname>
+          <defval><ref refid="namespacesolakon_1_1ui_1aebbe62ae3a7e97e00d7d6b3f02a0f284a59e8c6c43d3497a93865e957c389fbb1" kindref="member">Color::DIM_GRAY</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ui.h" line="40" column="24" bodyfile="src/ui.cpp" bodystart="60" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1ui_1_1TerminalUI_1a378f884d251453d97e6db2588a67a089" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string solakon::ui::TerminalUI::section_header</definition>
+        <argsstring>(const std::string &amp;title, int width, Color fg=Color::BRIGHT_CYAN)</argsstring>
+        <name>section_header</name>
+        <qualifiedname>solakon::ui::TerminalUI::section_header</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>title</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesolakon_1_1ui_1aebbe62ae3a7e97e00d7d6b3f02a0f284" kindref="member">Color</ref></type>
+          <declname>fg</declname>
+          <defval><ref refid="namespacesolakon_1_1ui_1aebbe62ae3a7e97e00d7d6b3f02a0f284aa74a6a719de5de03a46f89ce260fa4b7" kindref="member">Color::BRIGHT_CYAN</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ui.h" line="41" column="24" bodyfile="src/ui.cpp" bodystart="64" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1ui_1_1TerminalUI_1a4cd522ee1465c7e5be8ac867af34af32" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string solakon::ui::TerminalUI::status_badge</definition>
+        <argsstring>(const std::string &amp;label, bool ok, Color fg=Color::GREEN)</argsstring>
+        <name>status_badge</name>
+        <qualifiedname>solakon::ui::TerminalUI::status_badge</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>label</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>ok</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesolakon_1_1ui_1aebbe62ae3a7e97e00d7d6b3f02a0f284" kindref="member">Color</ref></type>
+          <declname>fg</declname>
+          <defval><ref refid="namespacesolakon_1_1ui_1aebbe62ae3a7e97e00d7d6b3f02a0f284a9de0e5dd94e861317e74964bed179fa0" kindref="member">Color::GREEN</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ui.h" line="42" column="24" bodyfile="src/ui.cpp" bodystart="71" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1ui_1_1TerminalUI_1a591d3d30b26c4bc9ee4ae9f1c09a6c05" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string solakon::ui::TerminalUI::format_power</definition>
+        <argsstring>(float watts)</argsstring>
+        <name>format_power</name>
+        <qualifiedname>solakon::ui::TerminalUI::format_power</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>watts</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ui.h" line="43" column="24" bodyfile="src/ui.cpp" bodystart="75" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1ui_1_1TerminalUI_1a1e571b5fe1ae3399cb32f68283ab5e19" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string solakon::ui::TerminalUI::format_voltage</definition>
+        <argsstring>(float v)</argsstring>
+        <name>format_voltage</name>
+        <qualifiedname>solakon::ui::TerminalUI::format_voltage</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ui.h" line="44" column="24" bodyfile="src/ui.cpp" bodystart="86" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1ui_1_1TerminalUI_1a9d01c29b45eac72838ba9e2e032da852" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string solakon::ui::TerminalUI::format_current</definition>
+        <argsstring>(float a)</argsstring>
+        <name>format_current</name>
+        <qualifiedname>solakon::ui::TerminalUI::format_current</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ui.h" line="45" column="24" bodyfile="src/ui.cpp" bodystart="92" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1ui_1_1TerminalUI_1a7233303aab12a0c362f4fe0e101e1b91" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string solakon::ui::TerminalUI::format_uptime</definition>
+        <argsstring>(std::chrono::system_clock::time_point tp)</argsstring>
+        <name>format_uptime</name>
+        <qualifiedname>solakon::ui::TerminalUI::format_uptime</qualifiedname>
+        <param>
+          <type>std::chrono::system_clock::time_point</type>
+          <declname>tp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ui.h" line="46" column="24" bodyfile="src/ui.cpp" bodystart="98" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1ui_1_1TerminalUI_1a28a136e3c01eb873da965ad88e000849" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string solakon::ui::TerminalUI::bar</definition>
+        <argsstring>(float value, float max_val, int width, Color fg=Color::GREEN, BarStyle style=BarStyle::BLOCK)</argsstring>
+        <name>bar</name>
+        <qualifiedname>solakon::ui::TerminalUI::bar</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>max_val</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesolakon_1_1ui_1aebbe62ae3a7e97e00d7d6b3f02a0f284" kindref="member">Color</ref></type>
+          <declname>fg</declname>
+          <defval><ref refid="namespacesolakon_1_1ui_1aebbe62ae3a7e97e00d7d6b3f02a0f284a9de0e5dd94e861317e74964bed179fa0" kindref="member">Color::GREEN</ref></defval>
+        </param>
+        <param>
+          <type><ref refid="namespacesolakon_1_1ui_1ac444c7abbe7007207972b131149efe47" kindref="member">BarStyle</ref></type>
+          <declname>style</declname>
+          <defval><ref refid="namespacesolakon_1_1ui_1ac444c7abbe7007207972b131149efe47a4d34f53389ed7f28ca91fc31ea360a66" kindref="member">BarStyle::BLOCK</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ui.h" line="47" column="24" bodyfile="src/ui.cpp" bodystart="117" bodyend="128"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsolakon_1_1ui_1_1TerminalUI_1a4b29965ed497ea2b91a72b30e94f5e77" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void solakon::ui::TerminalUI::draw_header</definition>
+        <argsstring>(const DeviceSnapshot &amp;snap)</argsstring>
+        <name>draw_header</name>
+        <qualifiedname>solakon::ui::TerminalUI::draw_header</qualifiedname>
+        <param>
+          <type>const <ref refid="structsolakon_1_1DeviceSnapshot" kindref="compound">DeviceSnapshot</ref> &amp;</type>
+          <declname>snap</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ui.h" line="54" column="10" bodyfile="src/ui.cpp" bodystart="171" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1ui_1_1TerminalUI_1aee7d6f95fa7f999661d6a823a0c5d9e1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void solakon::ui::TerminalUI::draw_inverter_info</definition>
+        <argsstring>(const DeviceSnapshot &amp;snap)</argsstring>
+        <name>draw_inverter_info</name>
+        <qualifiedname>solakon::ui::TerminalUI::draw_inverter_info</qualifiedname>
+        <param>
+          <type>const <ref refid="structsolakon_1_1DeviceSnapshot" kindref="compound">DeviceSnapshot</ref> &amp;</type>
+          <declname>snap</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ui.h" line="55" column="10" bodyfile="src/ui.cpp" bodystart="184" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1ui_1_1TerminalUI_1ae9ef84c4eb7409de264e3698b11c5309" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void solakon::ui::TerminalUI::draw_status</definition>
+        <argsstring>(const DeviceSnapshot &amp;snap)</argsstring>
+        <name>draw_status</name>
+        <qualifiedname>solakon::ui::TerminalUI::draw_status</qualifiedname>
+        <param>
+          <type>const <ref refid="structsolakon_1_1DeviceSnapshot" kindref="compound">DeviceSnapshot</ref> &amp;</type>
+          <declname>snap</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ui.h" line="56" column="10" bodyfile="src/ui.cpp" bodystart="216" bodyend="222"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1ui_1_1TerminalUI_1a8141cf20e67a4c7c0d7927adaa2bbd8a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void solakon::ui::TerminalUI::draw_power</definition>
+        <argsstring>(const DeviceSnapshot &amp;snap)</argsstring>
+        <name>draw_power</name>
+        <qualifiedname>solakon::ui::TerminalUI::draw_power</qualifiedname>
+        <param>
+          <type>const <ref refid="structsolakon_1_1DeviceSnapshot" kindref="compound">DeviceSnapshot</ref> &amp;</type>
+          <declname>snap</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ui.h" line="57" column="10" bodyfile="src/ui.cpp" bodystart="229" bodyend="245"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1ui_1_1TerminalUI_1a79768a8ac7f2c720b45dd45bdb2bc7c4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void solakon::ui::TerminalUI::draw_meter_data</definition>
+        <argsstring>(const DeviceSnapshot &amp;snap)</argsstring>
+        <name>draw_meter_data</name>
+        <qualifiedname>solakon::ui::TerminalUI::draw_meter_data</qualifiedname>
+        <param>
+          <type>const <ref refid="structsolakon_1_1DeviceSnapshot" kindref="compound">DeviceSnapshot</ref> &amp;</type>
+          <declname>snap</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ui.h" line="58" column="10" bodyfile="src/ui.cpp" bodystart="247" bodyend="256"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1ui_1_1TerminalUI_1a8ef6b6e5438360c90783ce31dd849d49" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void solakon::ui::TerminalUI::draw_meter</definition>
+        <argsstring>(const MeterData &amp;m, const std::string &amp;title)</argsstring>
+        <name>draw_meter</name>
+        <qualifiedname>solakon::ui::TerminalUI::draw_meter</qualifiedname>
+        <param>
+          <type>const <ref refid="structsolakon_1_1MeterData" kindref="compound">MeterData</ref> &amp;</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>title</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ui.h" line="59" column="10" bodyfile="src/ui.cpp" bodystart="258" bodyend="265"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1ui_1_1TerminalUI_1a18e8348061c3dfe20e5b0b9ff1d9ee89" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void solakon::ui::TerminalUI::draw_battery</definition>
+        <argsstring>(const BMSData &amp;bms)</argsstring>
+        <name>draw_battery</name>
+        <qualifiedname>solakon::ui::TerminalUI::draw_battery</qualifiedname>
+        <param>
+          <type>const <ref refid="structsolakon_1_1BMSData" kindref="compound">BMSData</ref> &amp;</type>
+          <declname>bms</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ui.h" line="60" column="10" bodyfile="src/ui.cpp" bodystart="267" bodyend="280"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1ui_1_1TerminalUI_1aedff1e1c667e358e748e4a6b4b908139" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void solakon::ui::TerminalUI::draw_energy</definition>
+        <argsstring>(const EnergyData &amp;energy)</argsstring>
+        <name>draw_energy</name>
+        <qualifiedname>solakon::ui::TerminalUI::draw_energy</qualifiedname>
+        <param>
+          <type>const <ref refid="structsolakon_1_1EnergyData" kindref="compound">EnergyData</ref> &amp;</type>
+          <declname>energy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ui.h" line="61" column="10" bodyfile="src/ui.cpp" bodystart="282" bodyend="298"/>
+      </memberdef>
+      <memberdef kind="function" id="classsolakon_1_1ui_1_1TerminalUI_1a9e8d4fff37dcedd8c422ce61d4c88e78" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void solakon::ui::TerminalUI::draw_footer</definition>
+        <argsstring>()</argsstring>
+        <name>draw_footer</name>
+        <qualifiedname>solakon::ui::TerminalUI::draw_footer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ui.h" line="62" column="10" bodyfile="src/ui.cpp" bodystart="300" bodyend="306"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/ui.h" line="23" column="1" bodyfile="include/ui.h" bodystart="23" bodyend="63"/>
+    <listofallmembers>
+      <member refid="classsolakon_1_1ui_1_1TerminalUI_1a28a136e3c01eb873da965ad88e000849" prot="public" virt="non-virtual"><scope>solakon::ui::TerminalUI</scope><name>bar</name></member>
+      <member refid="classsolakon_1_1ui_1_1TerminalUI_1a57b58912d6af9def7b0b5c55a4de1d61" prot="public" virt="non-virtual"><scope>solakon::ui::TerminalUI</scope><name>bold</name></member>
+      <member refid="classsolakon_1_1ui_1_1TerminalUI_1a5b76b11a2d5baa438420091134935289" prot="public" virt="non-virtual"><scope>solakon::ui::TerminalUI</scope><name>clear</name></member>
+      <member refid="classsolakon_1_1ui_1_1TerminalUI_1aaa2dd781782f6fc1d1bf2adee3a9d292" prot="public" virt="non-virtual"><scope>solakon::ui::TerminalUI</scope><name>color</name></member>
+      <member refid="classsolakon_1_1ui_1_1TerminalUI_1a0f9ac6cde83996121c93ba2aff948c6d" prot="public" virt="non-virtual"><scope>solakon::ui::TerminalUI</scope><name>dim</name></member>
+      <member refid="classsolakon_1_1ui_1_1TerminalUI_1a18e8348061c3dfe20e5b0b9ff1d9ee89" prot="private" virt="non-virtual"><scope>solakon::ui::TerminalUI</scope><name>draw_battery</name></member>
+      <member refid="classsolakon_1_1ui_1_1TerminalUI_1aedff1e1c667e358e748e4a6b4b908139" prot="private" virt="non-virtual"><scope>solakon::ui::TerminalUI</scope><name>draw_energy</name></member>
+      <member refid="classsolakon_1_1ui_1_1TerminalUI_1a9e8d4fff37dcedd8c422ce61d4c88e78" prot="private" virt="non-virtual"><scope>solakon::ui::TerminalUI</scope><name>draw_footer</name></member>
+      <member refid="classsolakon_1_1ui_1_1TerminalUI_1a4b29965ed497ea2b91a72b30e94f5e77" prot="private" virt="non-virtual"><scope>solakon::ui::TerminalUI</scope><name>draw_header</name></member>
+      <member refid="classsolakon_1_1ui_1_1TerminalUI_1aee7d6f95fa7f999661d6a823a0c5d9e1" prot="private" virt="non-virtual"><scope>solakon::ui::TerminalUI</scope><name>draw_inverter_info</name></member>
+      <member refid="classsolakon_1_1ui_1_1TerminalUI_1a8ef6b6e5438360c90783ce31dd849d49" prot="private" virt="non-virtual"><scope>solakon::ui::TerminalUI</scope><name>draw_meter</name></member>
+      <member refid="classsolakon_1_1ui_1_1TerminalUI_1a79768a8ac7f2c720b45dd45bdb2bc7c4" prot="private" virt="non-virtual"><scope>solakon::ui::TerminalUI</scope><name>draw_meter_data</name></member>
+      <member refid="classsolakon_1_1ui_1_1TerminalUI_1a8141cf20e67a4c7c0d7927adaa2bbd8a" prot="private" virt="non-virtual"><scope>solakon::ui::TerminalUI</scope><name>draw_power</name></member>
+      <member refid="classsolakon_1_1ui_1_1TerminalUI_1a638010269d56214de56a302fdc30e8e1" prot="public" virt="non-virtual"><scope>solakon::ui::TerminalUI</scope><name>draw_power_block</name></member>
+      <member refid="classsolakon_1_1ui_1_1TerminalUI_1ae9ef84c4eb7409de264e3698b11c5309" prot="private" virt="non-virtual"><scope>solakon::ui::TerminalUI</scope><name>draw_status</name></member>
+      <member refid="classsolakon_1_1ui_1_1TerminalUI_1a9d01c29b45eac72838ba9e2e032da852" prot="public" virt="non-virtual"><scope>solakon::ui::TerminalUI</scope><name>format_current</name></member>
+      <member refid="classsolakon_1_1ui_1_1TerminalUI_1a591d3d30b26c4bc9ee4ae9f1c09a6c05" prot="public" virt="non-virtual"><scope>solakon::ui::TerminalUI</scope><name>format_power</name></member>
+      <member refid="classsolakon_1_1ui_1_1TerminalUI_1a7233303aab12a0c362f4fe0e101e1b91" prot="public" virt="non-virtual"><scope>solakon::ui::TerminalUI</scope><name>format_uptime</name></member>
+      <member refid="classsolakon_1_1ui_1_1TerminalUI_1a1e571b5fe1ae3399cb32f68283ab5e19" prot="public" virt="non-virtual"><scope>solakon::ui::TerminalUI</scope><name>format_voltage</name></member>
+      <member refid="classsolakon_1_1ui_1_1TerminalUI_1a200f7c5bf0aa3dcc62732b4f84c04599" prot="public" virt="non-virtual"><scope>solakon::ui::TerminalUI</scope><name>init</name></member>
+      <member refid="classsolakon_1_1ui_1_1TerminalUI_1a63def5fa73233c2ebd47d7cc67faba7f" prot="public" virt="non-virtual"><scope>solakon::ui::TerminalUI</scope><name>operator=</name></member>
+      <member refid="classsolakon_1_1ui_1_1TerminalUI_1a0c44c7fd155024f5188b60ef87a21a38" prot="public" virt="non-virtual"><scope>solakon::ui::TerminalUI</scope><name>render</name></member>
+      <member refid="classsolakon_1_1ui_1_1TerminalUI_1a0dc5b16222526a968941eedd116ea71f" prot="private" virt="non-virtual"><scope>solakon::ui::TerminalUI</scope><name>screen_height_</name></member>
+      <member refid="classsolakon_1_1ui_1_1TerminalUI_1a2415cc99b04b0a2a5ec269204f88bad1" prot="private" virt="non-virtual"><scope>solakon::ui::TerminalUI</scope><name>screen_width_</name></member>
+      <member refid="classsolakon_1_1ui_1_1TerminalUI_1a378f884d251453d97e6db2588a67a089" prot="public" virt="non-virtual"><scope>solakon::ui::TerminalUI</scope><name>section_header</name></member>
+      <member refid="classsolakon_1_1ui_1_1TerminalUI_1a3fc656ccd57d1176089822dd5253c498" prot="public" virt="non-virtual"><scope>solakon::ui::TerminalUI</scope><name>separator</name></member>
+      <member refid="classsolakon_1_1ui_1_1TerminalUI_1ad89fa831e53e7bd458833294be64cfd1" prot="public" virt="non-virtual"><scope>solakon::ui::TerminalUI</scope><name>shutdown</name></member>
+      <member refid="classsolakon_1_1ui_1_1TerminalUI_1a4cd522ee1465c7e5be8ac867af34af32" prot="public" virt="non-virtual"><scope>solakon::ui::TerminalUI</scope><name>status_badge</name></member>
+      <member refid="classsolakon_1_1ui_1_1TerminalUI_1a491995e143ba568b3ca105ef2f58fbdc" prot="public" virt="non-virtual"><scope>solakon::ui::TerminalUI</scope><name>TerminalUI</name></member>
+      <member refid="classsolakon_1_1ui_1_1TerminalUI_1a2bbd3422790da646695f5abdfdf60074" prot="public" virt="non-virtual"><scope>solakon::ui::TerminalUI</scope><name>TerminalUI</name></member>
+      <member refid="classsolakon_1_1ui_1_1TerminalUI_1ab3e417172a39fdda68137890a0194f1e" prot="public" virt="non-virtual"><scope>solakon::ui::TerminalUI</scope><name>~TerminalUI</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
