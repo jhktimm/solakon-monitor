@@ -11,11 +11,11 @@
  * @code
  *   solakon::modbus::Client client;
  *   auto ec = client.connect("192.168.178.121", 502);
- *   if (ec) { /* handle error */ }
+ *   if (ec) {@* handle error @*}
  *
  *   uint32_t value;
  *   ec = client.read_u32(39118, value);
- *   if (ec) { /* handle error */ }
+ *   if (ec) {@* handle error @*}
  *
  *   client.disconnect();
  * @endcode
