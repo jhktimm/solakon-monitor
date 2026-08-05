@@ -207,10 +207,22 @@ private:
     void read_energy_data(EnergyData& energy) {
         uint32_t uval = 0;
 
-        // PV total power (39118, I32, kW*1000) -> raw is already in Watts
+        // PV total power (39118, I32, raw in W)
         int32_t pv_raw = 0;
         if (!client_.read_i32(reg::PV_TOTAL_POWER, pv_raw)) {
             energy.pv_total_power_w = static_cast<float>(pv_raw);
+        }
+
+        // AC active power (39134, I32, raw in W, can be negative during full load)
+        int32_t ac_raw = 0;
+        if (!client_.read_i32(reg::AC_TOTAL_POWER, ac_raw)) {
+            energy.ac_active_power_w = static_cast<float>(ac_raw);
+        }
+
+        // Battery power (39230, I32, raw in W, negative = charging, positive = discharging)
+        int32_t bat_raw = 0;
+        if (!client_.read_i32(reg::BATTERY_POWER, bat_raw)) {
+            energy.battery_power_w = static_cast<float>(bat_raw);
         }
 
         // Total charge capacity (U32 at 39603, kWh/10)

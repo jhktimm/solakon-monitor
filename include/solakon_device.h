@@ -120,8 +120,11 @@ namespace reg {
     constexpr uint16_t ALARM2 = 39067;            // Bitfield16
 
     // AC power (Table 2-5)
-    constexpr uint16_t AC_TOTAL_POWER = 39134;    // I32, kW*1000 (raw in W)
+    constexpr uint16_t AC_TOTAL_POWER = 39134;    // I32, raw in W (kW/1000)
     constexpr uint16_t AC_REACTIVE_POWER = 39136; // I32, kVar*1000
+
+    // Battery power (Table 2-5)
+    constexpr uint16_t BATTERY_POWER = 39230;      // I32, raw in W (can be negative = charging)
 
     // PV power (Table 2-5)
     constexpr uint16_t PV_TOTAL_POWER = 39118;    // I32, kW*1000 (raw in W)
@@ -235,6 +238,8 @@ struct BMSData {
  */
 struct EnergyData {
     float pv_total_power_w = 0.0f;
+    float ac_active_power_w = 0.0f;     // AC active power (W), can be negative during full load
+    float battery_power_w = 0.0f;        // Battery power (W): negative = charging, positive = discharging
     float total_charge_kwh = 0.0f;
     float total_charge_today_kwh = 0.0f;
     float total_discharge_kwh = 0.0f;

@@ -156,6 +156,15 @@ void TerminalUI::clear() {
 
 void TerminalUI::render(const DeviceSnapshot& snap, int refresh_hz) {
     (void)refresh_hz;
+    // Re-read terminal size each render in case it changed
+    struct winsize w;
+    if (ioctl(STDOUT_FILENO, TIOCGWINSZ, &w) != -1) {
+        screen_width_ = w.ws_col;
+        screen_height_ = w.ws_row;
+    }
+    if (screen_width_ < 80) screen_width_ = 80;
+    if (screen_height_ < 24) screen_height_ = 24;
+
     clear();
     draw_header(snap);
     draw_inverter_info(snap);
@@ -229,7 +238,9 @@ void TerminalUI::draw_power_block(const std::string& label, float power_w, int w
 void TerminalUI::draw_power(const DeviceSnapshot& snap) {
     std::printf("\n%s\n", section_header("Leistungen", screen_width_).c_str());
 
-    int bar_width = screen_width_ - 20;
+    // Reserve space: 2 indent + 18 label + 1 space + 1 space + value (up to 10 chars)
+    int label_and_value_width = 2 + 18 + 1 + 1 + 10; // max ~32
+    int bar_width = screen_width_ - label_and_value_width;
     if (bar_width < 10) bar_width = 10;
 
     draw_power_block("PV Leistung", snap.energy.pv_total_power_w, bar_width);
