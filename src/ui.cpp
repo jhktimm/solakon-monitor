@@ -231,22 +231,20 @@ void TerminalUI::draw_status(const DeviceSnapshot& snap) {
 }
 
 void TerminalUI::draw_power_block(const std::string& label, float power_w, int width) {
-    std::string bar_str = bar(power_w, 10000.0f, width, Color::GREEN);
-    std::printf("  %-18s %s %s\n", (label + ":").c_str(), bar_str.c_str(), format_power(power_w).c_str());
+    (void)width;
+    std::printf("  %-18s %s\n", (label + ":").c_str(), format_power(power_w).c_str());
 }
 
 void TerminalUI::draw_power(const DeviceSnapshot& snap) {
     std::printf("\n%s\n", section_header("Leistungen", screen_width_).c_str());
 
-    // Reserve space: 2 indent + 18 label + 1 space + 1 space + value (up to 10 chars)
-    int label_and_value_width = 2 + 18 + 1 + 1 + 10; // max ~32
-    int bar_width = screen_width_ - label_and_value_width;
-    if (bar_width < 10) bar_width = 10;
-
-    draw_power_block("PV Leistung", snap.energy.pv_total_power_w, bar_width);
-    draw_power_block("AC Leistung", snap.energy.ac_active_power_w, bar_width);
-    draw_power_block("Smart Meter", snap.energy.smart_meter_power_w, bar_width);
-    draw_power_block("Batterie", snap.energy.battery_power_w, bar_width);
+    draw_power_block("PV Leistung", snap.energy.pv_total_power_w, screen_width_);
+    draw_power_block("AC Leistung", snap.energy.ac_active_power_w, screen_width_);
+    draw_power_block("Smart Meter", snap.energy.smart_meter_power_w, screen_width_);
+    draw_power_block("Batterie", snap.energy.battery_power_w, screen_width_);
+    
+    draw_network_diagram(snap);
+    
     std::printf("%s\n", separator(screen_width_, ' ', Color::DIM_GRAY).c_str());
 }
 
@@ -309,6 +307,182 @@ void TerminalUI::draw_footer() {
     std::printf("\n%s%s%s\n", dim(Color::DIM_GRAY, footer.c_str()).c_str(),
                 dim(Color::DIM_GRAY, pad.c_str()).c_str(), "\033[0m");
     std::fflush(stdout);
+}
+
+void TerminalUI::draw_network_diagram(const DeviceSnapshot& snap) {
+    float pv_power = snap.energy.pv_total_power_w;
+    float ac_power = snap.energy.ac_active_power_w;
+    float battery_power = snap.energy.battery_power_w;
+    float smart_power = snap.energy.smart_meter_power_w;
+    
+    // UTF-8 box-drawing characters
+    const char* VLINE = "\xe2\x94\x82";  // │
+    const char* HLINE = "\xe2\x94\x80";  // ─
+    const char* LARROW = "\xe2\x86\x90"; // ←
+    const char* RARROW = "\xe2\x86\x92"; // →
+    const char* SUN = "\xe2\x98\x80";    // ☀
+    
+    int center = screen_width_ / 2;
+    
+    // Row 1: PV panel (centered, yellow)
+    std::string pv_label = "  " + std::string(SUN) + " PV-Anlage  ";
+    int pv_x = center - static_cast<int>(pv_label.size()) / 2;
+    if (pv_x < 0) pv_x = 0;
+    int pv_rest = screen_width_ - pv_x - static_cast<int>(pv_label.size());
+    if (pv_rest < 0) pv_rest = 0;
+    std::printf("%*s%s%s%s\n", pv_x, "", bold(Color::YELLOW, pv_label).c_str(),
+                dim(Color::DIM_GRAY, std::string(pv_rest, ' ')).c_str(), COLOR_RESET);
+    
+    // Row 2: PV power value with vertical line
+    std::string pv_power_str = format_power(pv_power);
+    std::string pv_label_line = "   " + pv_power_str;
+    int pv_arrow_x = center - 1;
+    int pv_label_x = center - static_cast<int>(pv_label_line.size()) / 2;
+    if (pv_arrow_x < 0) pv_arrow_x = 0;
+    if (pv_label_x < 0) pv_label_x = 0;
+    
+    // Use %*s padding to avoid negative string constructor
+    std::printf("%*s", pv_arrow_x, "");
+    std::printf("%s", VLINE);
+    if (pv_label_x > pv_arrow_x + 1) {
+        std::printf("%*s", pv_label_x - pv_arrow_x - 1, "");
+    }
+    std::printf("%s", pv_label_line.c_str());
+    int pv_rest2 = screen_width_ - pv_label_x - static_cast<int>(pv_label_line.size());
+    if (pv_rest2 < 0) pv_rest2 = 0;
+    if (pv_rest2 > 0) std::printf("%*s", pv_rest2, "");
+    std::printf("\n");
+    
+    // Row 3: vertical line connecting to house row
+    std::printf("%*s%s%*s\n", center, "", VLINE, screen_width_ - center - 1, "");
+    
+    // Row 4: [Netz] -- [Haus] -- [Batterie] with arrows
+    int netz_w = 14;  // [Öff. Netz] visual width
+    int haus_w = 12;  // [Haus] visual width
+    int batt_w = 13;  // [Batterie] visual width
+    int gap = 4;      // gap between boxes and lines
+    
+    int total_w = netz_w + haus_w + batt_w + gap * 2;
+    int netz_x = center - total_w / 2;
+    if (netz_x < 2) netz_x = 2;
+    int haus_x = netz_x + netz_w + gap;
+    int batt_x = haus_x + haus_w + gap;
+    
+    // Track visual cursor position
+    int cursor = netz_x;
+    
+    // Padding before Netz
+    if (cursor > 0) std::printf("%*s", cursor, "");
+    cursor = 0;
+    
+    // Netz box (cyan)
+    std::string netz_box = "  [Öff. Netz]  ";
+    std::printf("%s", bold(Color::CYAN, netz_box).c_str());
+    cursor += static_cast<int>(netz_box.size());
+    
+    // Line to Haus
+    int line1_len = haus_x - cursor - 1;
+    if (line1_len < 0) line1_len = 0;
+    if (line1_len > 0) {
+        for (int i = 0; i < line1_len; i++) std::printf("%s", HLINE);
+    }
+    cursor += line1_len;
+    
+    // Arrow between Netz and Haus
+    if (smart_power > 0) {
+        std::printf("%s", LARROW);  // Feed-in: Netz <- Haus
+    } else if (smart_power < 0) {
+        std::printf("%s", RARROW);  // Consumption: Netz -> Haus
+    } else {
+        std::printf("-");
+    }
+    cursor++;
+    
+    // Continue line to Haus
+    int line1_rest = haus_x - cursor - 1;
+    if (line1_rest < 0) line1_rest = 0;
+    if (line1_rest > 0) {
+        for (int i = 0; i < line1_rest; i++) std::printf("%s", HLINE);
+    }
+    cursor += line1_rest;
+    
+    // Haus box (green)
+    std::string haus_box = "    [Haus]    ";
+    std::printf("%s", bold(Color::GREEN, haus_box).c_str());
+    cursor += static_cast<int>(haus_box.size());
+    
+    // Line to Batterie
+    int line2_len = batt_x - cursor - 1;
+    if (line2_len < 0) line2_len = 0;
+    if (line2_len > 0) {
+        for (int i = 0; i < line2_len; i++) std::printf("%s", HLINE);
+    }
+    cursor += line2_len;
+    
+    // Arrow between Haus and Batterie
+    if (battery_power > 0) {
+        std::printf("%s", LARROW);  // Discharging: Batterie -> Haus
+    } else if (battery_power < 0) {
+        std::printf("%s", RARROW);  // Charging: Batterie <- Haus
+    } else {
+        std::printf("-");
+    }
+    cursor++;
+    
+    // Continue line to Batterie
+    int line2_rest = batt_x - cursor - 1;
+    if (line2_rest < 0) line2_rest = 0;
+    if (line2_rest > 0) {
+        for (int i = 0; i < line2_rest; i++) std::printf("%s", HLINE);
+    }
+    cursor += line2_rest;
+    
+    // Batterie box (magenta)
+    std::string batt_box = " [Batterie]   ";
+    std::printf("%s", bold(Color::MAGENTA, batt_box).c_str());
+    cursor += static_cast<int>(batt_box.size());
+    
+    // Fill rest of line
+    int rest = screen_width_ - cursor;
+    if (rest > 0) std::printf("%*s", rest, "");
+    std::printf("\n");
+    
+    // Row 5: power values below each box
+    int netz_val_x = netz_x + netz_w / 2;
+    int haus_val_x = haus_x + haus_w / 2;
+    int batt_val_x = batt_x + batt_w / 2;
+    
+    std::string netz_val = format_power(smart_power);
+    std::string haus_val = format_power(ac_power);
+    std::string batt_val = format_power(battery_power);
+    
+    // Pad to netz_val_x
+    if (netz_x > 0) std::printf("%*s", netz_x, "");
+    
+    // Netval centered under netz box
+    int netz_pad = netz_val_x - static_cast<int>(netz_val.size()) / 2 - netz_x;
+    if (netz_pad < 0) netz_pad = 0;
+    if (netz_pad > 0) std::printf("%*s", netz_pad, "");
+    std::printf("%s", dim(Color::DIM_GRAY, netz_val).c_str());
+    
+    // Pad to haus_val_x
+    int haus_pad = haus_val_x - static_cast<int>(netz_val.size()) - netz_x - netz_pad;
+    if (haus_pad < 0) haus_pad = 0;
+    if (haus_pad > 0) std::printf("%*s", haus_pad, "");
+    std::printf("%s", dim(Color::DIM_GRAY, haus_val).c_str());
+    
+    // Pad to batt_val_x
+    int batt_pad = batt_val_x - static_cast<int>(netz_val.size()) - static_cast<int>(haus_val.size()) - netz_x - netz_pad - haus_pad;
+    if (batt_pad < 0) batt_pad = 0;
+    if (batt_pad > 0) std::printf("%*s", batt_pad, "");
+    std::printf("%s", dim(Color::DIM_GRAY, batt_val).c_str());
+    
+    int rest5 = screen_width_ - netz_x - netz_pad - static_cast<int>(netz_val.size()) - haus_pad - static_cast<int>(haus_val.size()) - batt_pad - static_cast<int>(batt_val.size());
+    if (rest5 > 0) std::printf("%*s", rest5, "");
+    std::printf("\n");
+    
+    // Row 6: PV connection line
+    std::printf("%*s%s%*s\n", center, "", VLINE, screen_width_ - center - 1, "");
 }
 
 } // namespace solakon::ui

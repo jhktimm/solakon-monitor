@@ -60,6 +60,7 @@ private:
     void draw_battery(const BMSData& bms);
     void draw_energy(const EnergyData& energy);
     void draw_footer();
+    void draw_network_diagram(const DeviceSnapshot& snap);
 };
 
 } // namespace solakon::ui
