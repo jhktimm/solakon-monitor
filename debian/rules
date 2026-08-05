@@ -1,0 +1,14 @@
+#!/usr/bin/make
+%:
+	dh $@
+
+override_dh_auto_build:
+	meson setup build --prefix=/usr
+	ninja -C build
+
+override_dh_auto_install:
+	DESTDIR=$(CURDIR)/debian/solakonone ninja -C build install
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -rf build

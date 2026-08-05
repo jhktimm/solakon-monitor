@@ -1,0 +1,15 @@
+Source: solakonone
+Section: net
+Priority: optional
+Maintainer: Jan Timm <jhktimm@gmail.com>
+Build-Depends: debhelper-compat (>= 13), meson (>= 0.63), ninja-build, libfmt-dev
+Standards-Version: 4.6.2
+Rules-Requires-Root: no
+
+Package: solakonone
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Solakon ONE Solar Monitor
+ Real-time Modbus-TCP monitor for Solakon ONE hybrid solar inverters.
+ Displays voltage, current, power, battery status, and energy
+ statistics from connected meters and BMS systems.

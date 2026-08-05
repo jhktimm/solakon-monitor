@@ -1,0 +1,1 @@
+genhtml coverage_ui_only.info -o coverage-report

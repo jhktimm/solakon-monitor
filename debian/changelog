@@ -1,0 +1,9 @@
+solakonone (1.0.0-1) unstable; urgency=medium
+
+  * Initial release.
+  * Modbus-TCP monitor for Solakon ONE hybrid solar inverters.
+  * Real-time voltage, current, power monitoring.
+  * Battery status (SoC, voltage, temperature) via BMS.
+  * Energy statistics (PV, charge, discharge, consumption).
+
+ -- Jan Timm <jhktimm@gmail.com>  Tue, 05 Aug 2025 12:00:00 +0000
