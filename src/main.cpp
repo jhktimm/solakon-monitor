@@ -68,16 +68,53 @@ struct TermiosSaver {
 struct Config {
     std::string host = "192.168.178.121";
     int refresh_hz = 1;
+    uint16_t modbus_port = 502;
     bool once = false;
     bool json = false;
     bool server = false;
     int server_port = 8080;
+    bool help = false;
 };
+
+void print_usage(const char* prog) {
+    std::printf("Usage: %s [OPTIONS] [IP]\n", prog);
+    std::printf("\n");
+    std::printf("Real-time monitoring for Solakon ONE hybrid solar inverters via Modbus TCP.\n");
+    std::printf("\n");
+    std::printf("Options:\n");
+    std::printf("  -h, --help          Show this help message\n");
+    std::printf("  --once              Single snapshot and exit\n");
+    std::printf("  --json              Output single snapshot as JSON\n");
+    std::printf("  --server [PORT]     Start HTTP server (default port: 8080)\n");
+    std::printf("  --interval N        Refresh interval in Hz (1-60, default: 1)\n");
+    std::printf("  -p, --port PORT     Solakon ONE Modbus port (default: 502)\n");
+    std::printf("\n");
+    std::printf("Examples:\n");
+    std::printf("  %s                          # Terminal monitor (default IP)\n", prog);
+    std::printf("  %s 192.168.178.121         # With custom IP\n", prog);
+    std::printf("  %s --once                   # Single snapshot\n", prog);
+    std::printf("  %s --once --json            # JSON output\n", prog);
+    std::printf("  %s --server                 # HTTP server mode\n", prog);
+    std::printf("  %s --server 9090            # HTTP server on port 9090\n", prog);
+    std::printf("\n");
+    std::printf("HTTP Server endpoints (when --server is used):\n");
+    std::printf("  GET /data   Full snapshot as JSON\n");
+    std::printf("  GET /health Health check\n");
+}
 
 Config parse_args(int argc, char* argv[]) {
     Config cfg;
     for (int i = 1; i < argc; i++) {
-        if (strcmp(argv[i], "--once") == 0) {
+        if (strcmp(argv[i], "--help") == 0 || strcmp(argv[i], "-h") == 0) {
+            cfg.help = true;
+        } else if (strcmp(argv[i], "--port") == 0 || strcmp(argv[i], "-p") == 0) {
+            if (i + 1 < argc) {
+                cfg.modbus_port = atoi(argv[++i]);
+                if (cfg.modbus_port < 1) {
+                    cfg.modbus_port = 502;
+                }
+            }
+        } else if (strcmp(argv[i], "--once") == 0) {
             cfg.once = true;
         } else if (strcmp(argv[i], "--json") == 0) {
             cfg.json = true;
@@ -105,6 +142,11 @@ Config parse_args(int argc, char* argv[]) {
 
 int main(int argc, char* argv[]) {
     Config cfg = parse_args(argc, argv);
+
+    if (cfg.help) {
+        print_usage(argv[0]);
+        return 0;
+    }
 
     // Setup signal handlers
     struct sigaction sa{};
@@ -258,8 +300,9 @@ int main(int argc, char* argv[]) {
                 // Print status line every 10 updates
                 static int counter = 0;
                 if (++counter % 10 == 0) {
-                    std::printf("\r  PV: %s | Batterie: %s | Smart Meter: %s    ",
+                    std::printf("\r  PV: %s | AC: %s | Batterie: %s | Smart Meter: %s    ",
                         solakon::ui::TerminalUI::format_power(snap.energy.pv_total_power_w).c_str(),
+                        solakon::ui::TerminalUI::format_power(snap.energy.ac_active_power_w).c_str(),
                         solakon::ui::TerminalUI::format_power(snap.energy.battery_power_w).c_str(),
                         solakon::ui::TerminalUI::format_power(snap.energy.smart_meter_power_w).c_str());
                     std::fflush(stdout);

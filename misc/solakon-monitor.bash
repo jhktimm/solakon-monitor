@@ -6,24 +6,25 @@ _solakon-monitor() {
     local cur prev words cword
     _init_completion || return
 
-    # Options
-    local opts="--host= --port= --format= --interval= --help --version"
+    local opts="--help --once --json --server --interval= --port="
+    local short_opts="-h -p"
 
     case "$prev" in
-        --host|-h)
-            _filedir
+        --interval|-i)
+            COMPREPLY=( $(compgen -W "1 2 5 10 30 60" -- "$cur") )
             return
             ;;
-        --port)
+        --port|-p)
             COMPREPLY=( $(compgen -W "502" -- "$cur") )
             return
             ;;
-        --format)
-            COMPREPLY=( $(compgen -W "csv json jsonl" -- "$cur") )
-            return
-            ;;
-        --interval)
-            COMPREPLY=( $(compgen -W "1 2 5 10 30 60" -- "$cur") )
+        --server)
+            # Optional port after --server
+            if [[ "$cur" == -* ]]; then
+                COMPREPLY=()
+            else
+                COMPREPLY=( $(compgen -W "8080 9090 3000" -- "$cur") )
+            fi
             return
             ;;
     esac
@@ -31,6 +32,10 @@ _solakon-monitor() {
     case "$cur" in
         --*)
             COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
+            return
+            ;;
+        -*)
+            COMPREPLY=( $(compgen -W "$short_opts" -- "$cur") )
             return
             ;;
     esac
