@@ -216,3 +216,26 @@ GPL-3.0
 
 Dieses Projekt wurde mit Unterstützung von KI-Tools (Qwen 3.6) entwickelt.
 Der Autor behält alle Rechte und lizenziert dieses Werk unter GPL-3.0.
+
+---
+
+## Disclaimer
+
+This software is provided "as is" without warranty of any kind.
+The author assumes no liability for damages arising from the use or
+inability to use this software. Use at your own risk.
+
+Data obtained via Modbus TCP is for informational purposes only and
+must not be used for safety-critical decisions. No guarantee is given
+for the correctness, completeness, or timeliness of the data.
+
+## Haftungsausschluss
+
+Dieses Tool wird ohne jegliche Garantie oder Gewährleistung bereitgestellt.
+Der Autor übernimmt keine Haftung für Schäden, die durch die Nutzung oder
+Nichtnutzung dieser Software entstehen. Die Nutzung erfolgt auf eigene Gefahr.
+
+Die über Modbus TCP ermittelten Daten dienen nur zur Information und dürfen
+nicht für sicherheitsrelevante Entscheidungen verwendet werden. Für die
+Korrektheit, Vollständigkeit und Aktualität der Daten wird keine Gewähr
+übernommen.
