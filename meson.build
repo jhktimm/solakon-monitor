@@ -1,5 +1,5 @@
 project(
-  'solakonOne',
+  'solakon-monitor',
   'cpp',
   version: '0.1.0',
   default_options: [
@@ -25,7 +25,7 @@ sources = [
 ]
 
 executable(
-  'solakonOne',
+  'solakon-monitor',
   sources,
   include_directories: inc,
   dependencies: deps,
@@ -42,7 +42,7 @@ test_sources = [
 ]
 
 test_exe = executable(
-  'solakonOne_test',
+  'solakon-monitor_test',
   test_sources,
   'src/ui.cpp',
   include_directories: inc,
@@ -52,4 +52,4 @@ test_exe = executable(
   link_args: ['-fprofile-arcs', '-ftest-coverage'],
 )
 
-test('solakonOne_test', test_exe)
+test('solakon-monitor_test', test_exe)

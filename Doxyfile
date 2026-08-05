@@ -1,7 +1,7 @@
-# Doxygen configuration for solakonOne
+# Doxygen configuration for solakon-monitor
 # Run: doxygen Doxyfile
 
-PROJECT_NAME           = "solakonOne"
+PROJECT_NAME           = "solakon-monitor"
 PROJECT_NUMBER         = 0.1.0
 PROJECT_BRIEF          = "Solakon ONE Modbus TCP library and CLI tool"
 OUTPUT_DIRECTORY       = docs

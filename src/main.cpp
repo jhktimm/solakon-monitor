@@ -3,7 +3,7 @@
  * Reads real-time data from Solakon ONE via Modbus TCP
  * Displays it in a btop-like terminal interface
  *
- * Usage: solakonOne [IP] [--interval N] [--once]
+ * Usage: solakon-monitor [IP] [--interval N] [--once]
  *   IP:    Solakon ONE IP (default: 192.168.178.121)
  *   N:     Refresh interval in Hz (default: 1)
  *   --once: Single snapshot and exit

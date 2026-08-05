@@ -7,9 +7,9 @@ override_dh_auto_build:
 	ninja -C build
 
 override_dh_auto_install:
-	DESTDIR=$(CURDIR)/debian/solakonone ninja -C build install
-	install -d $(CURDIR)/debian/solakonone/etc/bash_completion.d
-	install -m 644 misc/solakonOne.bash $(CURDIR)/debian/solakonone/etc/bash_completion.d/solakonOne
+	DESTDIR=$(CURDIR)/debian/solakon-monitor ninja -C build install
+	install -d $(CURDIR)/debian/solakon-monitor/etc/bash_completion.d
+	install -m 644 misc/solakon-monitor.bash $(CURDIR)/debian/solakon-monitor/etc/bash_completion.d/solakon-monitor
 
 override_dh_auto_clean:
 	dh_auto_clean

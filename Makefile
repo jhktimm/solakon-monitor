@@ -15,7 +15,7 @@ clean: ## Clean build artifacts
 ### Test
 
 test: ## Run tests
-	@cd build && ninja && ./solakonOne_test
+	@cd build && ninja && ./solakon-monitor_test
 
 ### Package
 
@@ -25,10 +25,10 @@ package: ## Build Debian package
 ### Run
 
 run: build ## Run the monitor
-	@cd build && ./solakonOne
+	@cd build && ./solakon-monitor
 
 run-once: build ## Run single snapshot
-	@cd build && ./solakonOne --once
+	@cd build && ./solakon-monitor --once
 
 ### Docs
 
@@ -37,3 +37,21 @@ docs: ## Generate Doxygen docs
 
 docs-clean: ## Clean Doxygen docs
 	@rm -rf docs/html docs/xml
+
+### Coverage
+
+coverage: ## Run tests with coverage report
+	@cd build && ninja solakon-monitor_test
+	@cd build && ./solakon-monitor_test >/dev/null 2>&1
+	@cd build && lcov --capture --directory solakon-monitor_test.p --output-file coverage.info --branch-coverage
+	@lcov --remove build/coverage.info '/usr/*' '*/tests/*' --output-file coverage_filtered.info
+	@genhtml coverage_filtered.info --output-directory coverage-report
+	@echo "Coverage report: coverage-report/index.html"
+
+coverage-clean: ## Clean coverage data
+	@rm -rf build/coverage.info build/coverage_filtered.info build/coverage-report build/*.gcno build/*.gcda
+
+### Clean
+
+clean-all: clean docs-clean coverage-clean ## Cleans everthing.
+	@echo All cleaned up.	

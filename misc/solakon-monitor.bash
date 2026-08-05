@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# bash-completion for solakonOne
-# Install: sudo cp misc/solakonOne.bash /etc/bash_completion.d/solakonOne
+# bash-completion for solakon-monitor
+# Install: sudo cp misc/solakon-monitor.bash /etc/bash_completion.d/solakon-monitor
 
-_solakonOne() {
+_solakon-monitor() {
     local cur prev words cword
     _init_completion || return
 
@@ -41,4 +41,4 @@ _solakonOne() {
     fi
 }
 
-complete -F _solakonOne solakonOne
+complete -F _solakon-monitor solakon-monitor

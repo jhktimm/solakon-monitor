@@ -1,4 +1,4 @@
-solakonone (1.0.0-1) unstable; urgency=medium
+solakon-monitor (1.0.0-1) unstable; urgency=medium
 
   * Initial release.
   * Modbus-TCP monitor for Solakon ONE hybrid solar inverters.

@@ -1,4 +1,4 @@
-Source: solakonone
+Source: solakon-monitor
 Section: net
 Priority: optional
 Maintainer: Jan Timm <jhktimm@gmail.com>
@@ -6,7 +6,7 @@ Build-Depends: debhelper-compat (>= 13), meson (>= 0.63), ninja-build, libfmt-de
 Standards-Version: 4.6.2
 Rules-Requires-Root: no
 
-Package: solakonone
+Package: solakon-monitor
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: Solakon ONE Solar Monitor

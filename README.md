@@ -1,4 +1,4 @@
-# solakonOne
+# solakon-monitor
 
 C++-Tool zum Echtzeit-Monitoring eines **Solakon ONE** Hybrid-Wechselrichters über **Modbus TCP**.
 
@@ -30,26 +30,26 @@ make run-once # Ein Snapshot
 
 ```bash
 ninja -C build test
-# oder: ./build/solakonOne_test
+# oder: ./build/solakon-monitor_test
 ```
 
 ## Verwendung
 
 ```bash
 # Monitor starten (default IP: 192.168.178.121)
-solakonOne
+solakon-monitor
 
 # Mit eigener IP
-solakonOne 192.168.178.121
+solakon-monitor 192.168.178.121
 
 # Mit Intervall (Hz)
-solakonOne 192.168.178.121 --interval 2
+solakon-monitor 192.168.178.121 --interval 2
 
 # Ein Snapshot
-solakonOne --once
+solakon-monitor --once
 
 # Hilfe
-solakonOne --help
+solakon-monitor --help
 ```
 
 ### Tasten im Monitor
