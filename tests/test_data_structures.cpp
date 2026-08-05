@@ -135,5 +135,5 @@ TEST_CASE("reg namespace: register constants are valid", "[data][reg]") {
     REQUIRE(reg::METER1_R_VOLTAGE == 38802);
     REQUIRE(reg::PROTOCOL_VERSION == 39000);
     REQUIRE(reg::PV_TOTAL_POWER == 39118);
-    REQUIRE(reg::TOTAL_FEEDER == 39611);
+    REQUIRE(reg::TOTAL_FEEDER == 39613);
 }

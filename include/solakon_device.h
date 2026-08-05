@@ -133,18 +133,18 @@ namespace reg {
     constexpr uint16_t PV_TOTAL_POWER = 39118;    // I32, kW*1000 (raw in W)
 
     // Energy totals (Table 2-6)
-    constexpr uint16_t TOTAL_CHARGE_CAP = 39603;  // U32, kWh/10
-    constexpr uint16_t TOTAL_CHARGE_TODAY = 39605;// U32, kWh/10
-    constexpr uint16_t TOTAL_DISCHARGE = 39607;   // U32, kWh/10
-    constexpr uint16_t TOTAL_DISCHARGE_TODAY = 39609; // U32, kWh/10
-    constexpr uint16_t TOTAL_FEEDER = 39611;      // U32, kWh/10
-    constexpr uint16_t TOTAL_FEEDER_TODAY = 39613;    // U32, kWh/10
-    constexpr uint16_t TOTAL_CONSUMPTION = 39615;   // U32, kWh/10
-    constexpr uint16_t TOTAL_CONSUMPTION_TODAY = 39617; // U32, kWh/10
-    constexpr uint16_t TOTAL_OUTPUT = 39619;        // U32, kWh/10
-    constexpr uint16_t TOTAL_OUTPUT_TODAY = 39621;    // U32, kWh/10
-    constexpr uint16_t TOTAL_LOAD = 39623;          // U32, kWh/10
-    constexpr uint16_t TOTAL_LOAD_TODAY = 39625;    // U32, kWh/10
+    constexpr uint16_t TOTAL_CHARGE_CAP = 39605;  // U32, kWh/10
+    constexpr uint16_t TOTAL_CHARGE_TODAY = 39603;// U32, kWh/10
+    constexpr uint16_t TOTAL_DISCHARGE = 39609;   // U32, kWh/10
+    constexpr uint16_t TOTAL_DISCHARGE_TODAY = 39607; // U32, kWh/10
+    constexpr uint16_t TOTAL_FEEDER = 39613;      // U32, kWh/10
+    constexpr uint16_t TOTAL_FEEDER_TODAY = 39611;    // U32, kWh/10
+    constexpr uint16_t TOTAL_CONSUMPTION = 39617;   // U32, kWh/10
+    constexpr uint16_t TOTAL_CONSUMPTION_TODAY = 39615; // U32, kWh/10
+    constexpr uint16_t TOTAL_OUTPUT = 39621;        // U32, kWh/10
+    constexpr uint16_t TOTAL_OUTPUT_TODAY = 39619;    // U32, kWh/10
+    constexpr uint16_t TOTAL_LOAD = 39625;          // U32, kWh/10
+    constexpr uint16_t TOTAL_LOAD_TODAY = 39623;    // U32, kWh/10
 
 } // namespace reg
 
