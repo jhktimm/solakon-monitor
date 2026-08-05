@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structsolakon_1_1MeterData" kind="struct" language="C++" prot="public">
+    <compoundname>solakon::MeterData</compoundname>
+    <includes refid="solakon__device_8h" local="no">solakon_device.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structsolakon_1_1MeterData_1a83bd734878c556ebabe88ac3500e43bb" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool solakon::MeterData::connected</definition>
+        <argsstring></argsstring>
+        <name>connected</name>
+        <qualifiedname>solakon::MeterData::connected</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="193" column="10" bodyfile="include/solakon_device.h" bodystart="193" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsolakon_1_1MeterData_1af1213f8251710123693f4b0ed0e054ab" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float solakon::MeterData::r_voltage</definition>
+        <argsstring></argsstring>
+        <name>r_voltage</name>
+        <qualifiedname>solakon::MeterData::r_voltage</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="194" column="11" bodyfile="include/solakon_device.h" bodystart="194" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsolakon_1_1MeterData_1a57a20fbfa8e621af175567df7db5e872" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float solakon::MeterData::s_voltage</definition>
+        <argsstring></argsstring>
+        <name>s_voltage</name>
+        <qualifiedname>solakon::MeterData::s_voltage</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="195" column="11" bodyfile="include/solakon_device.h" bodystart="195" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsolakon_1_1MeterData_1a040f55b5449e6f562b2214c9a92197c0" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float solakon::MeterData::t_voltage</definition>
+        <argsstring></argsstring>
+        <name>t_voltage</name>
+        <qualifiedname>solakon::MeterData::t_voltage</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="196" column="11" bodyfile="include/solakon_device.h" bodystart="196" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsolakon_1_1MeterData_1a8b2892694bfd4174cd1269f658ed4541" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float solakon::MeterData::r_current</definition>
+        <argsstring></argsstring>
+        <name>r_current</name>
+        <qualifiedname>solakon::MeterData::r_current</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="197" column="11" bodyfile="include/solakon_device.h" bodystart="197" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsolakon_1_1MeterData_1a040ee58dedc8261be6ddd36f441d8f06" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float solakon::MeterData::s_current</definition>
+        <argsstring></argsstring>
+        <name>s_current</name>
+        <qualifiedname>solakon::MeterData::s_current</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="198" column="11" bodyfile="include/solakon_device.h" bodystart="198" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsolakon_1_1MeterData_1a67f0e2f7d933f645d70ea69567befa37" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float solakon::MeterData::t_current</definition>
+        <argsstring></argsstring>
+        <name>t_current</name>
+        <qualifiedname>solakon::MeterData::t_current</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="199" column="11" bodyfile="include/solakon_device.h" bodystart="199" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsolakon_1_1MeterData_1a9acc60b9922f370a9046e6e882e1cc8e" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float solakon::MeterData::r_active_power</definition>
+        <argsstring></argsstring>
+        <name>r_active_power</name>
+        <qualifiedname>solakon::MeterData::r_active_power</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="200" column="11" bodyfile="include/solakon_device.h" bodystart="200" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsolakon_1_1MeterData_1aa5b4df4bca3f699909208f90c41c816e" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float solakon::MeterData::s_active_power</definition>
+        <argsstring></argsstring>
+        <name>s_active_power</name>
+        <qualifiedname>solakon::MeterData::s_active_power</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="201" column="11" bodyfile="include/solakon_device.h" bodystart="201" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsolakon_1_1MeterData_1a1f4afafb878d980856a6d86a7866127e" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float solakon::MeterData::t_active_power</definition>
+        <argsstring></argsstring>
+        <name>t_active_power</name>
+        <qualifiedname>solakon::MeterData::t_active_power</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="202" column="11" bodyfile="include/solakon_device.h" bodystart="202" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsolakon_1_1MeterData_1ac4ed1651ee3365a06d333010c20e877f" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float solakon::MeterData::combined_active_power</definition>
+        <argsstring></argsstring>
+        <name>combined_active_power</name>
+        <qualifiedname>solakon::MeterData::combined_active_power</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="203" column="11" bodyfile="include/solakon_device.h" bodystart="203" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsolakon_1_1MeterData_1a5f817f4288e3a2a9818c6a72020a73ca" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float solakon::MeterData::frequency</definition>
+        <argsstring></argsstring>
+        <name>frequency</name>
+        <qualifiedname>solakon::MeterData::frequency</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="204" column="11" bodyfile="include/solakon_device.h" bodystart="204" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Meter data for a single CT meter (Meter1/CT1 or Meter2/CT2). </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Per-phase voltage (V/10), current (A/1000), active power (W/10), and combined three-phase power (W/10) and frequency (Hz/100). </para>
+    </detaileddescription>
+    <location file="include/solakon_device.h" line="192" column="1" bodyfile="include/solakon_device.h" bodystart="192" bodyend="205"/>
+    <listofallmembers>
+      <member refid="structsolakon_1_1MeterData_1ac4ed1651ee3365a06d333010c20e877f" prot="public" virt="non-virtual"><scope>solakon::MeterData</scope><name>combined_active_power</name></member>
+      <member refid="structsolakon_1_1MeterData_1a83bd734878c556ebabe88ac3500e43bb" prot="public" virt="non-virtual"><scope>solakon::MeterData</scope><name>connected</name></member>
+      <member refid="structsolakon_1_1MeterData_1a5f817f4288e3a2a9818c6a72020a73ca" prot="public" virt="non-virtual"><scope>solakon::MeterData</scope><name>frequency</name></member>
+      <member refid="structsolakon_1_1MeterData_1a9acc60b9922f370a9046e6e882e1cc8e" prot="public" virt="non-virtual"><scope>solakon::MeterData</scope><name>r_active_power</name></member>
+      <member refid="structsolakon_1_1MeterData_1a8b2892694bfd4174cd1269f658ed4541" prot="public" virt="non-virtual"><scope>solakon::MeterData</scope><name>r_current</name></member>
+      <member refid="structsolakon_1_1MeterData_1af1213f8251710123693f4b0ed0e054ab" prot="public" virt="non-virtual"><scope>solakon::MeterData</scope><name>r_voltage</name></member>
+      <member refid="structsolakon_1_1MeterData_1aa5b4df4bca3f699909208f90c41c816e" prot="public" virt="non-virtual"><scope>solakon::MeterData</scope><name>s_active_power</name></member>
+      <member refid="structsolakon_1_1MeterData_1a040ee58dedc8261be6ddd36f441d8f06" prot="public" virt="non-virtual"><scope>solakon::MeterData</scope><name>s_current</name></member>
+      <member refid="structsolakon_1_1MeterData_1a57a20fbfa8e621af175567df7db5e872" prot="public" virt="non-virtual"><scope>solakon::MeterData</scope><name>s_voltage</name></member>
+      <member refid="structsolakon_1_1MeterData_1a1f4afafb878d980856a6d86a7866127e" prot="public" virt="non-virtual"><scope>solakon::MeterData</scope><name>t_active_power</name></member>
+      <member refid="structsolakon_1_1MeterData_1a67f0e2f7d933f645d70ea69567befa37" prot="public" virt="non-virtual"><scope>solakon::MeterData</scope><name>t_current</name></member>
+      <member refid="structsolakon_1_1MeterData_1a040f55b5449e6f562b2214c9a92197c0" prot="public" virt="non-virtual"><scope>solakon::MeterData</scope><name>t_voltage</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

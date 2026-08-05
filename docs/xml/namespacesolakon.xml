@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespacesolakon" kind="namespace" language="C++">
+    <compoundname>solakon</compoundname>
+    <innerclass refid="structsolakon_1_1BMSData" prot="public">solakon::BMSData</innerclass>
+    <innerclass refid="structsolakon_1_1DeviceInfo" prot="public">solakon::DeviceInfo</innerclass>
+    <innerclass refid="structsolakon_1_1DeviceSnapshot" prot="public">solakon::DeviceSnapshot</innerclass>
+    <innerclass refid="structsolakon_1_1EnergyData" prot="public">solakon::EnergyData</innerclass>
+    <innerclass refid="structsolakon_1_1MeterData" prot="public">solakon::MeterData</innerclass>
+    <innerclass refid="classsolakon_1_1SolakonDevice" prot="public">solakon::SolakonDevice</innerclass>
+    <innernamespace refid="namespacesolakon_1_1modbus">solakon::modbus</innernamespace>
+    <innernamespace refid="namespacesolakon_1_1reg">solakon::reg</innernamespace>
+    <innernamespace refid="namespacesolakon_1_1ui">solakon::ui</innernamespace>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespacesolakon_1af31f30032b6df4532ebc3509053c59fc" prot="public" static="no" strong="yes">
+        <type>uint16_t</type>
+        <name>InverterStatus</name>
+        <qualifiedname>solakon::InverterStatus</qualifiedname>
+        <enumvalue id="namespacesolakon_1af31f30032b6df4532ebc3509053c59fcaeea559d5c56d48e94e586f7fe000c0b1" prot="public">
+          <name>STANDBY</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacesolakon_1af31f30032b6df4532ebc3509053c59fcad8179a090910d4923b044cbce813c8ea" prot="public">
+          <name>RESERVED1</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacesolakon_1af31f30032b6df4532ebc3509053c59fca66b341564f9641683f9ceae8de7f2c68" prot="public">
+          <name>OPERATING</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacesolakon_1af31f30032b6df4532ebc3509053c59fca0b5885d29a74762639e4b55c51ce2d85" prot="public">
+          <name>RESERVED2</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacesolakon_1af31f30032b6df4532ebc3509053c59fcaeb65411a7ccd9efc5037b3d1ca03b8b3" prot="public">
+          <name>RESERVED3</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacesolakon_1af31f30032b6df4532ebc3509053c59fca604a5bc35d0aa4fe77e7d95ae6e6f424" prot="public">
+          <name>RESERVED4</name>
+          <initializer>= 5</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacesolakon_1af31f30032b6df4532ebc3509053c59fcabb1ca97ec761fc37101737ba0aa2e7c5" prot="public">
+          <name>ERROR</name>
+          <initializer>= 6</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacesolakon_1af31f30032b6df4532ebc3509053c59fcabaa1e876aa47514a6a83c478f3c05f50" prot="public">
+          <name>RESERVED5</name>
+          <initializer>= 7</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Inverter operational status codes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="148" column="1" bodyfile="include/solakon_device.h" bodystart="148" bodyend="157"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/modbus_client.h" line="32" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1244 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespacesolakon_1_1reg" kind="namespace" language="C++">
+    <compoundname>solakon::reg</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1aba11837fc3ef3e9b0c6efbbc987d6b57" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::MODEL_NAME</definition>
+        <argsstring></argsstring>
+        <name>MODEL_NAME</name>
+        <qualifiedname>solakon::reg::MODEL_NAME</qualifiedname>
+        <initializer>= 30000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="40" column="24" bodyfile="include/solakon_device.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1ab7da97ffb86e363a8669cc49abde3652" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::SN</definition>
+        <argsstring></argsstring>
+        <name>SN</name>
+        <qualifiedname>solakon::reg::SN</qualifiedname>
+        <initializer>= 30016</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="41" column="24" bodyfile="include/solakon_device.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1ae4ade0e399f9b524abdfc5262542fae8" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::MFG_ID</definition>
+        <argsstring></argsstring>
+        <name>MFG_ID</name>
+        <qualifiedname>solakon::reg::MFG_ID</qualifiedname>
+        <initializer>= 30032</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="42" column="24" bodyfile="include/solakon_device.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a2da927872019935c257d8db590c23ef7" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::MASTER_VERSION</definition>
+        <argsstring></argsstring>
+        <name>MASTER_VERSION</name>
+        <qualifiedname>solakon::reg::MASTER_VERSION</qualifiedname>
+        <initializer>= 36001</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="45" column="24" bodyfile="include/solakon_device.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a6e14258e2e0181cb0e5c02c010c3dcb4" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::SLAVE_VERSION</definition>
+        <argsstring></argsstring>
+        <name>SLAVE_VERSION</name>
+        <qualifiedname>solakon::reg::SLAVE_VERSION</qualifiedname>
+        <initializer>= 36002</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="46" column="24" bodyfile="include/solakon_device.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a19588793d768eb1e6fbe6dc420660965" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::MANAGER_VERSION</definition>
+        <argsstring></argsstring>
+        <name>MANAGER_VERSION</name>
+        <qualifiedname>solakon::reg::MANAGER_VERSION</qualifiedname>
+        <initializer>= 36003</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="47" column="24" bodyfile="include/solakon_device.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1ab78117a4798863445ebdf69392e61c44" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::METER1_SN</definition>
+        <argsstring></argsstring>
+        <name>METER1_SN</name>
+        <qualifiedname>solakon::reg::METER1_SN</qualifiedname>
+        <initializer>= 36100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="50" column="24" bodyfile="include/solakon_device.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1ab90564b60462a6171dfbbe7c22f8ea7f" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::METER1_MFG</definition>
+        <argsstring></argsstring>
+        <name>METER1_MFG</name>
+        <qualifiedname>solakon::reg::METER1_MFG</qualifiedname>
+        <initializer>= 36116</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="51" column="24" bodyfile="include/solakon_device.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a0abc456de7592f95a9280e977381e5a9" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::METER1_TYPE</definition>
+        <argsstring></argsstring>
+        <name>METER1_TYPE</name>
+        <qualifiedname>solakon::reg::METER1_TYPE</qualifiedname>
+        <initializer>= 36132</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="52" column="24" bodyfile="include/solakon_device.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1abca0029b15d7d04c759137e230b6ef2f" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::METER1_VERSION</definition>
+        <argsstring></argsstring>
+        <name>METER1_VERSION</name>
+        <qualifiedname>solakon::reg::METER1_VERSION</qualifiedname>
+        <initializer>= 36148</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="53" column="24" bodyfile="include/solakon_device.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1aa71821be5f0c7174c589a985e78bf888" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::METER2_SN</definition>
+        <argsstring></argsstring>
+        <name>METER2_SN</name>
+        <qualifiedname>solakon::reg::METER2_SN</qualifiedname>
+        <initializer>= 36200</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="56" column="24" bodyfile="include/solakon_device.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a650456288d9b44189ccd1327da7dd9cf" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::METER2_MFG</definition>
+        <argsstring></argsstring>
+        <name>METER2_MFG</name>
+        <qualifiedname>solakon::reg::METER2_MFG</qualifiedname>
+        <initializer>= 36216</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="57" column="24" bodyfile="include/solakon_device.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a0253e3360cb197b33037f7626e914467" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::METER2_TYPE</definition>
+        <argsstring></argsstring>
+        <name>METER2_TYPE</name>
+        <qualifiedname>solakon::reg::METER2_TYPE</qualifiedname>
+        <initializer>= 36232</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="58" column="24" bodyfile="include/solakon_device.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a695ccd70831180f720a72da0dbe56d49" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::METER2_VERSION</definition>
+        <argsstring></argsstring>
+        <name>METER2_VERSION</name>
+        <qualifiedname>solakon::reg::METER2_VERSION</qualifiedname>
+        <initializer>= 36248</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="59" column="24" bodyfile="include/solakon_device.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a8e0e428e84334edc3561fffde00ddc80" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::BMS1</definition>
+        <argsstring></argsstring>
+        <name>BMS1</name>
+        <qualifiedname>solakon::reg::BMS1</qualifiedname>
+        <initializer>= 37002</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="62" column="24" bodyfile="include/solakon_device.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a1755b8ec74a148338a5571468d01f10c" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::BMS1_MAIN</definition>
+        <argsstring></argsstring>
+        <name>BMS1_MAIN</name>
+        <qualifiedname>solakon::reg::BMS1_MAIN</qualifiedname>
+        <initializer>= 37003</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="63" column="24" bodyfile="include/solakon_device.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1ab1668b6c08235b277b76f4ad794ee956" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::BMS1_SN</definition>
+        <argsstring></argsstring>
+        <name>BMS1_SN</name>
+        <qualifiedname>solakon::reg::BMS1_SN</qualifiedname>
+        <initializer>= 37005</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="64" column="24" bodyfile="include/solakon_device.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a2934644a13dc9697f042de90086bc724" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::BMS1_SLAVE_COUNT</definition>
+        <argsstring></argsstring>
+        <name>BMS1_SLAVE_COUNT</name>
+        <qualifiedname>solakon::reg::BMS1_SLAVE_COUNT</qualifiedname>
+        <initializer>= 37032</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="65" column="24" bodyfile="include/solakon_device.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a9f891287e91028c447b626cbf14f5ddd" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::BMS1_SLAVE1_VER</definition>
+        <argsstring></argsstring>
+        <name>BMS1_SLAVE1_VER</name>
+        <qualifiedname>solakon::reg::BMS1_SLAVE1_VER</qualifiedname>
+        <initializer>= 37033</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="66" column="24" bodyfile="include/solakon_device.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a5a8f8d93635cde64693fdccb6334b9eb" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::BMS1_SLAVE2_VER</definition>
+        <argsstring></argsstring>
+        <name>BMS1_SLAVE2_VER</name>
+        <qualifiedname>solakon::reg::BMS1_SLAVE2_VER</qualifiedname>
+        <initializer>= 37034</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="67" column="24" bodyfile="include/solakon_device.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a240853e7353824ae595d7a512b4a9383" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::BMS1_VOLTAGE</definition>
+        <argsstring></argsstring>
+        <name>BMS1_VOLTAGE</name>
+        <qualifiedname>solakon::reg::BMS1_VOLTAGE</qualifiedname>
+        <initializer>= 37609</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="68" column="24" bodyfile="include/solakon_device.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a734072be6fba40148f548cce23cc7a30" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::BMS1_CURRENT</definition>
+        <argsstring></argsstring>
+        <name>BMS1_CURRENT</name>
+        <qualifiedname>solakon::reg::BMS1_CURRENT</qualifiedname>
+        <initializer>= 37610</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="69" column="24" bodyfile="include/solakon_device.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a7a2c4a004fe64efc572af81271efb7a6" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::BMS1_TEMP</definition>
+        <argsstring></argsstring>
+        <name>BMS1_TEMP</name>
+        <qualifiedname>solakon::reg::BMS1_TEMP</qualifiedname>
+        <initializer>= 37611</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="70" column="24" bodyfile="include/solakon_device.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1aa30de058ee8d6515ece18afcc6a680d8" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::BMS1_SOC</definition>
+        <argsstring></argsstring>
+        <name>BMS1_SOC</name>
+        <qualifiedname>solakon::reg::BMS1_SOC</qualifiedname>
+        <initializer>= 37612</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="71" column="24" bodyfile="include/solakon_device.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1adb0e723ab04201b873f5889a2658bdc2" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::BMS1_MAX_TEMP</definition>
+        <argsstring></argsstring>
+        <name>BMS1_MAX_TEMP</name>
+        <qualifiedname>solakon::reg::BMS1_MAX_TEMP</qualifiedname>
+        <initializer>= 37617</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="72" column="24" bodyfile="include/solakon_device.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a512d35be6c004c0f7c12ccb577e24745" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::BMS1_MIN_TEMP</definition>
+        <argsstring></argsstring>
+        <name>BMS1_MIN_TEMP</name>
+        <qualifiedname>solakon::reg::BMS1_MIN_TEMP</qualifiedname>
+        <initializer>= 37618</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="73" column="24" bodyfile="include/solakon_device.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a16de7d18bf9968b3229967038ca083c4" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::BMS1_MAX_CELL</definition>
+        <argsstring></argsstring>
+        <name>BMS1_MAX_CELL</name>
+        <qualifiedname>solakon::reg::BMS1_MAX_CELL</qualifiedname>
+        <initializer>= 37619</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="74" column="24" bodyfile="include/solakon_device.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a1f94618c08b9cf3aff701c71584277ed" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::BMS1_MIN_CELL</definition>
+        <argsstring></argsstring>
+        <name>BMS1_MIN_CELL</name>
+        <qualifiedname>solakon::reg::BMS1_MIN_CELL</qualifiedname>
+        <initializer>= 37620</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="75" column="24" bodyfile="include/solakon_device.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a7e587a91bdbbea17b6de0a9e5f52d1e8" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::BMS1_SOH</definition>
+        <argsstring></argsstring>
+        <name>BMS1_SOH</name>
+        <qualifiedname>solakon::reg::BMS1_SOH</qualifiedname>
+        <initializer>= 37624</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="76" column="24" bodyfile="include/solakon_device.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1aad547d9838f30675a847b561f951e5f5" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::BMS1_REMAIN_ENERGY</definition>
+        <argsstring></argsstring>
+        <name>BMS1_REMAIN_ENERGY</name>
+        <qualifiedname>solakon::reg::BMS1_REMAIN_ENERGY</qualifiedname>
+        <initializer>= 37632</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="77" column="24" bodyfile="include/solakon_device.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a58397d79a929b2653e45efb3925e3a46" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::METER1_CONN</definition>
+        <argsstring></argsstring>
+        <name>METER1_CONN</name>
+        <qualifiedname>solakon::reg::METER1_CONN</qualifiedname>
+        <initializer>= 38801</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="80" column="24" bodyfile="include/solakon_device.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1af2590cc950bc2a02624cbc595a31e79c" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::METER1_R_VOLTAGE</definition>
+        <argsstring></argsstring>
+        <name>METER1_R_VOLTAGE</name>
+        <qualifiedname>solakon::reg::METER1_R_VOLTAGE</qualifiedname>
+        <initializer>= 38802</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="81" column="24" bodyfile="include/solakon_device.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a30aed14005e41b6a4db7c552e02f6b40" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::METER1_S_VOLTAGE</definition>
+        <argsstring></argsstring>
+        <name>METER1_S_VOLTAGE</name>
+        <qualifiedname>solakon::reg::METER1_S_VOLTAGE</qualifiedname>
+        <initializer>= 38804</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="82" column="24" bodyfile="include/solakon_device.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1ad819ee8bc0b8199ac8358039c7558ed5" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::METER1_T_VOLTAGE</definition>
+        <argsstring></argsstring>
+        <name>METER1_T_VOLTAGE</name>
+        <qualifiedname>solakon::reg::METER1_T_VOLTAGE</qualifiedname>
+        <initializer>= 38806</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="83" column="24" bodyfile="include/solakon_device.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a18ac7c88b9253dde6f84951396db4634" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::METER1_R_CURRENT</definition>
+        <argsstring></argsstring>
+        <name>METER1_R_CURRENT</name>
+        <qualifiedname>solakon::reg::METER1_R_CURRENT</qualifiedname>
+        <initializer>= 38808</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="84" column="24" bodyfile="include/solakon_device.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a24031e405e3cbdc3bfccc64c21033a57" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::METER1_S_CURRENT</definition>
+        <argsstring></argsstring>
+        <name>METER1_S_CURRENT</name>
+        <qualifiedname>solakon::reg::METER1_S_CURRENT</qualifiedname>
+        <initializer>= 38810</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="85" column="24" bodyfile="include/solakon_device.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a4d9107537cd593be8d5648869fc5bcb1" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::METER1_T_CURRENT</definition>
+        <argsstring></argsstring>
+        <name>METER1_T_CURRENT</name>
+        <qualifiedname>solakon::reg::METER1_T_CURRENT</qualifiedname>
+        <initializer>= 38812</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="86" column="24" bodyfile="include/solakon_device.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1ae7ed105b6ec105f1628a500a31432c11" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::METER1_R_POWER</definition>
+        <argsstring></argsstring>
+        <name>METER1_R_POWER</name>
+        <qualifiedname>solakon::reg::METER1_R_POWER</qualifiedname>
+        <initializer>= 38814</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="87" column="24" bodyfile="include/solakon_device.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a94e6d040e2aa2ebe570f59db5213e907" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::METER1_S_POWER</definition>
+        <argsstring></argsstring>
+        <name>METER1_S_POWER</name>
+        <qualifiedname>solakon::reg::METER1_S_POWER</qualifiedname>
+        <initializer>= 38816</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="88" column="24" bodyfile="include/solakon_device.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1abb94e4dd760d32654ca13b255241d1c9" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::METER1_T_POWER</definition>
+        <argsstring></argsstring>
+        <name>METER1_T_POWER</name>
+        <qualifiedname>solakon::reg::METER1_T_POWER</qualifiedname>
+        <initializer>= 38818</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="89" column="24" bodyfile="include/solakon_device.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1ae9e8aa2ea2e3936e70e4c30c195b481b" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::METER1_COMBINED_POWER</definition>
+        <argsstring></argsstring>
+        <name>METER1_COMBINED_POWER</name>
+        <qualifiedname>solakon::reg::METER1_COMBINED_POWER</qualifiedname>
+        <initializer>= 38838</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="90" column="24" bodyfile="include/solakon_device.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a7fd0f966acf0f4a1a5b04068b2ef6895" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::METER1_FREQ</definition>
+        <argsstring></argsstring>
+        <name>METER1_FREQ</name>
+        <qualifiedname>solakon::reg::METER1_FREQ</qualifiedname>
+        <initializer>= 38844</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="91" column="24" bodyfile="include/solakon_device.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1ae7828402db3213b4c754724c97c844e2" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::METER2_CONN</definition>
+        <argsstring></argsstring>
+        <name>METER2_CONN</name>
+        <qualifiedname>solakon::reg::METER2_CONN</qualifiedname>
+        <initializer>= 38901</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="94" column="24" bodyfile="include/solakon_device.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a683f750b65c5eaa9059cb41eeb0ee590" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::METER2_R_VOLTAGE</definition>
+        <argsstring></argsstring>
+        <name>METER2_R_VOLTAGE</name>
+        <qualifiedname>solakon::reg::METER2_R_VOLTAGE</qualifiedname>
+        <initializer>= 38902</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="95" column="24" bodyfile="include/solakon_device.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a17293e522eb30088de0a91e870ff85b6" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::METER2_S_VOLTAGE</definition>
+        <argsstring></argsstring>
+        <name>METER2_S_VOLTAGE</name>
+        <qualifiedname>solakon::reg::METER2_S_VOLTAGE</qualifiedname>
+        <initializer>= 38904</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="96" column="24" bodyfile="include/solakon_device.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a81679f23607de2efa906181cfddbd871" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::METER2_T_VOLTAGE</definition>
+        <argsstring></argsstring>
+        <name>METER2_T_VOLTAGE</name>
+        <qualifiedname>solakon::reg::METER2_T_VOLTAGE</qualifiedname>
+        <initializer>= 38906</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="97" column="24" bodyfile="include/solakon_device.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a46cb7f3689d23c516604026810ad5e61" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::METER2_R_CURRENT</definition>
+        <argsstring></argsstring>
+        <name>METER2_R_CURRENT</name>
+        <qualifiedname>solakon::reg::METER2_R_CURRENT</qualifiedname>
+        <initializer>= 38908</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="98" column="24" bodyfile="include/solakon_device.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a661b2f302999df3de01cbeebb1482bef" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::METER2_S_CURRENT</definition>
+        <argsstring></argsstring>
+        <name>METER2_S_CURRENT</name>
+        <qualifiedname>solakon::reg::METER2_S_CURRENT</qualifiedname>
+        <initializer>= 38910</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="99" column="24" bodyfile="include/solakon_device.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1ab9dd971c18f9f908fe69477086f0313d" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::METER2_T_CURRENT</definition>
+        <argsstring></argsstring>
+        <name>METER2_T_CURRENT</name>
+        <qualifiedname>solakon::reg::METER2_T_CURRENT</qualifiedname>
+        <initializer>= 38912</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="100" column="24" bodyfile="include/solakon_device.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a7b887d871b3bf04f83bdd3e76d6f4dbf" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::METER2_COMBINED_POWER</definition>
+        <argsstring></argsstring>
+        <name>METER2_COMBINED_POWER</name>
+        <qualifiedname>solakon::reg::METER2_COMBINED_POWER</qualifiedname>
+        <initializer>= 38938</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="101" column="24" bodyfile="include/solakon_device.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a167531f80483082d75353dce0a0fb0c4" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::METER2_FREQ</definition>
+        <argsstring></argsstring>
+        <name>METER2_FREQ</name>
+        <qualifiedname>solakon::reg::METER2_FREQ</qualifiedname>
+        <initializer>= 38946</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="102" column="24" bodyfile="include/solakon_device.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a597de0928ab7f95c6b40dc69865f330f" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::PROTOCOL_VERSION</definition>
+        <argsstring></argsstring>
+        <name>PROTOCOL_VERSION</name>
+        <qualifiedname>solakon::reg::PROTOCOL_VERSION</qualifiedname>
+        <initializer>= 39000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="105" column="24" bodyfile="include/solakon_device.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a88cc5d1a691f932eb84475da8715fac3" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::MODEL_NAME2</definition>
+        <argsstring></argsstring>
+        <name>MODEL_NAME2</name>
+        <qualifiedname>solakon::reg::MODEL_NAME2</qualifiedname>
+        <initializer>= 39002</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="106" column="24" bodyfile="include/solakon_device.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1ae7f0f3db075c95d601f6d44482ea9518" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::PN</definition>
+        <argsstring></argsstring>
+        <name>PN</name>
+        <qualifiedname>solakon::reg::PN</qualifiedname>
+        <initializer>= 39018</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="107" column="24" bodyfile="include/solakon_device.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1ad9503ebfbc46db053f378e4522e16272" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::SN2</definition>
+        <argsstring></argsstring>
+        <name>SN2</name>
+        <qualifiedname>solakon::reg::SN2</qualifiedname>
+        <initializer>= 39034</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="108" column="24" bodyfile="include/solakon_device.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a8d762fc652a18012eeff40c18ab227ca" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::MODEL_ID</definition>
+        <argsstring></argsstring>
+        <name>MODEL_ID</name>
+        <qualifiedname>solakon::reg::MODEL_ID</qualifiedname>
+        <initializer>= 39050</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="109" column="24" bodyfile="include/solakon_device.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1ad9518d72c1988dcf64eba431f2fb1bec" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::NUM_STRINGS</definition>
+        <argsstring></argsstring>
+        <name>NUM_STRINGS</name>
+        <qualifiedname>solakon::reg::NUM_STRINGS</qualifiedname>
+        <initializer>= 39051</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="110" column="24" bodyfile="include/solakon_device.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a8cadcce3b408a9ea768d155b1603b24b" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::NUM_MPPT</definition>
+        <argsstring></argsstring>
+        <name>NUM_MPPT</name>
+        <qualifiedname>solakon::reg::NUM_MPPT</qualifiedname>
+        <initializer>= 39052</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="111" column="24" bodyfile="include/solakon_device.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a10ccd72c57c696200c266cdbb0920c24" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::RATED_POWER</definition>
+        <argsstring></argsstring>
+        <name>RATED_POWER</name>
+        <qualifiedname>solakon::reg::RATED_POWER</qualifiedname>
+        <initializer>= 39053</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="112" column="24" bodyfile="include/solakon_device.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1ac31c4e4eca00e38c77abd313d38538a2" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::MAX_ACTIVE</definition>
+        <argsstring></argsstring>
+        <name>MAX_ACTIVE</name>
+        <qualifiedname>solakon::reg::MAX_ACTIVE</qualifiedname>
+        <initializer>= 39055</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="113" column="24" bodyfile="include/solakon_device.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a9549ea70a282f7f6eea737fc837606d8" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::MAX_APPARENT</definition>
+        <argsstring></argsstring>
+        <name>MAX_APPARENT</name>
+        <qualifiedname>solakon::reg::MAX_APPARENT</qualifiedname>
+        <initializer>= 39057</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="114" column="24" bodyfile="include/solakon_device.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a9a43e40b5862a65dd1ebd9b475e1ba61" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::MAX_REACTIVE_NEG</definition>
+        <argsstring></argsstring>
+        <name>MAX_REACTIVE_NEG</name>
+        <qualifiedname>solakon::reg::MAX_REACTIVE_NEG</qualifiedname>
+        <initializer>= 39059</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="115" column="24" bodyfile="include/solakon_device.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a91f7ab1551dfbb8a10bacf1d9588cf46" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::MAX_REACTIVE_POS</definition>
+        <argsstring></argsstring>
+        <name>MAX_REACTIVE_POS</name>
+        <qualifiedname>solakon::reg::MAX_REACTIVE_POS</qualifiedname>
+        <initializer>= 39061</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="116" column="24" bodyfile="include/solakon_device.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1ac28d46dd4f58c0b0f115f4ee0c91bfff" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::STATUS1</definition>
+        <argsstring></argsstring>
+        <name>STATUS1</name>
+        <qualifiedname>solakon::reg::STATUS1</qualifiedname>
+        <initializer>= 39063</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="117" column="24" bodyfile="include/solakon_device.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a08f0b74c14d6dc0da737d64082bc2add" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::STATUS3</definition>
+        <argsstring></argsstring>
+        <name>STATUS3</name>
+        <qualifiedname>solakon::reg::STATUS3</qualifiedname>
+        <initializer>= 39065</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="118" column="24" bodyfile="include/solakon_device.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1ac67f1d87b4addee9ae49c1953b8c4024" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::ALARM1</definition>
+        <argsstring></argsstring>
+        <name>ALARM1</name>
+        <qualifiedname>solakon::reg::ALARM1</qualifiedname>
+        <initializer>= 39066</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="119" column="24" bodyfile="include/solakon_device.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1add08e2fd3641cfeec10ebc9e4f74fab6" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::ALARM2</definition>
+        <argsstring></argsstring>
+        <name>ALARM2</name>
+        <qualifiedname>solakon::reg::ALARM2</qualifiedname>
+        <initializer>= 39067</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="120" column="24" bodyfile="include/solakon_device.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1abf184474c94e0fc8ed4a0c10ddd38508" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::AC_TOTAL_POWER</definition>
+        <argsstring></argsstring>
+        <name>AC_TOTAL_POWER</name>
+        <qualifiedname>solakon::reg::AC_TOTAL_POWER</qualifiedname>
+        <initializer>= 39134</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="123" column="24" bodyfile="include/solakon_device.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1afcf5a55f9e06d92be7020c9aaa447ed6" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::AC_REACTIVE_POWER</definition>
+        <argsstring></argsstring>
+        <name>AC_REACTIVE_POWER</name>
+        <qualifiedname>solakon::reg::AC_REACTIVE_POWER</qualifiedname>
+        <initializer>= 39136</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="124" column="24" bodyfile="include/solakon_device.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1add782b3c6d5be70e5b3d0ad57fb8bb47" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::PV_TOTAL_POWER</definition>
+        <argsstring></argsstring>
+        <name>PV_TOTAL_POWER</name>
+        <qualifiedname>solakon::reg::PV_TOTAL_POWER</qualifiedname>
+        <initializer>= 39118</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="127" column="24" bodyfile="include/solakon_device.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1abdef7f49fd9ab8053dff4c32e5a09ff0" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::TOTAL_CHARGE_CAP</definition>
+        <argsstring></argsstring>
+        <name>TOTAL_CHARGE_CAP</name>
+        <qualifiedname>solakon::reg::TOTAL_CHARGE_CAP</qualifiedname>
+        <initializer>= 39603</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="130" column="24" bodyfile="include/solakon_device.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a88bdb39b8b9504bf3c431b5ab8b01afb" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::TOTAL_CHARGE_TODAY</definition>
+        <argsstring></argsstring>
+        <name>TOTAL_CHARGE_TODAY</name>
+        <qualifiedname>solakon::reg::TOTAL_CHARGE_TODAY</qualifiedname>
+        <initializer>= 39605</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="131" column="24" bodyfile="include/solakon_device.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a45fa15d30432beac5401aa4b044b3f20" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::TOTAL_DISCHARGE</definition>
+        <argsstring></argsstring>
+        <name>TOTAL_DISCHARGE</name>
+        <qualifiedname>solakon::reg::TOTAL_DISCHARGE</qualifiedname>
+        <initializer>= 39607</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="132" column="24" bodyfile="include/solakon_device.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a4b86aef730daabea6301c8b23b53ffb5" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::TOTAL_DISCHARGE_TODAY</definition>
+        <argsstring></argsstring>
+        <name>TOTAL_DISCHARGE_TODAY</name>
+        <qualifiedname>solakon::reg::TOTAL_DISCHARGE_TODAY</qualifiedname>
+        <initializer>= 39609</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="133" column="24" bodyfile="include/solakon_device.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1ad76c8be960ef5b98cecb34bf451921db" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::TOTAL_FEEDER</definition>
+        <argsstring></argsstring>
+        <name>TOTAL_FEEDER</name>
+        <qualifiedname>solakon::reg::TOTAL_FEEDER</qualifiedname>
+        <initializer>= 39611</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="134" column="24" bodyfile="include/solakon_device.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1ac29a2facbefa3cdf5c3c18ada17e12b6" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::TOTAL_FEEDER_TODAY</definition>
+        <argsstring></argsstring>
+        <name>TOTAL_FEEDER_TODAY</name>
+        <qualifiedname>solakon::reg::TOTAL_FEEDER_TODAY</qualifiedname>
+        <initializer>= 39613</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="135" column="24" bodyfile="include/solakon_device.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a04d5a5afb4f32ebcfdaf48170ec48f21" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::TOTAL_CONSUMPTION</definition>
+        <argsstring></argsstring>
+        <name>TOTAL_CONSUMPTION</name>
+        <qualifiedname>solakon::reg::TOTAL_CONSUMPTION</qualifiedname>
+        <initializer>= 39615</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="136" column="24" bodyfile="include/solakon_device.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1aca5908c88346226bb6c68b53c5c4f1f1" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::TOTAL_CONSUMPTION_TODAY</definition>
+        <argsstring></argsstring>
+        <name>TOTAL_CONSUMPTION_TODAY</name>
+        <qualifiedname>solakon::reg::TOTAL_CONSUMPTION_TODAY</qualifiedname>
+        <initializer>= 39617</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="137" column="24" bodyfile="include/solakon_device.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1ab7ed24f038790f46303fc261937515eb" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::TOTAL_OUTPUT</definition>
+        <argsstring></argsstring>
+        <name>TOTAL_OUTPUT</name>
+        <qualifiedname>solakon::reg::TOTAL_OUTPUT</qualifiedname>
+        <initializer>= 39619</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="138" column="24" bodyfile="include/solakon_device.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1acdd3e8014fa584d59f2f060004962d44" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::TOTAL_OUTPUT_TODAY</definition>
+        <argsstring></argsstring>
+        <name>TOTAL_OUTPUT_TODAY</name>
+        <qualifiedname>solakon::reg::TOTAL_OUTPUT_TODAY</qualifiedname>
+        <initializer>= 39621</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="139" column="24" bodyfile="include/solakon_device.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1a3d2bd63ed27c244d5b2f2f88eb7f8bca" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::TOTAL_LOAD</definition>
+        <argsstring></argsstring>
+        <name>TOTAL_LOAD</name>
+        <qualifiedname>solakon::reg::TOTAL_LOAD</qualifiedname>
+        <initializer>= 39623</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="140" column="24" bodyfile="include/solakon_device.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacesolakon_1_1reg_1ae6d54fe08f947bc7e72e2a02686c7bc1" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t solakon::reg::TOTAL_LOAD_TODAY</definition>
+        <argsstring></argsstring>
+        <name>TOTAL_LOAD_TODAY</name>
+        <qualifiedname>solakon::reg::TOTAL_LOAD_TODAY</qualifiedname>
+        <initializer>= 39625</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="141" column="24" bodyfile="include/solakon_device.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Register address constants from Solakon ONE Modbus Protocol v02/26. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/solakon_device.h" line="37" column="1"/>
+  </compounddef>
+</doxygen>

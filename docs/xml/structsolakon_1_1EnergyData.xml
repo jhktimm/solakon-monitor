@@ -1,0 +1,226 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structsolakon_1_1EnergyData" kind="struct" language="C++" prot="public">
+    <compoundname>solakon::EnergyData</compoundname>
+    <includes refid="solakon__device_8h" local="no">solakon_device.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structsolakon_1_1EnergyData_1ac5cc8c06079fb6b4ecddfc251d38f01e" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float solakon::EnergyData::pv_total_power_w</definition>
+        <argsstring></argsstring>
+        <name>pv_total_power_w</name>
+        <qualifiedname>solakon::EnergyData::pv_total_power_w</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="237" column="11" bodyfile="include/solakon_device.h" bodystart="237" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsolakon_1_1EnergyData_1a37d5d8c1941f7f95a0b8ff77193216f0" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float solakon::EnergyData::total_charge_kwh</definition>
+        <argsstring></argsstring>
+        <name>total_charge_kwh</name>
+        <qualifiedname>solakon::EnergyData::total_charge_kwh</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="238" column="11" bodyfile="include/solakon_device.h" bodystart="238" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsolakon_1_1EnergyData_1a401d12b62a6975725b241d5770b2cdba" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float solakon::EnergyData::total_charge_today_kwh</definition>
+        <argsstring></argsstring>
+        <name>total_charge_today_kwh</name>
+        <qualifiedname>solakon::EnergyData::total_charge_today_kwh</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="239" column="11" bodyfile="include/solakon_device.h" bodystart="239" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsolakon_1_1EnergyData_1a257b0a550776c3e7937d5aac12f0787d" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float solakon::EnergyData::total_discharge_kwh</definition>
+        <argsstring></argsstring>
+        <name>total_discharge_kwh</name>
+        <qualifiedname>solakon::EnergyData::total_discharge_kwh</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="240" column="11" bodyfile="include/solakon_device.h" bodystart="240" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsolakon_1_1EnergyData_1aac617e22aaccf2b087cff5289c21725a" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float solakon::EnergyData::total_discharge_today_kwh</definition>
+        <argsstring></argsstring>
+        <name>total_discharge_today_kwh</name>
+        <qualifiedname>solakon::EnergyData::total_discharge_today_kwh</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="241" column="11" bodyfile="include/solakon_device.h" bodystart="241" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsolakon_1_1EnergyData_1a8c96c0d5f2b52399aacaf6480e237089" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float solakon::EnergyData::total_feeder_kwh</definition>
+        <argsstring></argsstring>
+        <name>total_feeder_kwh</name>
+        <qualifiedname>solakon::EnergyData::total_feeder_kwh</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="242" column="11" bodyfile="include/solakon_device.h" bodystart="242" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsolakon_1_1EnergyData_1abd035ec9839baf3e277af6f584b3e519" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float solakon::EnergyData::total_feeder_today_kwh</definition>
+        <argsstring></argsstring>
+        <name>total_feeder_today_kwh</name>
+        <qualifiedname>solakon::EnergyData::total_feeder_today_kwh</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="243" column="11" bodyfile="include/solakon_device.h" bodystart="243" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsolakon_1_1EnergyData_1a90b53097298064f1d9f78489ea853c66" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float solakon::EnergyData::total_consumption_kwh</definition>
+        <argsstring></argsstring>
+        <name>total_consumption_kwh</name>
+        <qualifiedname>solakon::EnergyData::total_consumption_kwh</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="244" column="11" bodyfile="include/solakon_device.h" bodystart="244" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsolakon_1_1EnergyData_1ac16e74a34135c5f5989ad4b16f14cf2d" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float solakon::EnergyData::total_consumption_today_kwh</definition>
+        <argsstring></argsstring>
+        <name>total_consumption_today_kwh</name>
+        <qualifiedname>solakon::EnergyData::total_consumption_today_kwh</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="245" column="11" bodyfile="include/solakon_device.h" bodystart="245" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsolakon_1_1EnergyData_1a058323c3bb50e6184a6625cbe7de6680" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float solakon::EnergyData::total_output_kwh</definition>
+        <argsstring></argsstring>
+        <name>total_output_kwh</name>
+        <qualifiedname>solakon::EnergyData::total_output_kwh</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="246" column="11" bodyfile="include/solakon_device.h" bodystart="246" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsolakon_1_1EnergyData_1ab9014c02597d4f4a8bab2e04f63f920c" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float solakon::EnergyData::total_output_today_kwh</definition>
+        <argsstring></argsstring>
+        <name>total_output_today_kwh</name>
+        <qualifiedname>solakon::EnergyData::total_output_today_kwh</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="247" column="11" bodyfile="include/solakon_device.h" bodystart="247" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsolakon_1_1EnergyData_1a2775b4e3391e9836b20f512135c9838e" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float solakon::EnergyData::total_load_kwh</definition>
+        <argsstring></argsstring>
+        <name>total_load_kwh</name>
+        <qualifiedname>solakon::EnergyData::total_load_kwh</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="248" column="11" bodyfile="include/solakon_device.h" bodystart="248" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsolakon_1_1EnergyData_1af314d0e74f3f7446f69f805fd1365971" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float solakon::EnergyData::total_load_today_kwh</definition>
+        <argsstring></argsstring>
+        <name>total_load_today_kwh</name>
+        <qualifiedname>solakon::EnergyData::total_load_today_kwh</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/solakon_device.h" line="249" column="11" bodyfile="include/solakon_device.h" bodystart="249" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Energy totals read from the inverter. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>All cumulative energy values are in kWh (raw / 10). Daily energy values are resettable counters. </para>
+    </detaileddescription>
+    <location file="include/solakon_device.h" line="236" column="1" bodyfile="include/solakon_device.h" bodystart="236" bodyend="250"/>
+    <listofallmembers>
+      <member refid="structsolakon_1_1EnergyData_1ac5cc8c06079fb6b4ecddfc251d38f01e" prot="public" virt="non-virtual"><scope>solakon::EnergyData</scope><name>pv_total_power_w</name></member>
+      <member refid="structsolakon_1_1EnergyData_1a37d5d8c1941f7f95a0b8ff77193216f0" prot="public" virt="non-virtual"><scope>solakon::EnergyData</scope><name>total_charge_kwh</name></member>
+      <member refid="structsolakon_1_1EnergyData_1a401d12b62a6975725b241d5770b2cdba" prot="public" virt="non-virtual"><scope>solakon::EnergyData</scope><name>total_charge_today_kwh</name></member>
+      <member refid="structsolakon_1_1EnergyData_1a90b53097298064f1d9f78489ea853c66" prot="public" virt="non-virtual"><scope>solakon::EnergyData</scope><name>total_consumption_kwh</name></member>
+      <member refid="structsolakon_1_1EnergyData_1ac16e74a34135c5f5989ad4b16f14cf2d" prot="public" virt="non-virtual"><scope>solakon::EnergyData</scope><name>total_consumption_today_kwh</name></member>
+      <member refid="structsolakon_1_1EnergyData_1a257b0a550776c3e7937d5aac12f0787d" prot="public" virt="non-virtual"><scope>solakon::EnergyData</scope><name>total_discharge_kwh</name></member>
+      <member refid="structsolakon_1_1EnergyData_1aac617e22aaccf2b087cff5289c21725a" prot="public" virt="non-virtual"><scope>solakon::EnergyData</scope><name>total_discharge_today_kwh</name></member>
+      <member refid="structsolakon_1_1EnergyData_1a8c96c0d5f2b52399aacaf6480e237089" prot="public" virt="non-virtual"><scope>solakon::EnergyData</scope><name>total_feeder_kwh</name></member>
+      <member refid="structsolakon_1_1EnergyData_1abd035ec9839baf3e277af6f584b3e519" prot="public" virt="non-virtual"><scope>solakon::EnergyData</scope><name>total_feeder_today_kwh</name></member>
+      <member refid="structsolakon_1_1EnergyData_1a2775b4e3391e9836b20f512135c9838e" prot="public" virt="non-virtual"><scope>solakon::EnergyData</scope><name>total_load_kwh</name></member>
+      <member refid="structsolakon_1_1EnergyData_1af314d0e74f3f7446f69f805fd1365971" prot="public" virt="non-virtual"><scope>solakon::EnergyData</scope><name>total_load_today_kwh</name></member>
+      <member refid="structsolakon_1_1EnergyData_1a058323c3bb50e6184a6625cbe7de6680" prot="public" virt="non-virtual"><scope>solakon::EnergyData</scope><name>total_output_kwh</name></member>
+      <member refid="structsolakon_1_1EnergyData_1ab9014c02597d4f4a8bab2e04f63f920c" prot="public" virt="non-virtual"><scope>solakon::EnergyData</scope><name>total_output_today_kwh</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

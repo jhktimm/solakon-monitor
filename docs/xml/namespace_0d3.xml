@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespace_0d3" kind="namespace" language="C++">
+    <compoundname></compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Solakon ONE Monitor - Terminal monitoring tool Reads real-time data from Solakon ONE via Modbus TCP Displays it in a btop-like terminal interface</para>
+<para>Usage: solakonOne [IP] [<ndash/>interval N] [<ndash/>once] IP: Solakon ONE IP (default: 192.168.178.121) N: Refresh interval in Hz (default: 1) <ndash/>once: Single snapshot and exit </para>
+    </detaileddescription>
+    <location file="src/main.cpp" line="24" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespacesolakon_1_1modbus" kind="namespace" language="C++">
+    <compoundname>solakon::modbus</compoundname>
+    <innerclass refid="classsolakon_1_1modbus_1_1Client" prot="public">solakon::modbus::Client</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/modbus_client.h" line="32" column="1"/>
+  </compounddef>
+</doxygen>
