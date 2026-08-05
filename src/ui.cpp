@@ -32,7 +32,6 @@ std::string TerminalUI::color(Color fg, Color bg, const std::string& text) {
     if (bg != Color::DEFAULT) {
         int bg_idx = static_cast<int>(bg);
         if (bg_idx >= 100 && bg_idx <= 107) {
-            // BG_DARKER range: direct ANSI bg codes (100-107)
             char buf[8];
             std::snprintf(buf, sizeof(buf), "\033[%dm", bg_idx);
             result += buf;
@@ -58,7 +57,7 @@ std::string TerminalUI::dim(Color fg, const std::string& text) {
 }
 
 std::string TerminalUI::separator(int width, char c, Color fg) {
-    return color(fg, Color::BG_DARKER, std::string(static_cast<size_t>(width), c));
+    return color(fg, Color::DEFAULT, std::string(static_cast<size_t>(width), c));
 }
 
 std::string TerminalUI::section_header(const std::string& title, int width, Color fg) {
@@ -122,8 +121,8 @@ std::string TerminalUI::bar(float value, float max_val, int width, Color fg, Bar
     if (filled < 0) filled = 0;
 
     std::string result;
-    result += color(fg, Color::BG_DARKER, std::string(static_cast<size_t>(filled), '#'));
-    result += color(Color::DIM_GRAY, Color::BG_DARKER, std::string(static_cast<size_t>(width - filled), ' '));
+    result += color(fg, Color::DEFAULT, std::string(static_cast<size_t>(filled), '#'));
+    result += std::string(static_cast<size_t>(width - filled), ' ');
     return result;
 }
 
@@ -156,7 +155,6 @@ void TerminalUI::clear() {
 
 void TerminalUI::render(const DeviceSnapshot& snap, int refresh_hz) {
     (void)refresh_hz;
-    // Re-read terminal size each render in case it changed
     struct winsize w;
     if (ioctl(STDOUT_FILENO, TIOCGWINSZ, &w) != -1) {
         screen_width_ = w.ws_col;
@@ -181,11 +179,10 @@ void TerminalUI::draw_header(const DeviceSnapshot& snap) {
     std::string title = "Solakon ONE Monitor";
     int pad = (screen_width_ - static_cast<int>(title.size())) / 2;
     std::string pad_str(static_cast<size_t>(pad > 0 ? pad : 0), ' ');
-    std::printf("%s%s\n", dim(Color::DIM_GRAY, pad_str.c_str()).c_str(),
-                bold(Color::BRIGHT_CYAN, title).c_str());
+    std::printf("%s\n", bold(Color::BRIGHT_CYAN, title).c_str());
 
     std::string info = "IP: 192.168.178.121  |  Modbus TCP :502  |  Uptime: " + format_uptime(snap.timestamp);
-    std::printf("%s\n", dim(Color::DIM_GRAY, info.c_str()).c_str());
+    std::printf("%s\n", info.c_str());
 
     std::printf("%s\n", separator(screen_width_, '-', Color::DIM_GRAY).c_str());
 }
@@ -238,13 +235,11 @@ void TerminalUI::draw_power_block(const std::string& label, float power_w, int w
 void TerminalUI::draw_power(const DeviceSnapshot& snap) {
     std::printf("\n%s\n", section_header("Leistungen", screen_width_).c_str());
 
-    draw_power_block("PV Leistung", snap.energy.pv_total_power_w, screen_width_);
-    draw_power_block("AC Leistung", snap.energy.ac_active_power_w, screen_width_);
     draw_power_block("Smart Meter", snap.energy.smart_meter_power_w, screen_width_);
+    draw_power_block("AC Leistung", snap.energy.ac_active_power_w, screen_width_);
+    draw_power_block("PV Leistung", snap.energy.pv_total_power_w, screen_width_);
     draw_power_block("Batterie", snap.energy.battery_power_w, screen_width_);
-    
-    draw_network_diagram(snap);
-    
+
     std::printf("%s\n", separator(screen_width_, ' ', Color::DIM_GRAY).c_str());
 }
 
@@ -307,214 +302,6 @@ void TerminalUI::draw_footer() {
     std::printf("\n%s%s%s\n", dim(Color::DIM_GRAY, footer.c_str()).c_str(),
                 dim(Color::DIM_GRAY, pad.c_str()).c_str(), "\033[0m");
     std::fflush(stdout);
-}
-
-void TerminalUI::draw_network_diagram(const DeviceSnapshot& snap) {
-    float pv_power = snap.energy.pv_total_power_w;
-    float ac_power = snap.energy.ac_active_power_w;
-    float battery_power = snap.energy.battery_power_w;
-    float smart_power = snap.energy.smart_meter_power_w;
-    
-    // UTF-8 box-drawing characters
-    const char* VLINE = "\xe2\x94\x82";  // │
-    const char* HLINE = "\xe2\x94\x80";  // ─
-    const char* LARROW = "\xe2\x86\x90"; // ←
-    const char* RARROW = "\xe2\x86\x92"; // →
-    const char* SUN = "\xe2\x98\x80";    // ☀
-    
-    int center = screen_width_ / 2;
-    
-    // Layout:
-    //         [Netz] -- [Haus] -- [Sakon One] --┬-- [Batterie]
-    //                                               \-- [PV]
-    //  netz_w  haus_w   sakon_w   split_w  batt_w  pv_w
-    
-    // Row 1: PV panel (centered, yellow)
-    std::string pv_label = "  " + std::string(SUN) + " PV-Anlage  ";
-    int pv_x = center - static_cast<int>(pv_label.size()) / 2;
-    if (pv_x < 0) pv_x = 0;
-    int pv_rest = screen_width_ - pv_x - static_cast<int>(pv_label.size());
-    if (pv_rest < 0) pv_rest = 0;
-    std::printf("%*s%s%s%s\n", pv_x, "", bold(Color::YELLOW, pv_label).c_str(),
-                dim(Color::DIM_GRAY, std::string(pv_rest, ' ')).c_str(), COLOR_RESET);
-    
-    // PV power value with vertical line
-    std::string pv_power_str = format_power(pv_power);
-    int pv_power_x = center - static_cast<int>(pv_power_str.size()) / 2;
-    if (pv_power_x < 0) pv_power_x = 0;
-    std::printf("%*s%s%*s%s%*s\n", center, "", VLINE,
-                (pv_power_x > center + 1) ? pv_power_x - center - 1 : 0, "",
-                pv_power_str.c_str(),
-                screen_width_ - pv_power_x - static_cast<int>(pv_power_str.size()) > 0
-                    ? screen_width_ - pv_power_x - static_cast<int>(pv_power_str.size()) : 0, "");
-    
-    // PV connection line to split row
-    std::printf("%*s%s%*s\n", center, "", VLINE, screen_width_ - center - 1, "");
-    
-    // Row 2: split point (┬) connecting Sakon One to Batterie and PV
-    int split_x = center;
-    std::string row2 = std::string(split_x, ' ');
-    row2 += "\xe2\x94\xb4";  // ┴
-    row2 += std::string(screen_width_ - split_x - 1, ' ');
-    std::printf("%s\n", row2.c_str());
-    
-    // Row 3: PV connection to split
-    int pv_w = 10;  // [PV] visual width
-    int pv_row_x = center - pv_w / 2;
-    if (pv_row_x < 2) pv_row_x = 2;
-    std::string row3 = std::string(pv_row_x, ' ');
-    row3 += bold(Color::YELLOW, " [PV]   ");
-    int pv_rest3 = screen_width_ - pv_row_x - static_cast<int>(row3.size());
-    if (pv_rest3 > 0) row3 += std::string(pv_rest3, ' ');
-    std::printf("%s\n", row3.c_str());
-    
-    // PV value below
-    std::string pv_val_str = format_power(pv_power);
-    int pv_val_x = pv_row_x + pv_w / 2;
-    std::printf("%*s%s%*s\n", pv_val_x, "",
-                dim(Color::DIM_GRAY, pv_val_str).c_str(),
-                screen_width_ - pv_val_x - static_cast<int>(pv_val_str.size()) > 0
-                    ? screen_width_ - pv_val_x - static_cast<int>(pv_val_str.size()) : 0, "");
-    
-    // Row 4: [Netz] -- [Haus] -- [Sakon One]
-    int netz_w = 14;  // [Öff. Netz] visual width
-    int haus_w = 12;  // [Haus] visual width
-    int sakon_w = 14; // [Sakon One] visual width
-    int gap = 4;
-    
-    int total_w = netz_w + haus_w + sakon_w + gap * 2;
-    int row_start = center - total_w / 2;
-    if (row_start < 2) row_start = 2;
-    
-    int netz_x = row_start;
-    int haus_x = netz_x + netz_w + gap;
-    int sakon_x = haus_x + haus_w + gap;
-    
-    // Track visual cursor
-    int cursor = row_start;
-    
-    // Padding
-    if (cursor > 0) std::printf("%*s", cursor, "");
-    cursor = 0;
-    
-    // Netz box (cyan)
-    std::string netz_box = "  [Öff. Netz]  ";
-    std::printf("%s", bold(Color::CYAN, netz_box).c_str());
-    cursor += static_cast<int>(netz_box.size());
-    
-    // Line to Haus
-    int line1_len = haus_x - cursor - 1;
-    if (line1_len < 0) line1_len = 0;
-    if (line1_len > 0) {
-        for (int i = 0; i < line1_len; i++) std::printf("%s", HLINE);
-    }
-    cursor += line1_len;
-    
-    // Arrow between Netz and Haus
-    // smart_power > 0 = feed-in (Haus -> Netz)
-    // smart_power < 0 = consumption (Netz -> Haus)
-    if (smart_power > 0) {
-        std::printf("%s", LARROW);  // Haus -> Netz
-    } else if (smart_power < 0) {
-        std::printf("%s", RARROW);  // Netz -> Haus
-    } else {
-        std::printf("-");
-    }
-    cursor++;
-    
-    // Continue line to Haus
-    int line1_rest = haus_x - cursor - 1;
-    if (line1_rest < 0) line1_rest = 0;
-    if (line1_rest > 0) {
-        for (int i = 0; i < line1_rest; i++) std::printf("%s", HLINE);
-    }
-    cursor += line1_rest;
-    
-    // Haus box (green)
-    std::string haus_box = "    [Haus]    ";
-    std::printf("%s", bold(Color::GREEN, haus_box).c_str());
-    cursor += static_cast<int>(haus_box.size());
-    
-    // Line to Sakon
-    int line2_len = sakon_x - cursor - 1;
-    if (line2_len < 0) line2_len = 0;
-    if (line2_len > 0) {
-        for (int i = 0; i < line2_len; i++) std::printf("%s", HLINE);
-    }
-    cursor += line2_len;
-    
-    // Arrow between Haus and Sakon
-    // ac_power > 0 = output (Haus -> Sakon)
-    // ac_power < 0 = input (Sakon -> Haus)
-    if (ac_power > 0) {
-        std::printf("%s", RARROW);  // Haus -> Sakon
-    } else if (ac_power < 0) {
-        std::printf("%s", LARROW);  // Haus <- Sakon
-    } else {
-        std::printf("-");
-    }
-    cursor++;
-    
-    // Continue line to Sakon
-    int line2_rest = sakon_x - cursor - 1;
-    if (line2_rest < 0) line2_rest = 0;
-    if (line2_rest > 0) {
-        for (int i = 0; i < line2_rest; i++) std::printf("%s", HLINE);
-    }
-    cursor += line2_rest;
-    
-    // Sakon One box (white/bright)
-    std::string sakon_box = " [Sakon One]  ";
-    std::printf("%s", bold(Color::BRIGHT_WHITE, sakon_box).c_str());
-    cursor += static_cast<int>(sakon_box.size());
-    
-    // Fill rest
-    int rest = screen_width_ - cursor;
-    if (rest > 0) std::printf("%*s", rest, "");
-    std::printf("\n");
-    
-    // Power values below each box
-    int netz_val_x = netz_x + netz_w / 2;
-    int haus_val_x = haus_x + haus_w / 2;
-    int sakon_val_x = sakon_x + sakon_w / 2;
-    
-    std::string netz_val = format_power(smart_power);
-    std::string haus_val = format_power(ac_power);
-    std::string sakon_val = format_power(battery_power);
-    
-    // Pad to netz_val_x
-    if (netz_x > 0) std::printf("%*s", netz_x, "");
-    
-    // Netz value centered
-    int netz_pad = netz_val_x - static_cast<int>(netz_val.size()) / 2 - netz_x;
-    if (netz_pad < 0) netz_pad = 0;
-    if (netz_pad > 0) std::printf("%*s", netz_pad, "");
-    std::printf("%s", dim(Color::DIM_GRAY, netz_val).c_str());
-    
-    // Haus value
-    int haus_pad = haus_val_x - static_cast<int>(netz_val.size()) - netz_x - netz_pad;
-    if (haus_pad < 0) haus_pad = 0;
-    if (haus_pad > 0) std::printf("%*s", haus_pad, "");
-    std::printf("%s", dim(Color::DIM_GRAY, haus_val).c_str());
-    
-    // Sakon value
-    int sakon_pad = sakon_val_x - static_cast<int>(netz_val.size()) - static_cast<int>(haus_val.size()) - netz_x - netz_pad - haus_pad;
-    if (sakon_pad < 0) sakon_pad = 0;
-    if (sakon_pad > 0) std::printf("%*s", sakon_pad, "");
-    std::printf("%s", dim(Color::DIM_GRAY, sakon_val).c_str());
-    
-    int rest5 = screen_width_ - netz_x - netz_pad - static_cast<int>(netz_val.size()) - haus_pad - static_cast<int>(haus_val.size()) - sakon_pad - static_cast<int>(sakon_val.size());
-    if (rest5 > 0) std::printf("%*s", rest5, "");
-    std::printf("\n");
-    
-    // Row 5: vertical line from Sakon to split
-    int sakon_center = sakon_x + sakon_w / 2;
-    if (sakon_center >= 0 && sakon_center < screen_width_) {
-        std::string row5 = std::string(sakon_center, ' ');
-        row5 += VLINE;
-        row5 += std::string(screen_width_ - sakon_center - 1, ' ');
-        std::printf("%s\n", row5.c_str());
-    }
 }
 
 } // namespace solakon::ui
