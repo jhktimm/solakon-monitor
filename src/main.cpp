@@ -65,6 +65,7 @@ struct Config {
     std::string host = "192.168.178.121";
     int refresh_hz = 1;
     bool once = false;
+    bool json = false;
 };
 
 Config parse_args(int argc, char* argv[]) {
@@ -72,6 +73,8 @@ Config parse_args(int argc, char* argv[]) {
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--once") == 0) {
             cfg.once = true;
+        } else if (strcmp(argv[i], "--json") == 0) {
+            cfg.json = true;
         } else if (strcmp(argv[i], "--interval") == 0 && i + 1 < argc) {
             cfg.refresh_hz = atoi(argv[++i]);
             if (cfg.refresh_hz < 1) cfg.refresh_hz = 1;
@@ -152,7 +155,11 @@ int main(int argc, char* argv[]) {
     if (cfg.once || elapsed >= interval) {
         last_refresh = now;
         auto snap = device.fetch_snapshot();
-        ui.render(snap, cfg.refresh_hz);
+        if (cfg.json) {
+            ui.render_json(snap);
+        } else {
+            ui.render(snap, cfg.refresh_hz);
+        }
         if (cfg.once) break;
     }
 

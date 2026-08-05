@@ -31,6 +31,7 @@ public:
     void shutdown();
     void clear();
     void render(const DeviceSnapshot& snap, int refresh_hz);
+    void render_json(const DeviceSnapshot& snap);
 
 public:
     // Formatting helpers - public for use in main.cpp

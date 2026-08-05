@@ -175,6 +175,57 @@ void TerminalUI::render(const DeviceSnapshot& snap, int refresh_hz) {
     std::fflush(stdout);
 }
 
+void TerminalUI::render_json(const DeviceSnapshot& snap) {
+    // Output JSON to stdout for machine consumption
+    auto now = std::chrono::system_clock::now();
+    auto epoch = std::chrono::duration_cast<std::chrono::seconds>(
+        now.time_since_epoch()).count();
+
+    std::printf("{\n");
+    std::printf("  \"timestamp\": %lld,\n", (long long)epoch);
+    std::printf("  \"valid\": %s,\n", snap.valid ? "true" : "false");
+    std::printf("  \"power\": {\n");
+    std::printf("    \"smart_meter_w\": %.1f,\n", snap.energy.smart_meter_power_w);
+    std::printf("    \"ac_power_w\": %.1f,\n", snap.energy.ac_active_power_w);
+    std::printf("    \"pv_power_w\": %.1f,\n", snap.energy.pv_total_power_w);
+    std::printf("    \"battery_power_w\": %.1f\n", snap.energy.battery_power_w);
+    std::printf("  },\n");
+    std::printf("  \"energy\": {\n");
+    std::printf("    \"charge_total_kwh\": %.1f,\n", snap.energy.total_charge_kwh);
+    std::printf("    \"charge_today_kwh\": %.1f,\n", snap.energy.total_charge_today_kwh);
+    std::printf("    \"discharge_total_kwh\": %.1f,\n", snap.energy.total_discharge_kwh);
+    std::printf("    \"discharge_today_kwh\": %.1f,\n", snap.energy.total_discharge_today_kwh);
+    std::printf("    \"feeder_total_kwh\": %.1f,\n", snap.energy.total_feeder_kwh);
+    std::printf("    \"feeder_today_kwh\": %.1f,\n", snap.energy.total_feeder_today_kwh);
+    std::printf("    \"consumption_total_kwh\": %.1f,\n", snap.energy.total_consumption_kwh);
+    std::printf("    \"consumption_today_kwh\": %.1f,\n", snap.energy.total_consumption_today_kwh);
+    std::printf("    \"output_total_kwh\": %.1f,\n", snap.energy.total_output_kwh);
+    std::printf("    \"output_today_kwh\": %.1f,\n", snap.energy.total_output_today_kwh);
+    std::printf("    \"load_total_kwh\": %.1f,\n", snap.energy.total_load_kwh);
+    std::printf("    \"load_today_kwh\": %.1f\n", snap.energy.total_load_today_kwh);
+    std::printf("  },\n");
+    std::printf("  \"battery\": {\n");
+    std::printf("    \"soc_pct\": %.0f,\n", snap.bms.soc);
+    std::printf("    \"voltage_v\": %.1f,\n", snap.bms.voltage);
+    std::printf("    \"current_a\": %.1f,\n", snap.bms.current);
+    std::printf("    \"temperature_c\": %.1f\n", snap.bms.temperature);
+    std::printf("  },\n");
+    std::printf("  \"meter1\": {\n");
+    std::printf("    \"connected\": %s,\n", snap.meter1.connected ? "true" : "false");
+    std::printf("    \"voltage_v\": %.1f,\n", snap.meter1.r_voltage);
+    std::printf("    \"current_a\": %.2f,\n", snap.meter1.r_current);
+    std::printf("    \"power_w\": %.1f\n", snap.meter1.combined_active_power);
+    std::printf("  },\n");
+    std::printf("  \"meter2\": {\n");
+    std::printf("    \"connected\": %s,\n", snap.meter2.connected ? "true" : "false");
+    std::printf("    \"voltage_v\": %.1f,\n", snap.meter2.r_voltage);
+    std::printf("    \"current_a\": %.2f,\n", snap.meter2.r_current);
+    std::printf("    \"power_w\": %.1f\n", snap.meter2.combined_active_power);
+    std::printf("  }\n");
+    std::printf("}\n");
+    std::fflush(stdout);
+}
+
 void TerminalUI::draw_header(const DeviceSnapshot& snap) {
     std::string title = "Solakon ONE Monitor";
     int pad = (screen_width_ - static_cast<int>(title.size())) / 2;

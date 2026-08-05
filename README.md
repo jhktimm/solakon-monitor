@@ -74,9 +74,66 @@ ninja -C build test
 # Single snapshot
 ./build/solakon-monitor --once
 
+# JSON output (for Chrome plugins, dashboards, APIs)
+./build/solakon-monitor --once --json
+
 # Help
 ./build/solakon-monitor --help
 ```
+
+### JSON Output
+
+```bash
+./build/solakon-monitor --once --json
+```
+
+Returns a JSON object with all inverter data:
+```json
+{
+  "timestamp": 1722883200,
+  "valid": true,
+  "power": {
+    "smart_meter_w": 1234.5,
+    "ac_power_w": 2345.6,
+    "pv_power_w": 3456.7,
+    "battery_power_w": -500.0
+  },
+  "energy": {
+    "charge_total_kwh": 1234.5,
+    "charge_today_kwh": 12.3,
+    "discharge_total_kwh": 1100.2,
+    "discharge_today_kwh": 10.1,
+    "feeder_total_kwh": 2000.0,
+    "feeder_today_kwh": 15.5,
+    "consumption_total_kwh": 1800.0,
+    "consumption_today_kwh": 8.2,
+    "output_total_kwh": 1500.0,
+    "output_today_kwh": 5.0,
+    "load_total_kwh": 1300.0,
+    "load_today_kwh": 4.5
+  },
+  "battery": {
+    "soc_pct": 75,
+    "voltage_v": 48.5,
+    "current_a": -10.2,
+    "temperature_c": 25.3
+  },
+  "meter1": {
+    "connected": true,
+    "voltage_v": 230.5,
+    "current_a": 5.43,
+    "power_w": 1234.5
+  },
+  "meter2": {
+    "connected": true,
+    "voltage_v": 230.5,
+    "current_a": 5.43,
+    "power_w": 1234.5
+  }
+}
+```
+
+Useful for Chrome plugins, Grafana dashboards, or any HTTP-based monitoring tool.
 
 ### Monitor Keys
 
