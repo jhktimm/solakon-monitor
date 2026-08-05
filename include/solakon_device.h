@@ -123,6 +123,9 @@ namespace reg {
     constexpr uint16_t AC_TOTAL_POWER = 39134;    // I32, raw in W (kW/1000)
     constexpr uint16_t AC_REACTIVE_POWER = 39136; // I32, kVar*1000
 
+    // Smart Meter (Table 2-5)
+    constexpr uint16_t SMART_METER_POWER = 39168;   // I32, W, >0 feed-in, <0 consumption
+
     // Battery power (Table 2-5)
     constexpr uint16_t BATTERY_POWER = 39230;      // I32, raw in W (can be negative = charging)
 
@@ -239,7 +242,8 @@ struct BMSData {
 struct EnergyData {
     float pv_total_power_w = 0.0f;
     float ac_active_power_w = 0.0f;     // AC active power (W), can be negative during full load
-    float battery_power_w = 0.0f;        // Battery power (W): negative = charging, positive = discharging
+    float smart_meter_power_w = 0.0f;   // Smart meter power (W), >0 feed-in, <0 consumption
+    float battery_power_w = 0.0f;        // Battery power (W), positive=discharging, negative=charging
     float total_charge_kwh = 0.0f;
     float total_charge_today_kwh = 0.0f;
     float total_discharge_kwh = 0.0f;

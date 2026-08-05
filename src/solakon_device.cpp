@@ -213,13 +213,19 @@ private:
             energy.pv_total_power_w = static_cast<float>(pv_raw);
         }
 
-        // AC active power (39134, I32, raw in W, can be negative during full load)
+        // AC active power (39134, I32, kW/1000) — raw value already in W
         int32_t ac_raw = 0;
         if (!client_.read_i32(reg::AC_TOTAL_POWER, ac_raw)) {
             energy.ac_active_power_w = static_cast<float>(ac_raw);
         }
 
-        // Battery power (39230, I32, raw in W, negative = charging, positive = discharging)
+        // Smart Meter power (39168, I32, W, >0 feed-in, <0 consumption)
+        int32_t smart_raw = 0;
+        if (!client_.read_i32(reg::SMART_METER_POWER, smart_raw)) {
+            energy.smart_meter_power_w = static_cast<float>(smart_raw);
+        }
+
+        // Battery power (39230, I32, W, negative = charging, positive = discharging)
         int32_t bat_raw = 0;
         if (!client_.read_i32(reg::BATTERY_POWER, bat_raw)) {
             energy.battery_power_w = static_cast<float>(bat_raw);

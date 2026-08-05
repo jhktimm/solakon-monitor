@@ -244,14 +244,9 @@ void TerminalUI::draw_power(const DeviceSnapshot& snap) {
     if (bar_width < 10) bar_width = 10;
 
     draw_power_block("PV Leistung", snap.energy.pv_total_power_w, bar_width);
-    draw_power_block("AC Leistung", snap.meter1.combined_active_power, bar_width);
-    float batt_power = 0;
-    if (snap.bms.current > 0) {
-        batt_power = snap.bms.voltage * snap.bms.current;
-    } else if (snap.bms.current < 0) {
-        batt_power = snap.bms.voltage * (-snap.bms.current);
-    }
-    draw_power_block("Batterie", batt_power, bar_width);
+    draw_power_block("AC Leistung", snap.energy.ac_active_power_w, bar_width);
+    draw_power_block("Smart Meter", snap.energy.smart_meter_power_w, bar_width);
+    draw_power_block("Batterie", snap.energy.battery_power_w, bar_width);
     std::printf("%s\n", separator(screen_width_, ' ', Color::DIM_GRAY).c_str());
 }
 
