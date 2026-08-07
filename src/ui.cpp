@@ -238,15 +238,6 @@ void TerminalUI::render_art(const DeviceSnapshot& snap, int refresh_hz) {
     float batt = snap.energy.battery_power_w;
     float soc  = snap.bms.soc;
 
-    // Helper: format flow line with dynamic arrow based on power sign
-    auto arrow = [](float w, const char* label) {
-        char buf[80];
-        if (w > 100) std::snprintf(buf, sizeof(buf), " -> %s +%.0fW ->", label, w);
-        else if (w < -100) std::snprintf(buf, sizeof(buf), "<- %s +%.0fW <-", label, -w);
-        else std::snprintf(buf, sizeof(buf), "    ---        ", label);
-        return std::string(buf);
-    };
-
     // Title bar
     std::printf("\033[36m%-*s\033[0m\n", screen_width_, "Solakon ONE Monitor - Art Mode");
 
