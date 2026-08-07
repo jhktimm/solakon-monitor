@@ -163,7 +163,7 @@ void TerminalUI::render(const DeviceSnapshot& snap, int refresh_hz) {
     if (screen_width_ < 80) screen_width_ = 80;
     if (screen_height_ < 24) screen_height_ = 24;
 
-    clear();
+    // clear();
     draw_header(snap);
     draw_inverter_info(snap);
     draw_status(snap);
@@ -223,6 +223,22 @@ void TerminalUI::render_json(const DeviceSnapshot& snap) {
     std::printf("  }\n");
     std::printf("}\n");
     std::fflush(stdout);
+}
+
+void TerminalUI::render_art(const DeviceSnapshot& snap, int refresh_hz) {
+    (void)refresh_hz;
+    struct winsize w;
+    if (ioctl(STDOUT_FILENO, TIOCGWINSZ, &w) != -1) {
+        screen_width_ = w.ws_col;
+        screen_height_ = w.ws_row;
+    }
+    if (screen_width_ < 80) screen_width_ = 80;
+
+    float pv = snap.energy.pv_total_power_w;
+    float ac = snap.energy.ac_active_power_w;
+    float batt = snap.energy.battery_power_w;
+    float sm  = snap.energy.smart_meter_power_w;
+    float soc = snap.bms.soc;
 }
 
 void TerminalUI::draw_header(const DeviceSnapshot& snap) {

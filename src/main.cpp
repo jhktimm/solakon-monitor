@@ -11,6 +11,7 @@
  *   --json      Output single snapshot as JSON
  *   --server    Start HTTP server (default port: 8080)
  *   --interval N Refresh interval in Hz (1-60, default: 1)
+ *   --art       ASCII art network diagram mode
  *   -p, --port PORT Solakon ONE Modbus port (default: 502)
  *   -h, --help  Show this help message
  */
@@ -80,6 +81,7 @@ struct Config {
     int server_port = 8080;
     bool help = false;
     bool scan = false;
+    bool art = false;
     std::string config_path = "";
 };
 
@@ -96,6 +98,7 @@ void print_usage(const char* prog) {
     std::printf("  --json              Output single snapshot as JSON\n");
     std::printf("  --server [PORT]     Start HTTP server (default port: 8080)\n");
     std::printf("  --interval N        Refresh interval in Hz (1-60, default: 1)\n");
+    std::printf("  --art               ASCII art network diagram mode\n");
     std::printf("  -p, --port PORT     Solakon ONE Modbus port (default: 502)\n");
     std::printf("\n");
     std::printf("Config file (auto-discovered in this order):\n");
@@ -151,6 +154,8 @@ Config parse_args(int argc, char* argv[]) {
             cfg.refresh_hz = atoi(argv[++i]);
             if (cfg.refresh_hz < 1) cfg.refresh_hz = 1;
             if (cfg.refresh_hz > 60) cfg.refresh_hz = 60;
+        } else if (strcmp(argv[i], "--art") == 0) {
+            cfg.art = true;
         } else if (argv[i][0] != '-') {
             cfg.host = argv[i];
         }
@@ -220,12 +225,12 @@ int main(int argc, char* argv[]) {
                 .c_str());
             std::printf("  %s\n",
                 solakon::ui::TerminalUI::dim(solakon::ui::Color::DIM_GRAY,
-                    "Prüfe: Subnet, Ports, Firewall").c_str());
+                    "Pruefe: Subnet, Ports, Firewall").c_str());
             return 1;
         }
 
         std::printf("  %s %s\n\n",
-            solakon::ui::TerminalUI::bold(solakon::ui::Color::GREEN, "Gefundene Geräte:").c_str(),
+            solakon::ui::TerminalUI::bold(solakon::ui::Color::GREEN, "Gefundene Gerichte:").c_str(),
             solakon::ui::TerminalUI::dim(solakon::ui::Color::DIM_GRAY,
                 ("(" + std::to_string(devices.size()) + " gefunden)").c_str())
             .c_str());
@@ -250,7 +255,7 @@ int main(int argc, char* argv[]) {
                 .c_str());
             std::printf("  %s\n",
                 solakon::ui::TerminalUI::dim(solakon::ui::Color::DIM_GRAY,
-                    "Drücke ENTER zum Speichern, oder STRG+C zum Abbrechen")
+                    "Druecke ENTER zum Speichern, oder STRG+C zum Abbrechen")
                 .c_str());
 
             std::getchar();
@@ -285,7 +290,7 @@ int main(int argc, char* argv[]) {
                 .c_str());
             std::printf("  %s\n",
                 solakon::ui::TerminalUI::dim(solakon::ui::Color::DIM_GRAY,
-                    "Verwende --scan um Geräte zu finden")
+                    "Verwende --scan um Guereite zu finden")
                 .c_str());
             std::printf("  %s\n",
                 solakon::ui::TerminalUI::dim(solakon::ui::Color::DIM_GRAY,
@@ -293,7 +298,7 @@ int main(int argc, char* argv[]) {
                 .c_str());
             std::printf("  %s\n",
                 solakon::ui::TerminalUI::dim(solakon::ui::Color::DIM_GRAY,
-                    "Siehe README.md für Details")
+                    "Siehe README.md fuer Details")
                 .c_str());
             return 1;
         }
@@ -304,7 +309,7 @@ int main(int argc, char* argv[]) {
                     "Keine Solakon ONE IP konfiguriert.").c_str());
             std::printf("  %s\n",
                 solakon::ui::TerminalUI::dim(solakon::ui::Color::DIM_GRAY,
-                    "Verwende --scan um Geräte zu finden")
+                    "Verwende --scan um Gerichte zu finden")
                 .c_str());
             std::printf("\n  %s\n",
                 solakon::ui::TerminalUI::dim(solakon::ui::Color::DIM_GRAY,
@@ -337,7 +342,7 @@ int main(int argc, char* argv[]) {
                 .c_str());
             std::printf("  %s\n",
                 solakon::ui::TerminalUI::dim(solakon::ui::Color::DIM_GRAY,
-                    "Verwende --scan um Geräte zu finden")
+                    "Verwende --scan um Gerichte zu finden")
                 .c_str());
             std::printf("  %s\n",
                 solakon::ui::TerminalUI::dim(solakon::ui::Color::DIM_GRAY,
@@ -345,7 +350,7 @@ int main(int argc, char* argv[]) {
                 .c_str());
             std::printf("  %s\n",
                 solakon::ui::TerminalUI::dim(solakon::ui::Color::DIM_GRAY,
-                    "Siehe README.md für Details")
+                    "Siehe README.md fuer Details")
                 .c_str());
             return 1;
         }
@@ -386,7 +391,7 @@ int main(int argc, char* argv[]) {
         std::printf("\n");
         std::printf("  %s\n",
             solakon::ui::TerminalUI::dim(solakon::ui::Color::DIM_GRAY,
-                "Drücke ENTER zum Beenden")
+                "Druecke ENTER zum Beenden")
                 .c_str());
         std::getchar();
         return 1;
@@ -418,6 +423,8 @@ int main(int argc, char* argv[]) {
                 auto snap = device.fetch_snapshot();
                 if (cfg.json) {
                     ui.render_json(snap);
+                } else if (cfg.art) {
+                    ui.render_art(snap, cfg.refresh_hz);
                 } else {
                     ui.render(snap, cfg.refresh_hz);
                 }
@@ -466,7 +473,7 @@ int main(int argc, char* argv[]) {
             std::printf("\n");
             std::printf("  %s\n",
                 solakon::ui::TerminalUI::dim(solakon::ui::Color::DIM_GRAY,
-                    "Drücke ENTER zum Beenden")
+                    "Druecke ENTER zum Beenden")
                     .c_str());
             std::getchar();
             device.disconnect();
@@ -485,7 +492,7 @@ int main(int argc, char* argv[]) {
             .c_str());
         std::printf("  %s\n",
             solakon::ui::TerminalUI::dim(solakon::ui::Color::DIM_GRAY,
-                "Drücke q zum Beenden")
+                "Druecke q zum Beenden")
                 .c_str());
         std::printf("\n");
         std::fflush(stdout);
