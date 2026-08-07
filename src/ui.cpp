@@ -228,91 +228,63 @@ void TerminalUI::render_json(const DeviceSnapshot& snap) {
 void TerminalUI::render_art(const DeviceSnapshot& snap, int refresh_hz) {
     (void)refresh_hz;
     struct winsize w;
-    if (ioctl(STDOUT_FILENO, &w) != -1 && w.ws_col > 0) {
+    if (ioctl(STDOUT_FILENO, TIOCGWINSZ, &w) != -1 && w.ws_col > 0) {
         screen_width_ = w.ws_col;
     }
     if (screen_width_ < 80) screen_width_ = 80;
 
-    float pv_p  = snap.energy.pv_total_power_w;
-    float ac_p  = snap.energy.ac_active_power_w;
-    float batt_p = snap.energy.battery_power_w;
-    float sm_p  = snap.energy.smart_meter_power_w;
-    float soc   = snap.bms.soc;
+    float pv   = snap.energy.pv_total_power_w;
+    float smart_m = snap.energy.smart_meter_power_w;
+    float batt = snap.energy.battery_power_w;
+    float soc  = snap.bms.soc;
 
-    // PV label (pv_p > 0 → output, pv_p < 0 → input)
-    char pv_buf[80];
-    if (pv_p >= 1000.0f) {
-        std::snprintf(pv_buf, sizeof(pv_buf), "  -> %.2fkW <-", pv_p / 1000.0f);
-    } else if (pv_p > 0) {
-        std::snprintf(pv_buf, sizeof(pv_buf), "  -> %.0fW <-", pv_p);
-    } else if (pv_p < 0) {
-        std::snprintf(pv_buf, sizeof(pv_buf), "<- %.0fW -<", -pv_p);
-    } else {
-        std::snprintf(pv_buf, sizeof(pv_buf), "         OFF");
-    }
+    // Helper: format flow line with dynamic arrow based on power sign
+    auto arrow = [](float w, const char* label) {
+        char buf[80];
+        if (w > 100) std::snprintf(buf, sizeof(buf), " -> %s +%.0fW ->", label, w);
+        else if (w < -100) std::snprintf(buf, sizeof(buf), "<- %s +%.0fW <-", label, -w);
+        else std::snprintf(buf, sizeof(buf), "    ---        ", label);
+        return std::string(buf);
+    };
 
-    // Smart Meter label (sm_p < 0 → Bezug/entnehmen ←, sm_p > 0 → einspeisen →)
-    char sm_buf[80];
-    if (sm_p >= 1000.0f) {
-        std::snprintf(sm_buf, sizeof(sm_buf), sm_p > 0 ? " -> %.2fkW <-" : "<- %.2fkW ->",
-                      fabs(sm_p) / 1000.0f);
-    } else if (sm_p > 0) {
-        std::snprintf(sm_buf, sizeof(sm_buf), " -> %.0fW <-", sm_p);
-    } else if (sm_p < 0) {
-        std::snprintf(sm_buf, sizeof(sm_buf), "<- %.0fW ->", -sm_p);
-    } else {
-        std::snprintf(sm_buf, sizeof(sm_buf), "    ---     ");
-    }
+    // Title bar
+    std::printf("\033[36m%-*s\033[0m\n", screen_width_, "Solakon ONE Monitor - Art Mode");
 
-    // Battery label
-    char batt_buf[80];
-    if (batt_p > 0) {
-        std::snprintf(batt_buf, sizeof(batt_buf), "[ Speicher:%.0fW ]   [ SOC:%.0f%% ]", batt_p, soc);
-    } else if (batt_p < 0) {
-        std::snprintf(batt_buf, sizeof(batt_buf), "[ -Speicher:%.0fW ]  [ SOC:%.0f%% ]", -batt_p, soc);
-    } else {
-        std::snprintf(batt_buf, sizeof(batt_buf), "                   [ SOC:%.0f%% ]", soc);
-    }
+    // Line 1: PV power flow toward inverter
+    std::string pv_line = (pv > 100)
+        ? "PV -> +" + format_power(pv) + " ->"
+        : "PV --- OFF";
+    int pad1 = (screen_width_ - static_cast<int>(pv_line.size())) / 2;
+    if (pad1 < 0) pad1 = 0;
+    std::printf("%*s", pad1, "");
+    std::printf("%s\n", pv_line.c_str());
 
-    // AC label (ac_p > 0 → vom Haus ans Netz / einspeisen →, ac_p < 0 → aus dem Netz ←)
-    char ac_buf[80];
-    if (ac_p > 0) {
-        std::snprintf(ac_buf, sizeof(ac_buf), " -> Haus+%.0fW->", ac_p);
-    } else if (ac_p < 0) {
-        std::snprintf(ac_buf, sizeof(ac_buf), "<-Haus+%.0fW  ", -ac_p);
-    } else {
-        std::snprintf(ac_buf, sizeof(ac_buf), "              ");
-    }
+    // Line 2: Smart Meter / Grid flow
+    std::string sm_line;
+    if (smart_m > 100)
+        sm_line = "NETZ -> +" + format_power(smart_m) + " -> SM";
+    else if (smart_m < -100)
+        sm_line = "SM -> +" + format_power(-smart_m) + " -> NETZ";
+    else
+        sm_line = "NETZ --- 0W ---";
+    int pad2 = (screen_width_ - static_cast<int>(sm_line.size())) / 2;
+    if (pad2 < 0) pad2 = 0;
+    std::printf("%*s", pad2, "");
+    std::printf("%s\n", sm_line.c_str());
 
-    // Layout: fixed-width blocks centered horizontally with dynamic margins
-    const int solakon_w = 52;   // [ Solakon ONE ] width
-    const int margin_left = std::max(screen_width_ / 2 - solakon_w / 2 - 6, 2);
-    const int margin_right = screen_width_ - margin_left - solakon_w - 1;
+    // Line 3: Battery status
+    std::string batt_line = (batt > 5)
+        ? "BATT [Lade +" + format_power(batt) + "] SOC:" + std::to_string((int)soc) + "%]"
+        : batt < -5
+            ? "BATT [Entl +-" + format_power(-batt) + "] SOC:" + std::to_string((int)soc) + "%]"
+            : "BATT [SOC:" + std::to_string((int)soc) + "%]";
+    int pad3 = (screen_width_ - static_cast<int>(batt_line.size())) / 2;
+    if (pad3 < 0) pad3 = 0;
+    std::printf("%*s", pad3, "");
+    std::printf("%s\n", batt_line.c_str());
 
-    char block[80];
-    std::snprintf(block, sizeof(block), "[ Solakon ONE ] %d", margin_left, margin_right);
-
-    // Clear and render (disabled — causes output loss with --once)
-    // std::printf("\033[2J\033[H");
-
-    // Title
-    int title = (screen_width_ - 31) / 2;
-    if (title < 0) title = 0;
-    std::printf("%*s", title, "");
-    std::printf("%s\n", bold(Color::BRIGHT_CYAN, "Solakon ONE Monitor").c_str());
-    int conn_title = title + 31 < screen_width_ ? ((screen_width_ - 77) / 2 + 62) : (screen_width_ / 2);
-    std::printf("%*s\n", (screen_width_ - 40) / 2, "");
-    std::printf(" IP: %s | Modbus:%d ->\n", settings.host.c_str(), settings.modbus_port);
-
-    // Separator
-    std::printf("%s\n", separator(screen_width_, '-', Color::DIM_GRAY).c_str());
-
-    // ASCII diagram (lines 2-4)
-    printf("<%s>", pv_buf);
-    printf("  [ Solakon ONE ]\n"); 
-    printf("<%s> | Haus+%.0fW ->\n", sm_buf, ac_p);
-    printf("%s\n", batt_buf);
-
+    // Footer
+    std::printf("\033[90m%-*s\033[0m\n", screen_width_ - 16, "  [q] Quit");
     std::fflush(stdout);
 }
 
