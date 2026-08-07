@@ -292,8 +292,8 @@ void TerminalUI::render_art(const DeviceSnapshot& snap, int refresh_hz) {
     char block[80];
     std::snprintf(block, sizeof(block), "[ Solakon ONE ] %d", margin_left, margin_right);
 
-    // Clear and render
-    std::printf("\033[2J\033[H");
+    // Clear and render (disabled — causes output loss with --once)
+    // std::printf("\033[2J\033[H");
 
     // Title
     int title = (screen_width_ - 31) / 2;
