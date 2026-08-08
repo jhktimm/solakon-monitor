@@ -135,7 +135,7 @@ void TerminalUI::init() {
     if (screen_width_ < 80) screen_width_ = 80;
     if (screen_height_ < 24) screen_height_ = 24;
 
-    std::printf("\033[2J\033[H");
+    // std::printf("\033[2J\033[H");  // clear screen — commented out to prevent clear-after-render bug
     std::printf("\033[?1049h");
     std::printf("\033[?25l");
     std::fflush(stdout);
@@ -148,10 +148,9 @@ void TerminalUI::shutdown() {
     std::fflush(stdout);
 }
 
-void TerminalUI::clear() {
-    std::printf("\033[2J\033[H");
-    std::fflush(stdout);
-}
+// void TerminalUI::clear() {
+//     // removed — was silently clearing screen on every refresh cycle (clear-after-render bug)
+// }
 
 void TerminalUI::render(const DeviceSnapshot& snap, int refresh_hz) {
     (void)refresh_hz;
