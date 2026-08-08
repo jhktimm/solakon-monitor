@@ -30,6 +30,11 @@ run: build ## Run the monitor
 run-once: build ## Run single snapshot
 	@cd build && ./solakon-monitor --once
 
+### Art Mode
+
+run-art: build ## Run monitor in ASCII art mode
+	@cd build && ./solakon-monitor --art
+
 ### Docs
 
 docs: ## Generate Doxygen docs
