@@ -29,7 +29,7 @@ public:
 
     void init();
     void shutdown();
-    void clear();
+    // void clear();  // disabled — clearing screen during render caused visual artifacts (clear-after-render bug)
     void render(const DeviceSnapshot& snap, int refresh_hz);
     void render_json(const DeviceSnapshot& snap);
     void render_art(const DeviceSnapshot& snap, int refresh_hz);

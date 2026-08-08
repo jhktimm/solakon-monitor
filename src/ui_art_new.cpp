@@ -47,8 +47,8 @@ void TerminalUI::render_art(const DeviceSnapshot& snap, int refresh_hz) {
     std::string batt_line = (batt > 5)
         ? "BATT [Lade +" + format_power(batt) + "] SOC:" + std::to_string((int)soc) + "%]"
         : batt < -5
-            ? "BATT [Entl +-\"" + format_power(-batt) + \"] SOC:\" + std::to_string((int)soc) + \"%]"
-            : \"BATT [SOC:\" + std::to_string((int)soc) + \"%]\";
+            ? "BATT [Entl +-" + format_power(-batt) + "] SOC:" + std::to_string((int)soc) + "%]"
+            : "BATT [SOC:" + std::to_string((int)soc) + "%]";
     int pad3 = (screen_width_ - static_cast<int>(batt_line.size())) / 2;
     if (pad3 < 0) pad3 = 0;
     print_line(pad3, batt_line);
